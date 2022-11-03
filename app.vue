@@ -10,9 +10,10 @@ useHead({
 </script>
 
 <template>
-  <NuxtLayout>
+  <main class="py-20 px-10 text-center">
     <NuxtPage />
-  </NuxtLayout>
+    <TheFooter />
+  </main>
 </template>
 
 <style>
