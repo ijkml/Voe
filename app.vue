@@ -1,12 +1,9 @@
 <script setup>
 useHead({
-  title: 'Vitesse Nuxt 3',
-  link: [
-    {
-      rel: 'icon', type: 'image/png', href: '/nuxt.png',
-    },
-  ],
-})
+  titleTemplate: (titleChunk) => {
+    return titleChunk ? `${titleChunk} | Veo` : 'Veo | Fly Better';
+  },
+});
 </script>
 
 <template>
