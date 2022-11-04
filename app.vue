@@ -10,11 +10,14 @@ useHead({
   <main class="py-20 px-10 text-center">
     <NuxtPage />
     <TheFooter />
+    <!-- <TheLogo /> -->
   </main>
 </template>
 
 <style>
-html, body , #__nuxt{
+html,
+body,
+#__nuxt {
   height: 100vh;
   margin: 0;
   padding: 0;
