@@ -1,24 +1,25 @@
 export default defineNuxtConfig({
   app: {
     head: {
-      link: [
-        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
-      ],
+      link: [{ rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
     },
   },
-  modules: [
-    '@vueuse/nuxt',
-    '@unocss/nuxt',
-    '@nuxtjs/color-mode',
-  ],
+  modules: ['@vueuse/nuxt', '@unocss/nuxt', '@nuxtjs/color-mode'],
   experimental: {
     reactivityTransform: false,
     inlineSSRStyles: false,
   },
-  css: [
-    '@unocss/reset/tailwind.css',
-  ],
+  css: ['@unocss/reset/tailwind.css'],
   colorMode: {
     classSuffix: '',
   },
-})
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@use "@/assets/styles/global.scss" as *;',
+        },
+      },
+    },
+  },
+});
