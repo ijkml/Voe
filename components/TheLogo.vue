@@ -8,6 +8,6 @@
 
 <style scoped lang="scss">
 path {
-  @apply fill-brand-pri dark:(fill-brand-sec);
+  @apply fill-current;
 }
 </style>
