@@ -1,6 +1,7 @@
 {
   "extends": ["@antfu/eslint-config-vue", "plugin:prettier-vue/recommended"],
   "rules": {
-    "@typescript-eslint/semi": ["error", "always"]
+    "@typescript-eslint/semi": ["error", "always"],
+    "eol-last": "error"
   }
 }
