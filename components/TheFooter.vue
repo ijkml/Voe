@@ -1,11 +1,17 @@
+<script setup lang="ts">
+</script>
+
 <template>
-  <div class="text-xl text-gray4 m-5 flex justify-center gap-3">
-    <NuxtLink class="i-carbon-campsite" to="/" />
-    <a
-      class="i-carbon-logo-github"
-      href="https://github.com/antfu/vitesse-nuxt3"
-      target="_blank"
-    />
-    <DarkToggle />
-  </div>
+  <footer>
+    <div class="text-xl text-zinc1 m-5 flex justify-center gap-3">
+      <NuxtLink class="i-carbon-campsite" to="/" />
+      <!-- <DarkToggle /> -->
+    </div>
+  </footer>
 </template>
+
+<style scoped lang="scss">
+footer {
+  @apply bg-brand-pri;
+}
+</style>

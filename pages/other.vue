@@ -7,7 +7,7 @@ const router = useRouter();
     <div class="text-4xl">
       <div class="i-carbon-warning inline-block" />
     </div>
-    <div>Not found</div>
+    <div>Other Page</div>
     <div>
       <button class="btn text-sm m-3 mt-8" @click="router.back()">Back</button>
     </div>
