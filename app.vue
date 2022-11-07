@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 useHead({
   titleTemplate: (titleChunk) => {
     return titleChunk ? `${titleChunk} | Veo` : 'Veo | Fly Better';
@@ -7,24 +7,12 @@ useHead({
 </script>
 
 <template>
-  <main class="py-20 px-10 text-center">
-    <NuxtPage />
+  <div class="app-layout--root">
+    <NuxtLoadingIndicator />
+    <TheHeader />
+    <main class="py-20 px-10 text-center">
+      <NuxtPage />
+    </main>
     <TheFooter />
-    <!-- <TheLogo /> -->
-  </main>
+  </div>
 </template>
-
-<style>
-html,
-body,
-#__nuxt {
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-}
-
-html.dark {
-  background: #222;
-  color: white;
-}
-</style>
