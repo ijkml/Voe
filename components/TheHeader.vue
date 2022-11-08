@@ -5,6 +5,35 @@ import reportsIcon from '@icons/reports.svg?component';
 
 import type { MenuItem } from '@/types/header';
 
+interface Props {
+  blend?: boolean;
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  blend: false,
+});
+
+const { blend } = toRefs(props);
+
+const { y: scrolledHeight } = useWindowScroll();
+
+const scrolled = ref(false);
+const elevated = ref(false);
+
+watchThrottled(
+  scrolledHeight,
+  (nv, ov) => {
+    if (scrolledHeight.value < 400) {
+      scrolled.value = false;
+      elevated.value = false;
+    } else {
+      elevated.value = true;
+      scrolled.value = nv > ov;
+    }
+  },
+  { throttle: 150 }
+);
+
 const headerLinks = [
   { text: 'Home', to: '/' },
   { text: 'Tour', to: '/other' },
@@ -14,13 +43,13 @@ const solutions: MenuItem[] = [
   {
     name: 'Insights',
     description: 'Measure actions your users take',
-    link: '/',
+    link: '/a',
     icon: insightsIcon,
   },
   {
     name: 'Automations',
     description: 'Create your own targeted content',
-    link: '/',
+    link: '/b',
     icon: automationsIcon,
   },
   {
@@ -38,10 +67,10 @@ const headerMenus: { title: string; items: MenuItem[] }[] = [
 </script>
 
 <template>
-  <header>
+  <header :class="{ blend, scrolled, elevated }">
     <div>
       <TheLogo class="the-logo" />
-      <!-- center -->
+
       <nav class="main-nav">
         <template v-for="hl in headerLinks" :key="hl.text">
           <NuxtLink
@@ -58,9 +87,12 @@ const headerMenus: { title: string; items: MenuItem[] }[] = [
           {{ hm.title }}
         </HeaderMenu>
       </nav>
-      <!-- right -->
+
       <div class="actions">
-        <LanguageMenu />
+        <LanguageMenu tabindex="0" />
+        <button tabindex="0" class="search-button">
+          <div class="i-carbon-search" />
+        </button>
       </div>
     </div>
   </header>
@@ -72,62 +104,93 @@ const headerMenus: { title: string; items: MenuItem[] }[] = [
 }
 
 header {
-  @apply bg-brand-pri text-light-2;
+  --hide-scroll: translateY(0);
+  --bg: $brand-pri;
+
+  @apply text-light-2 w-full top-0 z-16 visible bg-brand-pri;
+
+  will-change: transform, visibility;
+  transform: var(--hide-scroll);
+
+  transition-property: transform, visibility, background-color, backdrop-filter;
+  transition-duration: 400ms;
+  transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+
+  @supports (
+    (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))
+  ) {
+    @apply backdrop-filter backdrop-blur-4px;
+  }
+
+  &:not(.blend) {
+    @apply sticky bg-opacity-80;
+  }
+
+  &.blend {
+    @apply fixed bg-opacity-1;
+  }
+
+  &.scrolled {
+    --hide-scroll: translateY(-101%);
+
+    @apply invisible;
+  }
+
+  &.elevated {
+    @apply bg-opacity-75;
+  }
 
   > div {
-    @apply w-full max-w-screen-xl h-13 mx-auto
-      flex items-center px-4 sm:(px-6) justify-between;
+    @apply w-full max-w-screen-xl h-14 mx-auto items-center
+      flex px-4 py-2px sm:(px-6) justify-between;
   }
 }
 
 .main-nav {
-  @apply flex items-center gap-3;
+  @apply flex items-center gap-2;
 }
 
 .header-link,
 :deep(.header-link) {
-  @apply px-2 py-0.5 font-medium relative inline-flex items-center z-1;
+  @apply inline-flex bg-black font-medium px-3 py-1.5
+    rounded-md bg-opacity-0 select-none;
 
-  transition: color 0.5s;
-  transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
-
-  &::before,
-  &::after {
-    content: '';
-
-    @apply absolute z--1 bottom-0 left-0 w-full transition
-      h-6px duration-500 opacity-25 bg-purple-3;
-
-    transform: scale3d(0, 1, 1);
-    transform-origin: 0% 50%;
-    transition: transform 0.5s;
-    transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
-  }
-
-  &:focus {
+  &:focus,
+  &:focus-visible {
     @apply outline-none;
   }
 
   &:hover,
   &:focus-visible {
-    &::before {
-      transform: scale3d(1, 1, 1);
-    }
+    @apply bg-opacity-20;
   }
 
   &.active {
-    @apply font-semibold;
-
-    &::before {
-      transform: scale3d(1, 1, 1);
-    }
+    @apply bg-opacity-20;
 
     &:hover,
     &:focus-visible {
-      &::after {
-        transform: scale3d(1, 1, 1);
-      }
+      @apply bg-opacity-45;
     }
+  }
+}
+
+.actions {
+  @apply flex gap-3 items-center;
+}
+
+.search-button {
+  @apply py-2 px-2.5 inline-flex justify-center items-center
+    rounded-md select-none bg-black bg-opacity-20;
+
+  &:focus,
+  &:focus-visible {
+    @apply outline-none;
+  }
+
+  &:hover,
+  &:focus-visible {
+    @apply bg-opacity-50;
   }
 }
 </style>

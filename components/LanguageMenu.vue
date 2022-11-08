@@ -20,7 +20,7 @@ function setLanguage(index: number) {
 <template>
   <Menu v-slot="{ open }" as="div" class="menu-root">
     <div>
-      <MenuButton class="menu-button">
+      <MenuButton class="menu-button" title="Choose language">
         <LanguageIcon aria-hidden="true" class="lang" />
         {{ current }}
         <div
@@ -61,9 +61,17 @@ function setLanguage(index: number) {
 
 .menu-button {
   @apply inline-flex w-full justify-center rounded-md
-    bg-opacity-20 px-4 py-2 text-sm font-medium text-white
-      hover:bg-opacity-30 focus:outline-none bg-black
-        focus-visible:(ring-2 ring-white/75);
+     px-4 py-2 text-sm font-medium text-white bg-black
+      bg-opacity-20 hover:bg-opacity-50;
+
+  &:focus,
+  &:focus-visible {
+    @apply outline-none;
+  }
+
+  &:focus-visible {
+    @apply ring-2 ring-white/75;
+  }
 
   .lang {
     @apply h-5 w-5 mr-2 ml--1;
@@ -82,7 +90,12 @@ function setLanguage(index: number) {
 .menu-body {
   @apply absolute right-1 mt-1 w-56 origin-top-right
     shadow-lg rounded-md bg-white ring-1 ring-black/5
-      focus:outline-none overflow-hidden;
+      overflow-hidden;
+
+  &:focus,
+  &:focus-visible {
+    @apply outline-none;
+  }
 }
 
 .menu-item {

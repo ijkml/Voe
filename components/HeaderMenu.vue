@@ -87,7 +87,12 @@ const { items } = toRefs(props);
 
 .pop-panel-item {
   @apply flex items-center rounded-lg p-2 -m-3 transition
-    ease-in-out focus:outline-none hover:bg-brand-pri/10;
+    ease-in-out hover:bg-brand-pri/10;
+
+  &:focus,
+  &:focus-visible {
+    @apply outline-none;
+  }
 
   &:focus-visible {
     @apply ring ring-brand-pri ring-opacity-50 bg-brand-pri/5;
