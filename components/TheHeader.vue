@@ -34,11 +34,6 @@ watchThrottled(
   { throttle: 150 }
 );
 
-const headerLinks = [
-  { text: 'Home', to: '/' },
-  { text: 'Tour', to: '/other' },
-];
-
 const solutions: MenuItem[] = [
   {
     name: 'Insights',
@@ -60,9 +55,12 @@ const solutions: MenuItem[] = [
   },
 ];
 
-const headerMenus: { title: string; items: MenuItem[] }[] = [
-  { title: 'Flights', items: solutions },
-  { title: 'Car Rental', items: solutions },
+const headerLinks = [
+  { text: 'Home', to: '/' },
+  { text: 'Tour', to: '/other' },
+  { title: 'Flights', menu: true, items: solutions },
+  { title: 'Car Rental', menu: true, items: solutions },
+  { text: 'Contact', to: '/contact' },
 ];
 </script>
 
@@ -73,7 +71,11 @@ const headerMenus: { title: string; items: MenuItem[] }[] = [
 
       <nav class="main-nav">
         <template v-for="hl in headerLinks" :key="hl.text">
+          <HeaderMenu v-if="hl.menu" :items="hl.items">
+            {{ hl.title }}
+          </HeaderMenu>
           <NuxtLink
+            v-else
             :to="hl.to"
             tabindex="0"
             exact-active-class="active"
@@ -83,9 +85,6 @@ const headerMenus: { title: string; items: MenuItem[] }[] = [
             {{ hl.text }}
           </NuxtLink>
         </template>
-        <HeaderMenu v-for="hm in headerMenus" :key="hm.title" :items="hm.items">
-          {{ hm.title }}
-        </HeaderMenu>
       </nav>
 
       <div class="actions">
@@ -127,7 +126,7 @@ header {
   }
 
   &.blend {
-    @apply fixed bg-opacity-1;
+    @apply fixed bg-opacity-0;
   }
 
   &.scrolled {
@@ -137,7 +136,7 @@ header {
   }
 
   &.elevated {
-    @apply bg-opacity-75;
+    @apply bg-opacity-80;
   }
 
   > div {
