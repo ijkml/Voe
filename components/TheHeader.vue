@@ -17,6 +17,12 @@ const { blend } = toRefs(props);
 
 const { y: scrolledHeight } = useWindowScroll();
 
+const breakpoints = useBreakpoints({
+  large: 980,
+});
+
+const lgScreen = breakpoints.greaterOrEqual('large');
+
 const scrolled = ref(false);
 const elevated = ref(false);
 
@@ -69,7 +75,7 @@ const headerLinks = [
     <div>
       <TheLogo class="the-logo" />
 
-      <nav class="main-nav">
+      <nav v-if="lgScreen" class="main-nav">
         <template v-for="hl in headerLinks" :key="hl.text">
           <HeaderMenu v-if="hl.menu" :items="hl.items">
             {{ hl.title }}
@@ -92,6 +98,7 @@ const headerLinks = [
         <button tabindex="0" class="search-button">
           <div class="i-carbon-search" />
         </button>
+        <SidenavButton v-if="!lgScreen" />
       </div>
     </div>
   </header>
@@ -179,17 +186,26 @@ header {
 }
 
 .search-button {
-  @apply py-2 px-2.5 inline-flex justify-center items-center
-    rounded-md select-none bg-black bg-opacity-20;
+  @apply py-2 px-2.5 hidden sm:inline-flex justify-center
+    rounded-md select-none bg-black bg-opacity-20
+      transition duration-250 items-center;
 
   &:focus,
   &:focus-visible {
     @apply outline-none;
   }
 
+  div {
+    @apply transition duration-250 delay-50 transform;
+  }
+
   &:hover,
   &:focus-visible {
-    @apply bg-opacity-50;
+    @apply bg-opacity-40;
+
+    div {
+      @apply rotate-y-180;
+    }
   }
 }
 </style>

@@ -1,0 +1,108 @@
+<template>
+  <!-- :class="{ naVisible }"
+    :aria-expanded="naVisible"
+    aria-controls="app-sidebar-menu"
+    @click="toggleSideNav()" -->
+  <button
+    type="button"
+    class="ham-btn"
+    aria-label="mobile navigation"
+    aria-controls="app-sidebar-menu"
+  >
+    <span class="ham-cont">
+      <span class="top" />
+      <span class="middle" />
+      <span class="bottom" />
+    </span>
+  </button>
+</template>
+
+<style scoped lang="scss">
+.ham-cont {
+  @apply overflow-hidden h-14px w-16px
+    relative pointer-events-none;
+}
+
+.ham-btn {
+  @apply flex justify-center items-center cursor-pointer select-none
+    h-32px w-32px bg-black bg-opacity-20 rounded-md;
+
+  &:focus,
+  &:focus-visible {
+    @apply outline-none;
+  }
+
+  &:hover,
+  &:focus-visible {
+    @apply bg-opacity-40;
+  }
+
+  &:hover {
+    .top {
+      top: 0;
+      transform: translateX(4px);
+    }
+    .middle {
+      top: 6px;
+      transform: translateX(0);
+    }
+    .bottom {
+      top: 12px;
+      transform: translateX(8px);
+    }
+
+    .top,
+    .bottom,
+    .middle {
+      @apply bg-zinc-4 left-0;
+    }
+  }
+
+  &.active {
+    .top {
+      top: 6px;
+      transform: translateX(0) rotate(225deg);
+    }
+    .middle {
+      top: 6px;
+      transform: translateX(16px);
+    }
+    .bottom {
+      top: 6px;
+      transform: translateX(0) rotate(135deg);
+    }
+
+    &:hover {
+      .top,
+      .middle,
+      .bottom {
+        transition: top 0.25s, background-color 0.25s, transform 0.25s;
+      }
+    }
+  }
+}
+
+.top,
+.middle,
+.bottom {
+  transition: top 0.25s, background-color 0.5s, transform 0.25s;
+
+  @apply absolute w-16px h-2px bg-zinc-3
+    pointer-events-none;
+}
+.top {
+  top: 0;
+  left: 0;
+  transform: translateX(0);
+}
+.middle {
+  top: 6px;
+  left: 0;
+  transform: translateX(8px);
+}
+.bottom {
+  top: 12px;
+  left: 0;
+  transform: translateX(4px);
+}
+</style>

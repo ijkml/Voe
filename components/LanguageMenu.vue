@@ -22,12 +22,14 @@ function setLanguage(index: number) {
     <div>
       <MenuButton class="menu-button" title="Choose language">
         <LanguageIcon aria-hidden="true" class="lang" />
-        {{ current }}
-        <div
-          :class="{ open }"
-          class="i-carbon-chevron-down"
-          aria-hidden="true"
-        />
+        <span class="wrapper">
+          {{ current }}
+          <div
+            :class="{ open }"
+            class="i-carbon-chevron-down"
+            aria-hidden="true"
+          />
+        </span>
       </MenuButton>
     </div>
 
@@ -62,7 +64,7 @@ function setLanguage(index: number) {
 .menu-button {
   @apply inline-flex w-full justify-center rounded-md
      px-4 py-2 text-sm font-medium text-white bg-black
-      bg-opacity-20 hover:bg-opacity-50;
+      bg-opacity-20 hover:bg-opacity-40 transition duration-250;
 
   &:focus,
   &:focus-visible {
@@ -74,22 +76,26 @@ function setLanguage(index: number) {
   }
 
   .lang {
-    @apply h-5 w-5 mr-2 ml--1;
+    @apply h-5 w-5 sm:(mr-2 ml--1);
   }
 
-  > div {
-    @apply transition-transform transform ml-2 -mr-1 h-5 w-5
+  .wrapper {
+    @apply hidden sm:inline-flex;
+
+    > div {
+      @apply transition-transform transform ml-2 -mr-1 h-5 w-5
       duration-200;
 
-    &.open {
-      @apply rotate-180;
+      &.open {
+        @apply rotate-180;
+      }
     }
   }
 }
 
 .menu-body {
-  @apply absolute right-1 mt-1 w-56 origin-top-right
-    shadow-lg rounded-md bg-white ring-1 ring-black/5
+  @apply absolute left--1/2 mt-1 w-44 sm:w-56 origin-top-right
+    shadow-lg rounded-md bg-fuchsia-50 ring-1 ring-black/5
       overflow-hidden;
 
   &:focus,
@@ -100,7 +106,7 @@ function setLanguage(index: number) {
 
 .menu-item {
   @apply group flex w-full items-center rounded-sm
-    px-2.5 py-2.5 text-sm text-zinc-800;
+    px-2.5 py-2.5 text-sm text-zinc-800 text-left;
 
   &.active {
     @apply bg-brand-pri/10;
