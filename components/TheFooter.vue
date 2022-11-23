@@ -199,23 +199,6 @@ footer {
   @apply p-2 text-zinc-2;
 }
 
-.ftr-link-2 {
-  @apply block w-full;
-
-  padding: 0.2rem;
-
-  div {
-    @apply transition transform-gpu preserve-3d block;
-  }
-
-  &:hover,
-  &:focus-visible {
-    div {
-      @apply text-zinc-1 outline-none translate-x-4% rotate-0 skew-0;
-    }
-  }
-}
-
 .ftr-link {
   @apply block transition relative focus:(outline-none) select-none;
 
