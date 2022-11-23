@@ -10,10 +10,10 @@ definePageMeta({
       <h1 class="screamer">Fly with peace of mind</h1>
     </section>
     <div class="test">
-      <section class="h-150vh bg-blue-300"></section>
-      <section class="h-150vh bg-white"></section>
-      <section class="h-150vh bg-blue-800"></section>
-      <section class="h-150vh bg-blue-500"></section>
+      <!-- <section class="h-150vh bg-blue-300"></section> -->
+      <!-- <section class="h-150vh bg-white"></section> -->
+      <!-- <section class="h-150vh bg-blue-800"></section> -->
+      <!-- <section class="h-150vh bg-blue-500"></section> -->
     </div>
   </div>
 </template>
@@ -28,12 +28,15 @@ definePageMeta({
   padding-top: $nav-height * 1.5;
   background: linear-gradient(to bottom right, $overlay, $overlay),
     url('@img/hero-pattern.svg') top left / contain repeat,
-    $brand-pri url('@img/hero.jpg') center / cover no-repeat;
+    $brand-pri url('@img/hero.avif') center / cover no-repeat;
+
+  @apply lg:bg-fixed 2xl:bg-local;
 }
 
 .screamer {
-  @apply text-5xl font-semibold pb-25 tracking-wide;
+  @apply text-3.3rem font-medium pb-25 tracking-wide;
 
+  // font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont;
   font-family: Venturis;
 }
 </style>
