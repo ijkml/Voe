@@ -15,23 +15,27 @@ const current = ref(languages[0].short);
 function setLanguage(index: number) {
   current.value = languages[index].short;
 }
+
+onMounted(() => {
+  document.querySelectorAll('.menu-root').forEach((elem) => {
+    elem.setAttribute('tabindex', '-1');
+  });
+});
 </script>
 
 <template>
   <Menu v-slot="{ open }" as="div" class="menu-root">
-    <div>
-      <MenuButton class="menu-button" title="Choose language">
-        <LanguageIcon aria-hidden="true" class="lang" />
-        <span class="wrapper">
-          {{ current }}
-          <div
-            :class="{ open }"
-            class="i-carbon-chevron-down"
-            aria-hidden="true"
-          />
-        </span>
-      </MenuButton>
-    </div>
+    <MenuButton class="menu-button" tabindex="0" title="Choose language">
+      <LanguageIcon aria-hidden="true" class="lang" />
+      <span class="wrapper">
+        {{ current }}
+        <div
+          :class="{ open }"
+          class="i-carbon-chevron-down"
+          aria-hidden="true"
+        />
+      </span>
+    </MenuButton>
 
     <Transition
       enter-active-class="transition duration-100 ease-out"
@@ -59,12 +63,18 @@ function setLanguage(index: number) {
 <style lang="scss" scoped>
 .menu-root {
   @apply relative inline-block text-left;
+
+  &:focus,
+  &:focus-visible {
+    @apply outline-none bg-yellow;
+  }
 }
 
 .menu-button {
   @apply inline-flex w-full justify-center rounded-md
-     px-4 py-2 text-sm font-medium text-white bg-black
-      bg-opacity-20 hover:bg-opacity-40 transition duration-250;
+    px-2.5 py-2 text-sm font-medium text-white bg-black
+      bg-opacity-20 hover:bg-opacity-40 transition duration-250
+        sm:(px-4);
 
   &:focus,
   &:focus-visible {
@@ -72,7 +82,7 @@ function setLanguage(index: number) {
   }
 
   &:focus-visible {
-    @apply ring-2 ring-white/75;
+    @apply bg-red;
   }
 
   .lang {
@@ -84,7 +94,7 @@ function setLanguage(index: number) {
 
     > div {
       @apply transition-transform transform ml-2 -mr-1 h-5 w-5
-      duration-200;
+        duration-200;
 
       &.open {
         @apply rotate-180;
@@ -94,9 +104,9 @@ function setLanguage(index: number) {
 }
 
 .menu-body {
-  @apply absolute left--1/2 mt-1 w-44 sm:w-56 origin-top-right
+  @apply absolute right--10 mt-1 w-44 sm:w-56 origin-top-right
     shadow-lg rounded-md bg-fuchsia-50 ring-1 ring-black/5
-      overflow-hidden;
+      overflow-hidden sm:(right-0);
 
   &:focus,
   &:focus-visible {

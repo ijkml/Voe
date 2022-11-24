@@ -72,8 +72,7 @@ const { items } = toRefs(props);
 
 .pop-panel-body {
   @apply absolute z-10 mt-3 w-screen max-w-sm
-    transform px-4 sm:px-0 right-1
-      lg:(right-1/2 translate-x-1/2);
+    transform px-4 sm:px-0 right-1/2 translate-x-1/2;
 
   > div {
     @apply overflow-hidden rounded-lg shadow-lg
