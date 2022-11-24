@@ -1,13 +1,40 @@
 <script setup lang="ts">
+import type { WritableComputedRef } from 'vue';
+
+const route = useRoute();
+const blendHeader = ref(route.path === '/');
+
+const nuxtApp = useNuxtApp();
+nuxtApp.hook('page:start', closeSideNav);
+nuxtApp.hook('page:finish', () => {
+  blendHeader.value = route.path === '/';
+});
+
+let isLocked: WritableComputedRef<boolean> | null = null;
+
+watch(navIsOpen, (nv) => {
+  isLocked !== null && (isLocked.value = nv);
+});
+
+onMounted(() => {
+  window.addEventListener('orientationchange', closeSideNav);
+  isLocked = useScrollLock(document.documentElement, false);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('orientationchange', closeSideNav);
+});
 </script>
 
 <template>
   <div class="app-layout--default">
-    <TheHeader />
+    <TheHeader :blend="blendHeader" />
     <main>
       <slot />
     </main>
     <TheFooter />
+    <TheSidenav />
+    <BlurryOverlay />
   </div>
 </template>
 

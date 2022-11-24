@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import type { WritableComputedRef } from 'vue';
+
+const nuxtApp = useNuxtApp();
+nuxtApp.hook('page:start', closeSideNav);
 </script>
 
 <template>
@@ -8,6 +12,7 @@
       <slot />
     </main>
     <TheFooter />
+    <TheSidenav />
   </div>
 </template>
 
