@@ -134,7 +134,7 @@ footer {
   color: $dim-white;
 
   @apply flex py-2 px-4 mx-auto space-y-2 w-full mt-auto
-    items-center flex-col bg-black/16 rounded-sm mb--1.5;
+    items-center flex-col bg-black/20 rounded-sm mb--1.5;
 
   @media (min-width: 450px) and (max-width: 639.9px) {
     @apply space-y-0 flex-row space-x-4 justify-between;
