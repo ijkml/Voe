@@ -1,6 +1,6 @@
-@use "./global.scss";
-@use "./fonts-a";
-@use "./fonts-b";
+@use './global.scss';
+@use './fonts-a';
+@use './fonts-b';
 
 @media (min-width: 768px) {
   $scroll-thumb: #cecece;
@@ -35,7 +35,7 @@
 }
 
 :root {
-  --divider-color: $divider;
+  --divider-color: hsla(0, 0%, 24%, 0.12);
 }
 
 ::selection {
@@ -55,9 +55,10 @@ html {
   font-size: 16px;
   color: $text;
   background-color: #fefefe;
-  font-family: "Calcutta", "Source Sans Pro", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-    "Noto Color Emoji";
+  font-family: 'Calcutta', 'Source Sans Pro', ui-sans-serif, system-ui,
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+    Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
 .hr,
