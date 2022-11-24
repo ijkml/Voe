@@ -1,13 +1,12 @@
 <template>
-  <!-- :class="{ naVisible }"
-    :aria-expanded="naVisible"
-    aria-controls="app-sidebar-menu"
-    @click="toggleSideNav()" -->
   <button
     type="button"
     class="ham-btn"
+    :class="{ navIsOpen }"
     aria-label="mobile navigation"
     aria-controls="app-sidebar-menu"
+    :aria-expanded="navIsOpen"
+    @click="toggleSideNav()"
   >
     <span class="ham-cont">
       <span class="top" />
@@ -25,7 +24,7 @@
 
 .ham-btn {
   @apply flex justify-center items-center cursor-pointer select-none
-    h-32px w-32px bg-black bg-opacity-20 rounded-md;
+    h-36px w-36px bg-black bg-opacity-20 rounded-md;
 
   &:focus,
   &:focus-visible {
