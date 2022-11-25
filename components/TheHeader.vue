@@ -67,7 +67,9 @@ const headerLinks = [
 <template>
   <header :class="{ blend, scrolled, elevated }">
     <div>
-      <TheLogo class="the-logo" />
+      <NuxtLink v-once to="/">
+        <TheLogo class="the-logo" />
+      </NuxtLink>
 
       <nav class="main-nav">
         <template v-for="hl in headerLinks" :key="hl.text">
@@ -89,9 +91,13 @@ const headerLinks = [
 
       <div class="actions">
         <LanguageMenu tabindex="0" />
+
         <button tabindex="0" class="search-button">
           <div class="i-carbon-search" />
         </button>
+
+        <DarkToggle class="dark-toggle" />
+
         <SidenavButton class="sidenav-button" />
       </div>
     </div>
@@ -176,7 +182,7 @@ header {
 }
 
 .actions {
-  @apply flex gap-3 items-center;
+  @apply flex gap-1.6 sm:gap-3 items-center;
 }
 
 .search-button {
@@ -190,7 +196,7 @@ header {
   }
 
   div {
-    @apply transition duration-250 delay-50 transform;
+    @apply transition duration-600 transform;
   }
 
   &:hover,
@@ -201,6 +207,10 @@ header {
       @apply rotate-y-180;
     }
   }
+}
+
+.dark-toggle {
+  @apply hidden sm:inline-flex;
 }
 
 @media (min-width: 980px) {
