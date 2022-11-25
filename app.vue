@@ -1,7 +1,7 @@
 <script setup lang="ts">
 useHead({
   titleTemplate: (titleChunk) => {
-    return titleChunk ? `${titleChunk} | Veo` : 'Veo | Fly Better';
+    return titleChunk ? `${titleChunk} | Voe` : 'Voe | Fly Better';
   },
 });
 </script>
