@@ -25,6 +25,7 @@ export default defineNuxtConfig({
   css: ['@unocss/reset/tailwind.css', '@/assets/styles/root.scss'],
   colorMode: {
     classSuffix: '',
+    fallback: 'dark',
   },
   vite: {
     css: {
