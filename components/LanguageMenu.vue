@@ -66,14 +66,14 @@ onMounted(() => {
 
   &:focus,
   &:focus-visible {
-    @apply outline-none bg-yellow;
+    @apply outline-none;
   }
 }
 
 .menu-button {
   @apply inline-flex w-full justify-center rounded-md
     px-2.5 py-2 text-sm font-medium text-white bg-black
-      bg-opacity-20 hover:bg-opacity-40 transition duration-250
+      bg-opacity-20 transition duration-250
         sm:(px-4);
 
   &:focus,
@@ -81,8 +81,13 @@ onMounted(() => {
     @apply outline-none;
   }
 
+  &:hover,
   &:focus-visible {
-    @apply bg-red;
+    @apply bg-opacity-40;
+
+    .wrapper > div {
+      @apply rotate-90;
+    }
   }
 
   .lang {
