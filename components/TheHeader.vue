@@ -113,7 +113,7 @@ header {
   --hide-scroll: translateY(0);
   --bg: $brand-pri;
 
-  @apply text-light-2 w-full top-0 z-16 visible bg-brand-pri;
+  @apply text-light-2 w-full top-0 z-16 visible bg-#371a66;
 
   will-change: transform, visibility;
   transform: var(--hide-scroll);
@@ -215,7 +215,7 @@ header {
 
 @media (min-width: 980px) {
   .sidenav-button {
-    // display: none !important;
+    // display: none;
   }
 
   .main-nav {
