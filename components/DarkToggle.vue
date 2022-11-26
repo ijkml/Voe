@@ -1,31 +1,29 @@
 <script setup lang="ts">
-const colorMode = useColorMode();
+import type { BasicColorSchema } from '@vueuse/core';
+
 const icon = ref(0);
 
-function renderIcon() {
-  icon.value = colorMode.value === 'light' ? 1 : 2;
-}
-
-function toggleDark() {
-  if (icon.value === 0) {
-    return;
-  }
-
-  colorMode.value = colorMode.value === 'dark' ? 'light' : 'dark';
-  renderIcon();
+function renderIcon(theme: BasicColorSchema) {
+  icon.value = theme === 'light' ? 1 : 2;
 }
 
 onMounted(() => {
-  renderIcon();
+  getTheme().then((theme) => {
+    renderIcon(theme);
+  });
+});
+
+watch(colorMode, (val) => {
+  renderIcon(val);
 });
 </script>
 
 <template>
-  <button class="!outline-none" @click="toggleDark">
+  <button class="!outline-none" @click="switchTheme">
     <Transition name="fade" mode="out-in">
-      <span v-if="icon === 0" class="i-carbon-ai-status-in-progress" />
-      <span v-else-if="icon === 1" class="i-carbon-sun" />
-      <span v-else class="i-carbon-moon" />
+      <span v-if="icon === 1" class="i-carbon-sun" />
+      <span v-else-if="icon === 2" class="i-carbon-moon" />
+      <span v-else class="i-carbon-ai-status-in-progress" />
     </Transition>
   </button>
 </template>
