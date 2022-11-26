@@ -110,8 +110,9 @@ onMounted(() => {
 
 .menu-body {
   @apply absolute right--10 mt-1 w-44 sm:w-56 origin-top-right
-    shadow-lg rounded-md bg-fuchsia-50 ring-1 ring-black/5
-      overflow-hidden sm:(right-0);
+    shadow-lg rounded-md bg-light-2 ring-1 ring-black/5
+      overflow-hidden sm:(right-0) text-zinc-800 py-1px
+        dark:(bg-brand-pri-dark text-zinc-1) overflow-hidden;
 
   &:focus,
   &:focus-visible {
@@ -120,11 +121,12 @@ onMounted(() => {
 }
 
 .menu-item {
-  @apply group flex w-full items-center rounded-sm
-    px-2.5 py-2.5 text-sm text-zinc-800 text-left;
+  @apply flex w-full items-center rounded-sm font-medium
+    px-4 py-3 text-sm text-left focus:outline-none;
 
   &.active {
-    @apply bg-brand-pri/10;
+    @apply text-brand-pri bg-zinc-3/80
+      dark:(bg-brand-pri/50 text-white);
   }
 }
 </style>
