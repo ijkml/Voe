@@ -1,6 +1,14 @@
 <script setup lang="ts">
 import type { BasicColorSchema } from '@vueuse/core';
 
+interface Props {
+  still?: boolean;
+}
+
+const props = defineProps<Props>();
+
+const { still } = toRefs(props);
+
 const icon = ref(0);
 
 function renderIcon(theme: BasicColorSchema) {
@@ -19,7 +27,7 @@ watch(colorMode, (val) => {
 </script>
 
 <template>
-  <button class="!outline-none" @click="switchTheme">
+  <button class="!outline-none" :class="{ still }" @click="switchTheme">
     <Transition name="fade" mode="out-in">
       <span v-if="icon === 1" class="i-carbon-sun" />
       <span v-else-if="icon === 2" class="i-carbon-moon" />
@@ -44,7 +52,7 @@ button {
     rounded-md bg-opacity-20;
 
   > span {
-    @apply block transition duration-600 transform;
+    @apply block transition duration-300 transform;
   }
 
   &:focus,
@@ -56,7 +64,7 @@ button {
   &:focus-visible {
     @apply bg-opacity-40;
 
-    > span {
+    &:not(.still) > span {
       @apply rotate-y-180;
     }
   }
