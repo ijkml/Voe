@@ -26,7 +26,7 @@
   padding-top: $nav-height * 1.5;
   background: linear-gradient(to bottom right, $overlay, $overlay),
     url('@img/hero-pattern.svg') top left / contain repeat,
-    $brand-pri url('@img/hero.avif') center / cover no-repeat;
+    $brand-pri url('@img/hero.webp') center / cover no-repeat;
 
   @apply lg:bg-fixed 2xl:bg-local;
 }
