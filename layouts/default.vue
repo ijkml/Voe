@@ -32,8 +32,8 @@ onUnmounted(() => {
     <main>
       <slot />
     </main>
-    <TheFooter />
-    <TheSidenav />
+    <TheFooter v-once />
+    <TheSidenav v-once />
     <BlurryOverlay />
   </div>
 </template>
