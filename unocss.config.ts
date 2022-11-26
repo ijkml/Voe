@@ -21,7 +21,10 @@ export default defineConfig({
   theme: {
     colors: {
       brand: {
-        pri: 'hsl(263, 60%, 35%)',
+        pri: {
+          DEFAULT: 'hsl(263, 60%, 35%)',
+          dark: 'hsl(263, 61%, 15%)',
+        },
         sec: 'hsl(264, 100%, 88%)',
       },
     },
