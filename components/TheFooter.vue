@@ -101,9 +101,7 @@ const links: LinkInterface[] = [
 $dim-white: hsl(264, 5%, 75%);
 
 footer {
-  @apply p-2.5 sm:p-5 text-white;
-
-  background-color: darken($color: $brand-pri, $amount: 16);
+  @apply p-2.5 sm:p-5 text-white bg-brand-pri-dark;
 
   > div {
     @apply mx-auto max-w-screen-xl flex gap-5 flex-wrap;

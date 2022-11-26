@@ -69,7 +69,7 @@ const mobileMenuLinks = [
           <div class="i-carbon-logo-github" />
         </NuxtLink>
 
-        <DarkToggle class="dark-toggle" />
+        <DarkToggle still class="dark-toggle" />
       </div>
 
       <button
@@ -89,11 +89,14 @@ const mobileMenuLinks = [
         <div class="subheader">{{ nl.text }}</div>
 
         <div class="item-group">
-          <template v-for="sv of nl.drop" :key="sv.text">
-            <NuxtLink :to="sv.to" exact-active-class="active">
-              {{ sv.text }}
-            </NuxtLink>
-          </template>
+          <NuxtLink
+            v-for="sv of nl.drop"
+            :key="sv.text"
+            :to="sv.to"
+            exact-active-class="active"
+          >
+            {{ sv.text }}
+          </NuxtLink>
         </div>
       </div>
 
@@ -106,23 +109,17 @@ const mobileMenuLinks = [
 #app-sidebar-menu {
   --offscreen-w: translateX(101%);
 
-  background-color: #f8fbfc;
-
-  .dark & {
-    background-color: darken($color: $brand-pri, $amount: 16%);
-  }
-
   height: auto;
   max-height: min(98vh, 100%);
   transform: var(--offscreen-w);
   will-change: transform;
   transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   top: 0.5px;
-  right: 0.5px;
 
-  @apply z-20 fixed flex w-full max-w-260px flex-col
-    rounded-bl overflow-y-auto invisible overflow-x-hidden dark:text-zinc-2
-      border-l border-b border-zinc dark:border-brand-pri;
+  @apply z-20 fixed flex w-full max-w-260px flex-col right-0
+    rounded-bl-lg overflow-y-auto invisible overflow-x-hidden
+      border-l border-b border-zinc will-change-transform bg-light-2 
+        dark:(border-brand-pri text-zinc-2 bg-brand-pri-dark);
 
   &.visible--nav {
     --offscreen-w: translateX(0);
@@ -130,10 +127,10 @@ const mobileMenuLinks = [
   }
 
   .item-group-cont {
-    @apply px-4 pb-5 pt-4;
+    @apply p-4;
 
     & + hr {
-      @apply w-4/5;
+      @apply w-4/5 dark:(border-brand-pri);
 
       &:last-of-type {
         @apply hidden;
@@ -150,26 +147,28 @@ const mobileMenuLinks = [
     @apply ml-1 space-y-4px;
 
     a {
-      @apply block -mx-2 py-2 px-6 relative
-        rounded transition duration-280 cursor-pointer;
+      @apply block -mx-2 py-2 px-6 relative font-medium
+        rounded transition duration-280 cursor-pointer
+          focus:outline-none;
 
       &:focus-visible,
       &:hover {
-        @apply text-brand-pri outline-none bg-gray-200;
+        @apply text-brand-pri bg-zinc-200
+          dark:(bg-brand-pri text-white);
       }
 
       &.active {
-        @apply text-brand-pri bg-zinc-200/40;
+        @apply text-brand-pri bg-zinc-2/70
+          dark:(text-zinc-50 bg-white/8);
 
         &::before {
-          @apply absolute w-4px h-full bg-current top-0
-            opacity-80 left-0 block content-['']
-              transition-colors;
+          @apply absolute w-4px h-full bg-current top-0 left-0
+            opacity-80 block content-[''] transition-colors;
         }
 
         &:focus-visible,
         &:hover {
-          @apply bg-gray-200;
+          @apply bg-zinc-3/80 dark:(bg-brand-pri);
         }
       }
     }
@@ -187,7 +186,7 @@ const mobileMenuLinks = [
 
     &:hover,
     &:focus-visible {
-      @apply bg-opacity-88;
+      @apply bg-opacity-88 dark:(bg-opacity-100);
     }
   }
 
@@ -199,23 +198,24 @@ const mobileMenuLinks = [
   .close-button,
   a {
     @apply focus:outline-none bg-gray-300 transition
-      inline-flex items-center justify-center py-1 px-1.5
-        rounded duration-250 bg-opacity-30 cursor-pointer;
+      inline-flex items-center justify-center py-1.5 px-1.5
+        rounded duration-250 cursor-pointer bg-opacity-30
+          dark:(bg-brand-pri bg-opacity-30);
   }
 
   .close-button {
     &:hover,
     &:focus-visible {
-      @apply bg-opacity-88;
-
-      > div {
-        @apply rotate-180;
-      }
+      @apply bg-opacity-100 dark:(bg-opacity-100);
     }
 
     > div {
-      @apply h-6 w-6 transition transform-gpu duration-300;
+      @apply h-6 w-6 transition;
     }
+  }
+
+  & + hr {
+    @apply dark:border-brand-pri;
   }
 }
 </style>
