@@ -60,20 +60,15 @@ const mobileMenuLinks = [
   >
     <div class="header">
       <div class="_left">
-        <NuxtLink
-          to="https://github.com/ijkml/Voe"
-          external
-          target="_blank"
-          tabindex="0"
-        >
-          <div class="i-carbon-logo-github" />
-        </NuxtLink>
+        <button class="nav-button" type="button" title="Search" tabindex="0">
+          <div class="i-carbon-search"></div>
+        </button>
 
         <DarkToggle still class="dark-toggle" />
       </div>
 
       <button
-        class="close-button"
+        class="nav-button"
         type="button"
         title="Close Menu"
         tabindex="0"
@@ -178,12 +173,7 @@ const mobileMenuLinks = [
 .header {
   @apply flex items-center justify-between p-3;
 
-  a,
   .dark-toggle {
-    > :deep(*) {
-      @apply h-6 w-6;
-    }
-
     &:hover,
     &:focus-visible {
       @apply bg-opacity-88 dark:(bg-opacity-100);
@@ -195,22 +185,21 @@ const mobileMenuLinks = [
   }
 
   .dark-toggle,
-  .close-button,
-  a {
+  .nav-button {
     @apply focus:outline-none bg-gray-300 transition
       inline-flex items-center justify-center py-1.5 px-1.5
         rounded duration-250 cursor-pointer bg-opacity-30
           dark:(bg-brand-pri bg-opacity-30);
   }
 
-  .close-button {
+  .nav-button {
     &:hover,
     &:focus-visible {
-      @apply bg-opacity-100 dark:(bg-opacity-100);
+      @apply bg-opacity-100;
     }
 
     > div {
-      @apply h-6 w-6 transition;
+      @apply transition;
     }
   }
 
