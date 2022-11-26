@@ -2,40 +2,43 @@
 @use './fonts-a';
 @use './fonts-b';
 
-@media (min-width: 768px) {
-  $scroll-thumb: #cecece;
-  $scroll-track: #f8f8f8;
-
-  * {
-    scrollbar-color: $scroll-thumb $scroll-track;
-  }
-
+@media (min-width: 992px) {
   ::-webkit-scrollbar {
     max-width: 8px;
 
     &:horizontal {
       max-height: 8px;
     }
-
-    &-track,
-    &-corner {
-      background: $scroll-track;
-      border-radius: 10px;
-    }
-
-    &-thumb {
-      background: $scroll-thumb;
-      border-radius: 10px;
-
-      &:hover {
-        background: #bfbfbf;
-      }
-    }
   }
 }
 
 :root {
-  --divider-color: hsla(0, 0%, 24%, 0.12);
+  --divider-color: #{$divider-light};
+  --voe-root-bg: #fefefe;
+  --voe-root-text: #{$text};
+
+  font-size: 16px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  color-scheme: light;
+  background-color: var(--voe-root-bg);
+  color: var(--voe-root-text);
+  font-family: 'Calcutta', 'Source Sans Pro', ui-sans-serif, system-ui,
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+    Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
+
+  &.dark {
+    --divider-color: #{$divider-dark};
+    --voe-root-bg: hsl(0, 0%, 10%); // todo
+    --voe-root-text: #fff; // todo
+
+    color-scheme: dark;
+  }
 }
 
 ::selection {
@@ -44,21 +47,16 @@
 }
 
 html {
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   overflow-y: scroll;
   scroll-behavior: smooth;
-  font-size: 16px;
-  color: $text;
-  background-color: #fefefe;
-  font-family: 'Calcutta', 'Source Sans Pro', ui-sans-serif, system-ui,
-    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
-    Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-    'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+:where(html, *) {
+  transition-property: color, background-color, border-color,
+    text-decoration-color;
+  transition-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  transition-duration: 300ms;
 }
 
 .hr,
