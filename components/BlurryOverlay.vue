@@ -12,6 +12,6 @@
 <style lang="scss" scoped>
 .nav-overlay {
   --at-apply: fixed h-full w-full backdrop-filter overflow-hidden z-16
-    bg-black/50 top-0 left-0 backdrop-blur-0.088rem transition-all duration-450;
+    bg-black/50 top-0 left-0 backdrop-blur-0.088rem transition-all duration-300;
 }
 </style>
