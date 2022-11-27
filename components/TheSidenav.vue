@@ -108,7 +108,7 @@ const mobileMenuLinks = [
   max-height: min(98vh, 100%);
   transform: var(--offscreen-w);
   will-change: transform;
-  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 350ms cubic-bezier(0.4, 0, 0.2, 1);
   top: 0.5px;
 
   --at-apply: z-20 fixed flex w-full max-w-260px flex-col right-0
