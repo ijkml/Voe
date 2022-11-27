@@ -6,6 +6,7 @@ specifiers:
   '@iconify-json/carbon': ^1.1.11
   '@mdi/js': ^7.0.96
   '@nuxtjs/color-mode': ^3.1.8
+  '@nuxtjs/web-vitals': ^0.1.10
   '@unocss/nuxt': ^0.46.5
   '@vueuse/nuxt': ^9.6.0
   eslint: latest
@@ -26,6 +27,7 @@ devDependencies:
   '@iconify-json/carbon': 1.1.11
   '@mdi/js': 7.0.96
   '@nuxtjs/color-mode': 3.1.8
+  '@nuxtjs/web-vitals': 0.1.10
   '@unocss/nuxt': 0.46.5
   '@vueuse/nuxt': 9.6.0_nuxt@3.0.0
   eslint: 8.28.0
@@ -822,7 +824,7 @@ packages:
       '@nuxt/schema': 3.0.0-rc.12
       c12: 0.2.13
       consola: 2.15.3
-      defu: 6.1.0
+      defu: 6.1.1
       globby: 13.1.2
       hash-sum: 2.0.0
       ignore: 5.2.0
@@ -895,7 +897,7 @@ packages:
     dependencies:
       c12: 0.2.13
       create-require: 1.1.1
-      defu: 6.1.0
+      defu: 6.1.1
       jiti: 1.16.0
       pathe: 0.3.9
       pkg-types: 0.3.5
@@ -1042,6 +1044,14 @@ packages:
       pathe: 0.3.8
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /@nuxtjs/web-vitals/0.1.10:
+    resolution: {integrity: sha512-Sf8v7BUB+Bfmao6AioPRmSpyq/MMvq0tFwFiXVe2oL9HgdDgu+6sfcSBDnvzmgcEQPfPZp1KCxc5N2vNERem0w==}
+    dependencies:
+      defu: 6.1.1
+      ufo: 0.8.6
+      web-vitals: 2.1.4
     dev: true
 
   /@polka/url/1.0.0-next.21:
@@ -1868,12 +1878,6 @@ packages:
       acorn: 8.8.1
     dev: true
 
-  /acorn/8.8.0:
-    resolution: {integrity: sha512-QOxyigPVrpZ2GXT+PFyZTl6TtOFc5egxHIP9IlQ+RbupQuX4RkT/Bee4/kQuC02Xkzg84JcT7oLYtDIQxp+v7w==}
-    engines: {node: '>=0.4.0'}
-    hasBin: true
-    dev: true
-
   /acorn/8.8.1:
     resolution: {integrity: sha512-7zFpHzhnqYKrkYdUjF1HI1bzd0VygEGX8lFk4k5zVMqHEoES+P+7TKI+EvLO9WVMJ8eekdO0aDEK044xTXwPPA==}
     engines: {node: '>=0.4.0'}
@@ -2161,7 +2165,7 @@ packages:
   /c12/0.2.13:
     resolution: {integrity: sha512-wJL0/knDbqM/3moLb+8Xd+w3JdkggkIIhiNBkxZ1mWlskKC/vajb85wM3UPg/D9nK6RbI1NgaVTg6AeXBVbknA==}
     dependencies:
-      defu: 6.1.0
+      defu: 6.1.1
       dotenv: 16.0.3
       gittar: 0.1.1
       jiti: 1.16.0
@@ -4829,7 +4833,7 @@ packages:
   /mlly/0.5.16:
     resolution: {integrity: sha512-LaJ8yuh4v0zEmge/g3c7jjFlhoCPfQn6RCjXgm9A0Qiuochq4BcuOxVfWmdnCoLTlg2MV+hqhOek+W2OhG0Lwg==}
     dependencies:
-      acorn: 8.8.0
+      acorn: 8.8.1
       pathe: 0.3.9
       pkg-types: 0.3.5
       ufo: 0.8.6
@@ -5833,7 +5837,7 @@ packages:
   /rc9/1.2.2:
     resolution: {integrity: sha512-zbe8+HR2X28eZepAwohuKkebbEsA67h0DO9I7g12QrHa2CQopR9gztOLPIPXXGTvcxeUjAN4wZ+b29t3m/u05g==}
     dependencies:
-      defu: 6.1.0
+      defu: 6.1.1
       destr: 1.2.0
       flat: 5.0.2
     dev: true
@@ -6630,7 +6634,7 @@ packages:
   /unctx/2.0.2:
     resolution: {integrity: sha512-3lcXTlDoOaguRVC1GqG3mrawy17yoycSAQDDnUayQYZ17v9to+Gn6Zyssroc/GD2ppJ0wF5V8adOcKkrNKVWow==}
     dependencies:
-      acorn: 8.8.0
+      acorn: 8.8.1
       estree-walker: 3.0.1
       magic-string: 0.26.7
       unplugin: 0.9.6
@@ -7103,6 +7107,10 @@ packages:
   /web-streams-polyfill/3.2.1:
     resolution: {integrity: sha512-e0MO3wdXWKrLbL0DgGnUV7WHVuw9OUvL4hjgnPkIeEvESk74gAITi5G606JtZPp39cd8HA9VQzCIvA49LpPN5Q==}
     engines: {node: '>= 8'}
+    dev: true
+
+  /web-vitals/2.1.4:
+    resolution: {integrity: sha512-sVWcwhU5mX6crfI5Vd2dC4qchyTqxV8URinzt25XqVh+bHEPGH4C3NPrNionCP7Obx59wrYEbNlw4Z8sjALzZg==}
     dev: true
 
   /webidl-conversions/3.0.1:
