@@ -73,7 +73,7 @@ onMounted(() => {
 .menu-button {
   --at-apply: inline-flex w-full justify-center rounded-md px-2.5 py-2 text-sm
     font-medium text-white bg-black bg-opacity-20 transition duration-250
-    'sm:(px-4)';
+    sm:(px-4);
 
   &:focus,
   &:focus-visible {
@@ -90,11 +90,11 @@ onMounted(() => {
   }
 
   .lang {
-    --at-apply: h-5 w-5 'sm:(mr-2 ml--1)';
+    --at-apply: h-5 w-5 sm:(mr-2 ml--1);
   }
 
   .wrapper {
-    --at-apply: hidden 'sm:inline-flex';
+    --at-apply: hidden sm:inline-flex;
 
     > div {
       --at-apply: transition-transform transform ml-2 -mr-1 h-5 w-5 duration-200;
@@ -108,8 +108,8 @@ onMounted(() => {
 
 .menu-body {
   --at-apply: absolute right--10 mt-1 w-44 origin-top-right shadow-lg rounded-md
-    bg-light-2 ring-1 ring-black/5 overflow-hidden 'sm:(right-0 w-56)'
-    text-zinc-800 py-1px 'dark:(bg-brand-pri-dark text-zinc-1)' overflow-hidden;
+    bg-light-2 ring-1 ring-black/5 overflow-hidden sm:(right-0 w-56)
+    text-zinc-800 py-1px dark:(bg-brand-pri-dark text-zinc-1) overflow-hidden;
 
   &:focus,
   &:focus-visible {
@@ -119,10 +119,10 @@ onMounted(() => {
 
 .menu-item {
   --at-apply: flex w-full items-center rounded-sm font-medium px-4 py-3 text-sm
-    text-left 'focus:outline-none';
+    text-left focus:outline-none;
 
   &.active {
-    --at-apply: text-brand-pri bg-zinc-3/80 'dark:(bg-brand-pri/50 text-white)';
+    --at-apply: text-brand-pri bg-zinc-3/80 dark:(bg-brand-pri/50 text-white);
   }
 }
 </style>

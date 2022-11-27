@@ -70,7 +70,7 @@ const { items } = toRefs(props);
 }
 
 .pop-panel-body {
-  --at-apply: absolute z-10 mt-3 w-screen max-w-sm transform px-4 'sm:px-0'
+  --at-apply: absolute z-10 mt-3 w-screen max-w-sm transform px-4 sm:px-0
     right-1/2 translate-x-1/2;
 
   > div {
@@ -84,7 +84,7 @@ const { items } = toRefs(props);
 }
 
 .pop-panel-item {
-  --at-apply: flex items-center rounded-lg p-2 -m-3 transition ease-in-out 'hover:bg-brand-pri/10';
+  --at-apply: flex items-center rounded-lg p-2 -m-3 transition ease-in-out hover:bg-brand-pri/10;
 
   &:focus,
   &:focus-visible {
@@ -106,7 +106,7 @@ const { items } = toRefs(props);
 
 .ppi-icon {
   --at-apply: flex h-10 w-10 shrink-0 items-center justify-center text-white
-    'sm:(h-12 w-12)';
+    sm:(h-12 w-12);
 }
 
 .ppi-body {
