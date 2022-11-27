@@ -65,9 +65,9 @@ html {
   border-width: thin 0 0;
   border-color: var(--divider-color);
 
-  @apply flex-1 h-0 max-h-0 max-w-full block;
+  --at-apply: flex-1 h-0 max-h-0 max-w-full block;
 
   &.inset {
-    @apply max-w-4/5;
+    --at-apply: max-w-4/5;
   }
 }

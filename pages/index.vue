@@ -18,7 +18,7 @@
 
 <style scoped lang="scss">
 .hero {
-  @apply w-full text-white flex items-center justify-center;
+  --at-apply: w-full text-white flex items-center justify-center;
 
   $overlay: hsla(0, 100%, 50%, 0.1);
 
@@ -28,11 +28,11 @@
     url('@img/hero-pattern.svg') top left / contain repeat,
     $brand-pri url('@img/hero.webp') center / cover no-repeat;
 
-  @apply lg:bg-fixed 2xl:bg-local;
+  --at-apply: lg:bg-fixed 2xl:bg-local;
 }
 
 .screamer {
-  @apply text-3.3rem font-medium pb-25 tracking-wide;
+  --at-apply: text-3.3rem font-medium pb-25 tracking-wide;
 
   // font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont;
   font-family: Venturis;

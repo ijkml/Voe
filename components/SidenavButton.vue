@@ -18,22 +18,21 @@
 
 <style scoped lang="scss">
 .ham-cont {
-  @apply overflow-hidden h-14px w-16px
-    relative pointer-events-none;
+  --at-apply: overflow-hidden h-14px w-16px relative pointer-events-none;
 }
 
 .ham-btn {
-  @apply flex justify-center items-center cursor-pointer select-none
-    h-36px w-36px bg-black bg-opacity-20 rounded-md;
+  --at-apply: flex justify-center items-center cursor-pointer select-none h-36px
+    w-36px bg-black bg-opacity-20 rounded-md;
 
   &:focus,
   &:focus-visible {
-    @apply outline-none;
+    --at-apply: outline-none;
   }
 
   &:hover,
   &:focus-visible {
-    @apply bg-opacity-40;
+    --at-apply: bg-opacity-40;
   }
 
   &:hover {
@@ -53,7 +52,7 @@
     .top,
     .bottom,
     .middle {
-      @apply bg-zinc-4 left-0;
+      --at-apply: bg-zinc-4 left-0;
     }
   }
 
@@ -86,8 +85,7 @@
 .bottom {
   transition: top 0.25s, background-color 0.5s, transform 0.25s;
 
-  @apply absolute w-16px h-2px bg-zinc-3
-    pointer-events-none;
+  --at-apply: absolute w-16px h-2px bg-zinc-3 pointer-events-none;
 }
 .top {
   top: 0;

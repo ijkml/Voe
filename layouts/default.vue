@@ -40,19 +40,18 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .app-layout--default {
-  @apply min-h-screen flex flex-col mx-auto
-    max-w-screen-2xl relative;
+  --at-apply: min-h-screen flex flex-col mx-auto max-w-screen-2xl relative;
 
   > footer {
-    @apply mt-auto;
+    --at-apply: mt-auto;
   }
 
   > main {
-    @apply min-h-50;
+    --at-apply: min-h-50;
   }
 
   > header {
-    @apply max-w-screen-2xl;
+    --at-apply: max-w-screen-2xl;
   }
 }
 </style>

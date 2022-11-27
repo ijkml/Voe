@@ -111,9 +111,9 @@ const mobileMenuLinks = [
   transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   top: 0.5px;
 
-  @apply z-20 fixed flex w-full max-w-260px flex-col right-0
+  --at-apply: z-20 fixed flex w-full max-w-260px flex-col right-0
     rounded-bl-lg overflow-y-auto invisible overflow-x-hidden
-      border-l border-b border-zinc will-change-transform bg-light-2 
+      border-l border-b border-zinc will-change-transform bg-light-2
         dark:(border-brand-pri text-zinc-2 bg-brand-pri-dark);
 
   &.visible--nav {
@@ -122,48 +122,48 @@ const mobileMenuLinks = [
   }
 
   .item-group-cont {
-    @apply p-4;
+    --at-apply: p-4;
 
     & + hr {
-      @apply w-4/5 dark:(border-brand-pri);
+      --at-apply: w-4/5 dark:(border-brand-pri);
 
       &:last-of-type {
-        @apply hidden;
+        --at-apply: hidden;
       }
     }
   }
 
   .subheader {
-    @apply block text-xs font-semibold
+    --at-apply: block text-xs font-semibold
       uppercase tracking-widest mb-4 mt-1;
   }
 
   .item-group {
-    @apply ml-1 space-y-4px;
+    --at-apply: ml-1 space-y-4px;
 
     a {
-      @apply block -mx-2 py-2 px-6 relative font-medium
+      --at-apply: block -mx-2 py-2 px-6 relative font-medium
         rounded transition duration-280 cursor-pointer
           focus:outline-none;
 
       &:focus-visible,
       &:hover {
-        @apply text-brand-pri bg-zinc-200
+        --at-apply: text-brand-pri bg-zinc-200
           dark:(bg-brand-pri text-white);
       }
 
       &.active {
-        @apply text-brand-pri bg-zinc-2/70
+        --at-apply: text-brand-pri bg-zinc-2/70
           dark:(text-zinc-50 bg-white/8);
 
         &::before {
-          @apply absolute w-4px h-full bg-current top-0 left-0
+          --at-apply: absolute w-4px h-full bg-current top-0 left-0
             opacity-80 block content-[''] transition-colors;
         }
 
         &:focus-visible,
         &:hover {
-          @apply bg-zinc-3/80 dark:(bg-brand-pri);
+          --at-apply: bg-zinc-3/80 dark:(bg-brand-pri);
         }
       }
     }
@@ -171,22 +171,22 @@ const mobileMenuLinks = [
 }
 
 .header {
-  @apply flex items-center justify-between p-3;
+  --at-apply: flex items-center justify-between p-3;
 
   .dark-toggle {
     &:hover,
     &:focus-visible {
-      @apply bg-opacity-88 dark:(bg-opacity-100);
+      --at-apply: bg-opacity-88 dark:(bg-opacity-100);
     }
   }
 
   ._left {
-    @apply inline-flex gap-2;
+    --at-apply: inline-flex gap-2;
   }
 
   .dark-toggle,
   .nav-button {
-    @apply focus:outline-none bg-gray-300 transition
+    --at-apply: focus:outline-none bg-gray-300 transition
       inline-flex items-center justify-center py-1.5 px-1.5
         rounded duration-250 cursor-pointer bg-opacity-30
           dark:(bg-brand-pri bg-opacity-30);
@@ -195,16 +195,16 @@ const mobileMenuLinks = [
   .nav-button {
     &:hover,
     &:focus-visible {
-      @apply bg-opacity-100;
+      --at-apply: bg-opacity-100;
     }
 
     > div {
-      @apply transition;
+      --at-apply: transition;
     }
   }
 
   & + hr {
-    @apply dark:border-brand-pri;
+    --at-apply: dark:border-brand-pri;
   }
 }
 </style>

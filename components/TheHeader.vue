@@ -106,14 +106,14 @@ const headerLinks = [
 
 <style scoped lang="scss">
 .the-logo {
-  @apply h-25px w-auto;
+  --at-apply: h-25px w-auto;
 }
 
 header {
   --hide-scroll: translateY(0);
   --bg: $brand-pri;
 
-  @apply text-light-2 w-full top-0 z-16 visible bg-#371a66;
+  --at-apply: text-light-2 w-full top-0 z-16 visible bg-#371a66;
 
   will-change: transform, visibility;
   transform: var(--hide-scroll);
@@ -125,92 +125,92 @@ header {
   @supports (
     (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))
   ) {
-    @apply backdrop-filter backdrop-blur-4px;
+    --at-apply: backdrop-filter backdrop-blur-4px;
   }
 
   &:not(.blend) {
-    @apply sticky bg-opacity-80;
+    --at-apply: sticky bg-opacity-80;
   }
 
   &.blend {
-    @apply fixed bg-opacity-0;
+    --at-apply: fixed bg-opacity-0;
   }
 
   &.scrolled {
     --hide-scroll: translateY(-101%);
 
-    @apply invisible;
+    --at-apply: invisible;
   }
 
   &.elevated {
-    @apply bg-opacity-80;
+    --at-apply: bg-opacity-80;
   }
 
   > div {
-    @apply w-full max-w-screen-xl h-14 mx-auto items-center
+    --at-apply: w-full max-w-screen-xl h-14 mx-auto items-center
       flex px-4 py-2px sm:(px-6) justify-between;
   }
 }
 
 .main-nav {
-  @apply hidden;
+  --at-apply: hidden;
 }
 
 .header-link,
 :deep(.header-link) {
-  @apply inline-flex bg-black font-medium px-3 py-1.5
+  --at-apply: inline-flex bg-black font-medium px-3 py-1.5
     rounded-md bg-opacity-0 select-none;
 
   &:focus,
   &:focus-visible {
-    @apply outline-none;
+    --at-apply: outline-none;
   }
 
   &:hover,
   &:focus-visible {
-    @apply bg-opacity-20;
+    --at-apply: bg-opacity-20;
   }
 
   &.active {
-    @apply bg-opacity-20;
+    --at-apply: bg-opacity-20;
 
     &:hover,
     &:focus-visible {
-      @apply bg-opacity-45;
+      --at-apply: bg-opacity-45;
     }
   }
 }
 
 .actions {
-  @apply flex gap-1.6 sm:gap-3 items-center;
+  --at-apply: flex gap-1.6 sm:gap-3 items-center;
 }
 
 .search-button {
-  @apply py-2 px-2.5 hidden sm:inline-flex justify-center
+  --at-apply: py-2 px-2.5 hidden sm:inline-flex justify-center
     rounded-md select-none bg-black bg-opacity-20
       transition duration-250 items-center;
 
   &:focus,
   &:focus-visible {
-    @apply outline-none;
+    --at-apply: outline-none;
   }
 
   div {
-    @apply transition duration-600 transform;
+    --at-apply: transition duration-600 transform;
   }
 
   &:hover,
   &:focus-visible {
-    @apply bg-opacity-40;
+    --at-apply: bg-opacity-40;
 
     div {
-      @apply rotate-y-180;
+      --at-apply: rotate-y-180;
     }
   }
 }
 
 .dark-toggle {
-  @apply hidden sm:inline-flex;
+  --at-apply: hidden sm:inline-flex;
 }
 
 @media (min-width: 980px) {
@@ -219,7 +219,7 @@ header {
   }
 
   .main-nav {
-    @apply flex items-center gap-2;
+    --at-apply: flex items-center gap-2;
   }
 }
 </style>

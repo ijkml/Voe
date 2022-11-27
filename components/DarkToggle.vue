@@ -48,24 +48,24 @@ watch(colorMode, (val) => {
 }
 
 button {
-  @apply py-2 px-2.5 bg-black inline-flex place-items-center
-    rounded-md bg-opacity-20;
+  --at-apply: py-2 px-2.5 bg-black inline-flex place-items-center rounded-md
+    bg-opacity-20;
 
   > span {
-    @apply block transition duration-300 transform;
+    --at-apply: block transition duration-300 transform;
   }
 
   &:focus,
   &:focus-visible {
-    @apply outline-none;
+    --at-apply: outline-none;
   }
 
   &:hover,
   &:focus-visible {
-    @apply bg-opacity-40;
+    --at-apply: bg-opacity-40;
 
     &:not(.still) > span {
-      @apply rotate-y-180;
+      --at-apply: rotate-y-180;
     }
   }
 }

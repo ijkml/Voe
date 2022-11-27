@@ -40,8 +40,8 @@ const size = computed(() =>
 span {
   width: v-bind(size);
   height: v-bind(size);
-  @apply text-inherit inline-flex items-center
-    justify-center leading-inherit;
+  --at-apply: text-inherit inline-flex items-center justify-center
+    leading-inherit;
 
   > svg {
     fill: currentColor;

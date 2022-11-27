@@ -62,71 +62,67 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .menu-root {
-  @apply relative inline-block text-left;
+  --at-apply: relative inline-block text-left;
 
   &:focus,
   &:focus-visible {
-    @apply outline-none;
+    --at-apply: outline-none;
   }
 }
 
 .menu-button {
-  @apply inline-flex w-full justify-center rounded-md
-    px-2.5 py-2 text-sm font-medium text-white bg-black
-      bg-opacity-20 transition duration-250
-        sm:(px-4);
+  --at-apply: inline-flex w-full justify-center rounded-md px-2.5 py-2 text-sm
+    font-medium text-white bg-black bg-opacity-20 transition duration-250
+    'sm:(px-4)';
 
   &:focus,
   &:focus-visible {
-    @apply outline-none;
+    --at-apply: outline-none;
   }
 
   &:hover,
   &:focus-visible {
-    @apply bg-opacity-40;
+    --at-apply: bg-opacity-40;
 
     .wrapper > div {
-      @apply rotate-90;
+      --at-apply: rotate-90;
     }
   }
 
   .lang {
-    @apply h-5 w-5 sm:(mr-2 ml--1);
+    --at-apply: h-5 w-5 'sm:(mr-2 ml--1)';
   }
 
   .wrapper {
-    @apply hidden sm:inline-flex;
+    --at-apply: hidden 'sm:inline-flex';
 
     > div {
-      @apply transition-transform transform ml-2 -mr-1 h-5 w-5
-        duration-200;
+      --at-apply: transition-transform transform ml-2 -mr-1 h-5 w-5 duration-200;
 
       &.open {
-        @apply rotate-180;
+        --at-apply: rotate-180;
       }
     }
   }
 }
 
 .menu-body {
-  @apply absolute right--10 mt-1 w-44 sm:w-56 origin-top-right
-    shadow-lg rounded-md bg-light-2 ring-1 ring-black/5
-      overflow-hidden sm:(right-0) text-zinc-800 py-1px
-        dark:(bg-brand-pri-dark text-zinc-1) overflow-hidden;
+  --at-apply: absolute right--10 mt-1 w-44 origin-top-right shadow-lg rounded-md
+    bg-light-2 ring-1 ring-black/5 overflow-hidden 'sm:(right-0 w-56)'
+    text-zinc-800 py-1px 'dark:(bg-brand-pri-dark text-zinc-1)' overflow-hidden;
 
   &:focus,
   &:focus-visible {
-    @apply outline-none;
+    --at-apply: outline-none;
   }
 }
 
 .menu-item {
-  @apply flex w-full items-center rounded-sm font-medium
-    px-4 py-3 text-sm text-left focus:outline-none;
+  --at-apply: flex w-full items-center rounded-sm font-medium px-4 py-3 text-sm
+    text-left 'focus:outline-none';
 
   &.active {
-    @apply text-brand-pri bg-zinc-3/80
-      dark:(bg-brand-pri/50 text-white);
+    --at-apply: text-brand-pri bg-zinc-3/80 'dark:(bg-brand-pri/50 text-white)';
   }
 }
 </style>

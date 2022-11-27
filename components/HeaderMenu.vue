@@ -61,65 +61,63 @@ const { items } = toRefs(props);
 <style lang="scss" scoped>
 .header-link {
   .icon {
-    @apply ml-2 mr--1 h-5 w-5 transition-transform
-      transform duration-200;
+    --at-apply: ml-2 mr--1 h-5 w-5 transition-transform transform duration-200;
 
     &.active {
-      @apply rotate-180;
+      --at-apply: rotate-180;
     }
   }
 }
 
 .pop-panel-body {
-  @apply absolute z-10 mt-3 w-screen max-w-sm
-    transform px-4 sm:px-0 right-1/2 translate-x-1/2;
+  --at-apply: absolute z-10 mt-3 w-screen max-w-sm transform px-4 'sm:px-0'
+    right-1/2 translate-x-1/2;
 
   > div {
-    @apply overflow-hidden rounded-lg shadow-lg
-      ring-1 ring-black ring-opacity-5;
+    --at-apply: overflow-hidden rounded-lg shadow-lg ring-1 ring-black
+      ring-opacity-5;
   }
 }
 
 .pop-panel-container {
-  @apply relative grid gap-8 bg-white p-7;
+  --at-apply: relative grid gap-8 bg-white p-7;
 }
 
 .pop-panel-item {
-  @apply flex items-center rounded-lg p-2 -m-3 transition
-    ease-in-out hover:bg-brand-pri/10;
+  --at-apply: flex items-center rounded-lg p-2 -m-3 transition ease-in-out 'hover:bg-brand-pri/10';
 
   &:focus,
   &:focus-visible {
-    @apply outline-none;
+    --at-apply: outline-none;
   }
 
   &:focus-visible {
-    @apply ring ring-brand-pri ring-opacity-50 bg-brand-pri/5;
+    --at-apply: ring ring-brand-pri ring-opacity-50 bg-brand-pri/5;
   }
 
   &.active {
-    @apply bg-brand-pri/10;
+    --at-apply: bg-brand-pri/10;
 
     &:hover {
-      @apply bg-brand-pri/20;
+      --at-apply: bg-brand-pri/20;
     }
   }
 }
 
 .ppi-icon {
-  @apply flex h-10 w-10 shrink-0 items-center
-    justify-center text-white sm:h-12 sm:w-12;
+  --at-apply: flex h-10 w-10 shrink-0 items-center justify-center text-white
+    'sm:(h-12 w-12)';
 }
 
 .ppi-body {
-  @apply ml-4;
+  --at-apply: ml-4;
 
   :nth-child(1) {
-    @apply text-sm font-medium text-zinc-700;
+    --at-apply: text-sm font-medium text-zinc-700;
   }
 
   :nth-child(2) {
-    @apply text-sm text-zinc-500;
+    --at-apply: text-sm text-zinc-500;
   }
 }
 </style>

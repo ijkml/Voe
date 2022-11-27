@@ -8,6 +8,6 @@
 
 <style scoped lang="scss">
 path {
-  @apply fill-current;
+  --at-apply: fill-current;
 }
 </style>

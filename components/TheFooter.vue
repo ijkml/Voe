@@ -101,116 +101,116 @@ const links: LinkInterface[] = [
 $dim-white: hsl(264, 5%, 75%);
 
 footer {
-  @apply p-2.5 sm:p-5 text-white bg-brand-pri-dark;
+  --at-apply: p-2.5 at-sm:(p-5) text-white bg-brand-pri-dark;
 
   > div {
-    @apply mx-auto max-w-screen-xl flex gap-5 flex-wrap;
+    --at-apply: mx-auto max-w-screen-xl flex gap-5 flex-wrap;
   }
 }
 
 .g-left {
-  @apply p-3 w-full lt-md:(text-center flex flex-col items-center)
+  --at-apply: p-3 w-full lt-md:(text-center flex flex-col items-center)
     md:(w-1/3 max-w-95);
 }
 
 .g-right {
-  @apply flex-1 flex flex-col;
+  --at-apply: flex-1 flex flex-col;
 }
 
 .the-logo {
-  @apply w-auto h-11;
+  --at-apply: w-auto h-11;
 
   + p {
-    @apply font-medium my-3;
+    --at-apply: font-medium my-3;
   }
 }
 
 .tagline {
-  @apply text-sm mt-2 max-w-45ch md:(mt-8 max-w-35ch);
+  --at-apply: text-sm mt-2 max-w-45ch md:(mt-8 max-w-35ch);
   color: $dim-white;
 }
 
 .bottom {
   color: $dim-white;
 
-  @apply flex py-2 px-4 mx-auto space-y-2 w-full mt-auto
+  --at-apply: flex py-2 px-4 mx-auto space-y-2 w-full mt-auto
     items-center flex-col bg-black/20 rounded-sm mb--1.5;
 
   @media (min-width: 450px) and (max-width: 639.9px) {
-    @apply space-y-0 flex-row space-x-4 justify-between;
+    --at-apply: space-y-0 flex-row space-x-4 justify-between;
 
     .copyleft {
-      @apply max-w-1/2 text-center;
+      --at-apply: max-w-1/2 text-center;
     }
   }
 
   @media (min-width: 640px) {
-    @apply flex-row space-y-0 space-x-4 justify-between;
+    --at-apply: flex-row space-y-0 space-x-4 justify-between;
   }
 }
 
 .copyleft {
-  @apply font-medium;
+  --at-apply: font-medium;
 
   a {
-    @apply focus:outline-none transition;
+    --at-apply: focus:outline-none transition;
 
     &:hover,
     &:focus-visible {
-      @apply outline-none text-fuchsia-50;
+      --at-apply: outline-none text-fuchsia-50;
     }
   }
 }
 
 .insignia {
-  @apply underline underline-current decoration-dotted
+  --at-apply: underline underline-current decoration-dotted
     underline-offset-4 cursor-pointer transition px-1
       duration-300 decoration-0.5px;
 
   strong {
-    @apply font-semibold;
+    --at-apply: font-semibold;
   }
 
   a {
-    @apply focus:outline-none transition;
+    --at-apply: focus:outline-none transition;
 
     &:hover,
     &:focus-visible {
-      @apply outline-none text-fuchsia-50;
+      --at-apply: outline-none text-fuchsia-50;
     }
   }
 }
 
 .top {
-  @apply grid gap-4 overflow-hidden mb-2.5;
+  --at-apply: grid gap-4 overflow-hidden mb-2.5;
 
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
 
   .heading {
-    @apply font-semibold uppercase mb-4;
+    --at-apply: font-semibold uppercase mb-4;
 
     + div {
-      @apply p-1 space-y-0.5;
+      --at-apply: p-1 space-y-0.5;
     }
   }
 }
 
 .link-list {
-  @apply p-2 text-zinc-2;
+  --at-apply: p-2 text-zinc-2;
 }
 
 .ftr-link {
-  @apply block transition relative focus:(outline-none) select-none;
+  --at-apply: block transition relative focus:(outline-none) select-none;
 
   padding: 0.2rem 0.25rem;
 
   div {
-    @apply block transition duration-300;
+    --at-apply: block transition duration-300;
   }
 
   &:hover,
   &:focus-visible {
-    @apply outline-none;
+    --at-apply: outline-none;
 
     div {
       transform: translate3d(0.8em, 0, 0);
@@ -229,7 +229,7 @@ footer {
     width: 0.8em;
     top: calc(50% - (0.1em / 2));
 
-    @apply transition duration-300 absolute left-0 bg-zinc-4;
+    --at-apply: transition duration-300 absolute left-0 bg-zinc-4;
   }
 }
 </style>
