@@ -97,6 +97,9 @@ const mobileMenuLinks = [
 
       <hr class="hr" />
     </template>
+
+    <hr class="hr" />
+    <SocialBlock class="soc-block" />
   </aside>
 </template>
 
@@ -186,8 +189,8 @@ const mobileMenuLinks = [
 
   .dark-toggle,
   .nav-button {
-    --at-apply: focus:outline-none bg-gray-300 transition
-      inline-flex items-center justify-center py-1.5 px-1.5
+    --at-apply: focus:outline-none bg-zinc-300 transition
+      inline-flex items-center justify-center p-1.5
         rounded duration-250 cursor-pointer bg-opacity-30
           dark:(bg-brand-pri bg-opacity-30);
   }
@@ -206,5 +209,9 @@ const mobileMenuLinks = [
   & + hr {
     --at-apply: dark:border-brand-pri;
   }
+}
+
+.soc-block {
+  --at-apply: p-2;
 }
 </style>
