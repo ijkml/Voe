@@ -6,7 +6,6 @@ specifiers:
   '@iconify-json/carbon': ^1.1.11
   '@mdi/js': ^7.0.96
   '@nuxtjs/color-mode': ^3.1.8
-  '@nuxtjs/web-vitals': ^0.1.10
   '@unocss/nuxt': ^0.46.5
   '@vueuse/nuxt': ^9.6.0
   eslint: latest
@@ -27,7 +26,6 @@ devDependencies:
   '@iconify-json/carbon': 1.1.11
   '@mdi/js': 7.0.96
   '@nuxtjs/color-mode': 3.1.8
-  '@nuxtjs/web-vitals': 0.1.10
   '@unocss/nuxt': 0.46.5
   '@vueuse/nuxt': 9.6.0_nuxt@3.0.0
   eslint: 8.28.0
@@ -1044,14 +1042,6 @@ packages:
       pathe: 0.3.8
     transitivePeerDependencies:
       - supports-color
-    dev: true
-
-  /@nuxtjs/web-vitals/0.1.10:
-    resolution: {integrity: sha512-Sf8v7BUB+Bfmao6AioPRmSpyq/MMvq0tFwFiXVe2oL9HgdDgu+6sfcSBDnvzmgcEQPfPZp1KCxc5N2vNERem0w==}
-    dependencies:
-      defu: 6.1.1
-      ufo: 0.8.6
-      web-vitals: 2.1.4
     dev: true
 
   /@polka/url/1.0.0-next.21:
@@ -7107,10 +7097,6 @@ packages:
   /web-streams-polyfill/3.2.1:
     resolution: {integrity: sha512-e0MO3wdXWKrLbL0DgGnUV7WHVuw9OUvL4hjgnPkIeEvESk74gAITi5G606JtZPp39cd8HA9VQzCIvA49LpPN5Q==}
     engines: {node: '>= 8'}
-    dev: true
-
-  /web-vitals/2.1.4:
-    resolution: {integrity: sha512-sVWcwhU5mX6crfI5Vd2dC4qchyTqxV8URinzt25XqVh+bHEPGH4C3NPrNionCP7Obx59wrYEbNlw4Z8sjALzZg==}
     dev: true
 
   /webidl-conversions/3.0.1:

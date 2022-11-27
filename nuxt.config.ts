@@ -12,7 +12,6 @@ export default defineNuxtConfig({
     '@unocss/nuxt',
     '@nuxtjs/color-mode',
     'vite-plugin-vue-type-imports/nuxt',
-    '@nuxtjs/web-vitals',
   ],
   alias: {
     '@img': fileURLToPath(new URL('./assets/images', import.meta.url)),
