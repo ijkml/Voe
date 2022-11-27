@@ -9,5 +9,6 @@
   "editor.formatOnSave": false,
   "files.exclude": {
     "**/.nuxt": true,
+    "**/.output": true
   }
 }
