@@ -80,26 +80,31 @@ const { items } = toRefs(props);
 }
 
 .pop-panel-container {
-  --at-apply: relative grid gap-8 bg-white p-7;
+  --at-apply: relative grid gap-8 bg-light-2 dark:(bg-brand-pri) p-7;
 }
 
 .pop-panel-item {
-  --at-apply: flex items-center rounded-lg p-2 -m-3 transition ease-in-out hover:bg-brand-pri/10;
+  --at-apply: flex items-center rounded-lg p-2 -m-3 transition ease-in-out;
 
   &:focus,
   &:focus-visible {
     --at-apply: outline-none;
   }
 
+  &:hover {
+    @apply bg-brand-pri/10 dark:(bg-zinc/25);
+  }
+
   &:focus-visible {
-    --at-apply: ring ring-brand-pri ring-opacity-50 bg-brand-pri/5;
+    --at-apply: ring ring-brand-pri/50 bg-brand-pri/5
+      dark:(ring-zinc-300/50 bg-zinc/15);
   }
 
   &.active {
-    --at-apply: bg-brand-pri/10;
+    @apply bg-brand-pri/10 dark:(bg-zinc/20);
 
     &:hover {
-      --at-apply: bg-brand-pri/20;
+      @apply bg-brand-pri/20 dark:(bg-zinc/40);
     }
   }
 }
@@ -113,11 +118,11 @@ const { items } = toRefs(props);
   --at-apply: ml-4;
 
   :nth-child(1) {
-    --at-apply: text-sm font-medium text-zinc-700;
+    --at-apply: text-sm font-medium text-zinc-700 dark:(text-zinc-100);
   }
 
   :nth-child(2) {
-    --at-apply: text-sm text-zinc-500;
+    --at-apply: text-sm text-zinc-500 dark:(text-zinc-200);
   }
 }
 </style>
