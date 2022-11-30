@@ -47,7 +47,7 @@ const links: LinkInterface[] = [
   <footer>
     <div>
       <div class="g-left">
-        <TheLogo class="the-logo" />
+        <TheLogo title="Voe logo" class="the-logo" />
         <p>Fly with peace of mind</p>
 
         <p class="tagline">

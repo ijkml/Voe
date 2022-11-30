@@ -35,7 +35,12 @@ watch(preferredColor, (pref) => {
 </script>
 
 <template>
-  <button class="!outline-none" :class="{ still }" @click="switchTheme">
+  <button
+    title="Change theme"
+    class="!outline-none"
+    :class="{ still }"
+    @click="switchTheme"
+  >
     <Transition name="fade" mode="out-in">
       <span v-if="icon === 1" class="i-carbon-sun" />
       <span v-else-if="icon === 2" class="i-carbon-moon" />

@@ -67,7 +67,7 @@ const headerLinks = [
 <template>
   <header :class="{ blend, scrolled, elevated }">
     <div>
-      <NuxtLink v-once to="/">
+      <NuxtLink v-once title="Voe logo" to="/">
         <TheLogo class="the-logo" />
       </NuxtLink>
 
@@ -92,7 +92,7 @@ const headerLinks = [
       <div class="actions">
         <LanguageMenu tabindex="0" />
 
-        <button tabindex="0" class="search-button">
+        <button title="Search" tabindex="0" class="search-button">
           <div class="i-carbon-search" />
         </button>
 
