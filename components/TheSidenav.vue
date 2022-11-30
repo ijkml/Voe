@@ -79,27 +79,29 @@ const mobileMenuLinks = [
     </div>
     <hr class="hr" />
 
-    <template v-for="nl of mobileMenuLinks" :key="nl.id">
-      <div class="item-group-cont">
-        <div class="subheader">{{ nl.text }}</div>
+    <div class="body">
+      <template v-for="nl of mobileMenuLinks" :key="nl.id">
+        <div class="item-group-cont">
+          <div class="subheader">{{ nl.text }}</div>
 
-        <div class="item-group">
-          <NuxtLink
-            v-for="sv of nl.drop"
-            :key="sv.text"
-            :to="sv.to"
-            exact-active-class="active"
-          >
-            {{ sv.text }}
-          </NuxtLink>
+          <div class="item-group">
+            <NuxtLink
+              v-for="sv of nl.drop"
+              :key="sv.text"
+              :to="sv.to"
+              exact-active-class="active"
+            >
+              {{ sv.text }}
+            </NuxtLink>
+          </div>
         </div>
-      </div>
 
-      <hr class="hr" />
-    </template>
+        <hr class="hr" />
+      </template>
+    </div>
 
     <hr class="hr" />
-    <SocialBlock class="soc-block" />
+    <SocialBlock class="footer" />
   </aside>
 </template>
 
@@ -128,11 +130,11 @@ const mobileMenuLinks = [
     --at-apply: p-4;
 
     & + hr {
-      --at-apply: w-4/5 dark:(border-brand-pri);
+      --at-apply: w-4/5;
 
-      &:last-of-type {
-        --at-apply: hidden;
-      }
+    }
+    &:last-of-type + hr {
+      @apply hidden;
     }
   }
 
@@ -205,13 +207,13 @@ const mobileMenuLinks = [
       --at-apply: transition;
     }
   }
-
-  & + hr {
-    --at-apply: dark:border-brand-pri;
-  }
 }
 
-.soc-block {
+hr {
+  @apply dark:(border-brand-pri);
+}
+
+.footer {
   --at-apply: p-2;
 }
 </style>
