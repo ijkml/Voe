@@ -74,13 +74,13 @@ const { items } = toRefs(props);
     right-1/2 translate-x-1/2;
 
   > div {
-    --at-apply: overflow-hidden rounded-lg shadow-lg ring-1 ring-black
-      ring-opacity-5;
+    --at-apply: overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5
+        dark:(border border-brand-pri shadow-none ring-none);
   }
 }
 
 .pop-panel-container {
-  --at-apply: relative grid gap-8 bg-light-2 dark:(bg-brand-pri) p-7;
+  --at-apply: relative grid gap-8 p-7 bg-light-2 dark:(bg-brand-pri-dark);
 }
 
 .pop-panel-item {
@@ -92,19 +92,19 @@ const { items } = toRefs(props);
   }
 
   &:hover {
-    @apply bg-brand-pri/10 dark:(bg-zinc/25);
+    @apply bg-brand-pri bg-opacity-10 dark:(bg-opacity-50);
   }
 
   &:focus-visible {
-    --at-apply: ring ring-brand-pri/50 bg-brand-pri/5
-      dark:(ring-zinc-300/50 bg-zinc/15);
+    @apply ring ring-brand-pri/50 bg-brand-pri/5
+      dark:(ring-brand-pri bg-brand-pri/40);
   }
 
   &.active {
     @apply bg-brand-pri/10 dark:(bg-zinc/20);
 
     &:hover {
-      @apply bg-brand-pri/20 dark:(bg-zinc/40);
+      @apply bg-brand-pri/20 dark:(bg-brand-pri/50);
     }
   }
 }
@@ -115,14 +115,14 @@ const { items } = toRefs(props);
 }
 
 .ppi-body {
-  --at-apply: ml-4;
+  @apply ml-4 text-sm;
 
   :nth-child(1) {
-    --at-apply: text-sm font-medium text-zinc-700 dark:(text-zinc-100);
+    @apply font-medium text-zinc-700 dark:(text-zinc-100);
   }
 
   :nth-child(2) {
-    --at-apply: text-sm text-zinc-500 dark:(text-zinc-200);
+    @apply text-zinc-500 dark:(text-zinc-300);
   }
 }
 </style>
