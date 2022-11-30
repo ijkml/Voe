@@ -1,28 +1,36 @@
 <script setup lang="ts">
-import type { BasicColorSchema } from '@vueuse/core';
+type AppColorScheme = 'dark' | 'light';
 
-interface Props {
+const props = defineProps<{
   still?: boolean;
-}
-
-const props = defineProps<Props>();
+}>();
 
 const { still } = toRefs(props);
 
 const icon = ref(0);
 
-function renderIcon(theme: BasicColorSchema) {
+const colorMode = useColorMode();
+
+function renderIcon(theme: AppColorScheme) {
   icon.value = theme === 'light' ? 1 : 2;
 }
 
+function switchTheme() {
+  colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark';
+}
+
 onMounted(() => {
-  getTheme().then((theme) => {
-    renderIcon(theme);
-  });
+  renderIcon(colorMode.preference as AppColorScheme);
 });
 
-watch(colorMode, (val) => {
-  renderIcon(val);
+watch(colorMode, () => {
+  renderIcon(colorMode.preference as AppColorScheme);
+});
+
+const preferredColor = usePreferredColorScheme();
+
+watch(preferredColor, (pref) => {
+  colorMode.preference = pref === 'light' ? 'light' : 'dark';
 });
 </script>
 
@@ -31,7 +39,7 @@ watch(colorMode, (val) => {
     <Transition name="fade" mode="out-in">
       <span v-if="icon === 1" class="i-carbon-sun" />
       <span v-else-if="icon === 2" class="i-carbon-moon" />
-      <span v-else class="i-carbon-ai-status-in-progress" />
+      <span v-else class="i-carbon-smoothing" />
     </Transition>
   </button>
 </template>
@@ -39,7 +47,7 @@ watch(colorMode, (val) => {
 <style lang="scss" scoped>
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 250ms ease;
+  transition: opacity 200ms ease;
 }
 
 .fade-enter-from,
@@ -52,7 +60,7 @@ button {
     bg-opacity-20;
 
   > span {
-    --at-apply: block transition duration-300 transform;
+    --at-apply: block transition duration-600 transform;
   }
 
   &:focus,
