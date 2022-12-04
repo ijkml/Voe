@@ -1,9 +1,9 @@
 <script setup lang="ts">
-const sbn = ref(null);
+const asideNav = ref<null | HTMLElement>(null);
 
 const [visible, close] = [navIsOpen, closeSideNav];
 
-onClickOutside(sbn, () => {
+onClickOutside(asideNav, () => {
   visible.value && close();
 });
 
@@ -54,12 +54,12 @@ const mobileMenuLinks = [
 <template>
   <aside
     id="app-sidebar-menu"
-    ref="sbn"
+    ref="asideNav"
     aria-label="Menu"
     :class="[visible && 'visible--nav']"
   >
-    <div class="header">
-      <div class="_left">
+    <div class="header" tabindex="-1">
+      <div class="_left" tabindex="-1">
         <button class="nav-button" type="button" title="Search" tabindex="0">
           <div class="i-carbon-search"></div>
         </button>
@@ -77,18 +77,19 @@ const mobileMenuLinks = [
         <div class="i-carbon-close"></div>
       </button>
     </div>
-    <hr class="hr" />
+    <hr class="hr" tabindex="-1" />
 
-    <div class="body">
+    <div class="body" tabindex="-1">
       <template v-for="nl of mobileMenuLinks" :key="nl.id">
-        <div class="item-group-cont">
-          <div class="subheader">{{ nl.text }}</div>
+        <div class="item-group-cont" tabindex="-1">
+          <div class="subheader" tabindex="-1">{{ nl.text }}</div>
 
-          <div class="item-group">
+          <div class="item-group" tabindex="-1">
             <NuxtLink
               v-for="sv of nl.drop"
               :key="sv.text"
               :to="sv.to"
+              tabindex="0"
               exact-active-class="active"
             >
               {{ sv.text }}
@@ -100,7 +101,7 @@ const mobileMenuLinks = [
       </template>
     </div>
 
-    <hr class="hr" />
+    <hr class="hr" tabindex="-1" />
     <SocialBlock class="footer" />
   </aside>
 </template>
@@ -125,51 +126,51 @@ const mobileMenuLinks = [
     --offscreen-w: translateX(0);
     visibility: visible;
   }
+}
 
-  .item-group-cont {
-    --at-apply: p-4;
+.item-group-cont {
+  --at-apply: p-4;
 
-    & + hr {
-      --at-apply: w-4/5;
+  & + hr {
+    --at-apply: w-4/5;
 
-    }
-    &:last-of-type + hr {
-      @apply hidden;
-    }
   }
-
-  .subheader {
-    --at-apply: block text-xs font-semibold
-      uppercase tracking-widest mb-4 mt-1;
+  &:last-of-type + hr {
+    @apply hidden;
   }
+}
 
-  .item-group {
-    --at-apply: ml-1 space-y-4px;
+.subheader {
+  --at-apply: block text-xs font-semibold
+    uppercase tracking-widest mb-4 mt-1;
+}
 
-    a {
-      --at-apply: block -mx-2 py-2 px-6 relative font-medium
-        rounded transition duration-280 cursor-pointer
-          focus:outline-none;
+.item-group {
+  --at-apply: ml-1 space-y-4px;
+
+  a {
+    --at-apply: block -mx-2 py-2 px-6 relative font-medium
+      rounded transition duration-280 cursor-pointer
+        focus:outline-none;
+
+    &:focus-visible,
+    &:hover {
+      --at-apply: text-brand-pri bg-zinc-200
+        dark:(bg-brand-pri text-white);
+    }
+
+    &.active {
+      --at-apply: text-brand-pri bg-zinc-2/70
+        dark:(text-zinc-50 bg-white/8);
+
+      &::before {
+        --at-apply: absolute w-4px h-full bg-current top-0 left-0
+          opacity-80 block content-[''] transition-colors;
+      }
 
       &:focus-visible,
       &:hover {
-        --at-apply: text-brand-pri bg-zinc-200
-          dark:(bg-brand-pri text-white);
-      }
-
-      &.active {
-        --at-apply: text-brand-pri bg-zinc-2/70
-          dark:(text-zinc-50 bg-white/8);
-
-        &::before {
-          --at-apply: absolute w-4px h-full bg-current top-0 left-0
-            opacity-80 block content-[''] transition-colors;
-        }
-
-        &:focus-visible,
-        &:hover {
-          --at-apply: bg-zinc-3/80 dark:(bg-brand-pri);
-        }
+        --at-apply: bg-zinc-3/80 dark:(bg-brand-pri);
       }
     }
   }
@@ -177,35 +178,35 @@ const mobileMenuLinks = [
 
 .header {
   --at-apply: flex items-center justify-between p-3;
+}
 
-  .dark-toggle {
-    &:hover,
-    &:focus-visible {
-      --at-apply: bg-opacity-88 dark:(bg-opacity-100);
-    }
+.dark-toggle {
+  &:hover,
+  &:focus-visible {
+    --at-apply: bg-opacity-88 dark:(bg-opacity-100);
+  }
+}
+
+._left {
+  --at-apply: inline-flex gap-2;
+}
+
+.dark-toggle,
+.nav-button {
+  --at-apply: focus:outline-none bg-zinc-300 transition
+    inline-flex items-center justify-center p-1.5
+      rounded duration-250 cursor-pointer bg-opacity-30
+        dark:(bg-brand-pri bg-opacity-30);
+}
+
+.nav-button {
+  &:hover,
+  &:focus-visible {
+    --at-apply: bg-opacity-100;
   }
 
-  ._left {
-    --at-apply: inline-flex gap-2;
-  }
-
-  .dark-toggle,
-  .nav-button {
-    --at-apply: focus:outline-none bg-zinc-300 transition
-      inline-flex items-center justify-center p-1.5
-        rounded duration-250 cursor-pointer bg-opacity-30
-          dark:(bg-brand-pri bg-opacity-30);
-  }
-
-  .nav-button {
-    &:hover,
-    &:focus-visible {
-      --at-apply: bg-opacity-100;
-    }
-
-    > div {
-      --at-apply: transition;
-    }
+  > div {
+    --at-apply: transition;
   }
 }
 

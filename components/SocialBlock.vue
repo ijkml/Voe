@@ -36,7 +36,7 @@ const socials = [
 </script>
 
 <template>
-  <div class="soc-block">
+  <div class="soc-block" tabindex="-1">
     <a
       v-for="soc in socials"
       :key="soc.name"
@@ -45,6 +45,7 @@ const socials = [
       target="_blank"
       rel="noopener noreferrer"
       class="soc-link"
+      tabindex="0"
     >
       <span :class="soc.icon" />
     </a>

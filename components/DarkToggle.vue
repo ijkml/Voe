@@ -39,6 +39,7 @@ watch(preferredColor, (pref) => {
     title="Change theme"
     class="!outline-none"
     :class="{ still }"
+    tabindex="0"
     @click="switchTheme"
   >
     <Transition name="fade" mode="out-in">
