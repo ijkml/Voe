@@ -14,7 +14,7 @@
 
 :root {
   --divider-color: #{$divider-light};
-  --voe-root-bg: #fefefe;
+  --voe-root-bg: #efefef;
   --voe-root-text: #{$text};
 
   font-size: 16px;
@@ -70,4 +70,8 @@ html {
   &.inset {
     --at-apply: max-w-4/5;
   }
+}
+
+.ze-section {
+  @apply mx-auto p-4 md:(p-8) lg:(max-w-screen-lg) xl:(max-w-screen-xl);
 }
