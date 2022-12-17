@@ -1,32 +1,19 @@
 <script setup lang="ts">
-interface InputStyles {
-  bg?: string;
-  color?: string;
-  active?: string;
-}
-
 interface Props {
   label: string;
   placeholder?: string;
   type?: 'text' | 'email';
-  appearance?: InputStyles;
 }
 
 const props = withDefaults(defineProps<Props>(), {
   label: 'Input',
   placeholder: undefined,
   type: 'text',
-  appearance() {
-    return { bg: '', color: '', active: '' };
-  },
 });
 
-const { type, placeholder, label, appearance } = toRefs(props);
+const { type, placeholder, label } = toRefs(props);
 
-const inputPlaceholder = placeholder || label;
-const inputBg = appearance.value.bg || '';
-const inputColor = appearance.value.color || '';
-const inputActiveColor = appearance.value.active || '';
+const inputPlaceholder = placeholder.value || label.value;
 
 const inputValue = ref('');
 const isFocused = ref(false);
@@ -62,28 +49,17 @@ function setFocus(on: boolean) {
 
 <style scoped lang="scss">
 .input-container {
-  @apply mx-10px;
+  @apply mx-2px;
 
-  // default bg-color
-  --default-bg-color: hsl(0, 0%, 100%);
-  // default text color
-  --default-tx-color: hsl(210, 29%, 24%);
+  --input-bg-color: hsl(0, 0%, 100%);
+  --input-tx-color: hsl(210, 29%, 24%);
+  --input-active-color: hsl(265, 60%, 25%);
 
   .dark & {
-    // default dark-mode bg-color
-    --default-bg-color: hsl(0, 0%, 7%);
-    // default dark-mode text color
-    --default-tx-color: hsla(0, 0%, 92%, 0.7);
+    --input-bg-color: hsl(0, 0%, 10%); // hsl(0, 0%, 7%);
+    --input-tx-color: hsla(0, 0%, 92%, 0.7);
+    --input-active-color: hsl(275, 75%, 80%);
   }
-
-  --prop-bg-color: v-bind(inputBg); // bg color
-  --prop-tx-color: v-bind(inputColor); // text color
-  --prop-active-color: v-bind(inputActiveColor); // active color
-
-  // --- exposed with defaults
-  --input-bg-color: var(--prop-bg-color, var(--default-bg-color));
-  --input-text-color: var(--prop-tx-color, var(--default-tx-color));
-  --input-active-color: var(--prop-active-color, currentColor);
 }
 
 .input-box {
@@ -95,11 +71,6 @@ function setFocus(on: boolean) {
       background: var(--input-bg-color);
       font-size: 11px;
       transform: translateY(0%);
-    }
-  }
-
-  &.focus {
-    .input-label {
       color: var(--input-active-color);
     }
   }
@@ -108,7 +79,7 @@ function setFocus(on: boolean) {
 .input-label {
   @apply absolute text-16px font-normal overflow-hidden text-ellipsis
     whitespace-nowrap pointer-events-none select-none z-1 left-2
-      py-0 px-2 top-1/2;
+      py-0 px-2 top-1/2 rounded-full;
 
   contain: layout paint;
   max-width: calc(100% - 16px);
@@ -118,7 +89,7 @@ function setFocus(on: boolean) {
 }
 
 .input-1 {
-  @apply box-border w-full rounded px-4 py-13px border-none
+  @apply box-border w-full rounded px-4 py-10px border-none
     outline outline-1 outline-zinc-4 dark:(outline-zinc-7);
 
   transition: 250ms;
@@ -127,8 +98,7 @@ function setFocus(on: boolean) {
   color: var(--input-text-color);
 
   &:focus {
-    outline: solid 1.5px;
-    outline-color: var(--input-active-color);
+    outline: solid 2px var(--input-active-color);
   }
 
   &::placeholder,
