@@ -7,7 +7,7 @@ const props = defineProps<{
 
 const { still } = toRefs(props);
 
-const icon = ref(0);
+const icon = ref<0 | 1 | 2>(0);
 
 const colorMode = useColorMode();
 

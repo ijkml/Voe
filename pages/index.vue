@@ -7,6 +7,18 @@
     <section class="hero">
       <h1 class="screamer">Fly with peace of mind</h1>
     </section>
+    <section class="ze-section search-overlap">
+      <div>
+        <form>
+          <div class="info-inputs">
+            <VInput
+              label="Departure Airport"
+              :appearance="{ active: 'hsl(263, 60%, 35%)' }"
+            />
+          </div>
+        </form>
+      </div>
+    </section>
     <div class="test">
       <!-- <section class="h-150vh bg-blue-300"></section> -->
       <!-- <section class="h-150vh bg-white"></section> -->
@@ -36,5 +48,17 @@
 
   // font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont;
   font-family: Venturis;
+}
+
+.search-overlap {
+  @apply relative;
+
+  > div {
+    @apply bg-white rounded-lg shadow-xl border w-full mt--30;
+  }
+
+  form {
+    @apply w-40vw my-0 mx-auto p-12;
+  }
 }
 </style>
