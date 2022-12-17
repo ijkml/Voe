@@ -33,9 +33,7 @@
   &:hover,
   &:focus-visible {
     --at-apply: bg-opacity-40;
-  }
 
-  &:hover {
     .top {
       top: 0;
       transform: translateX(4px);

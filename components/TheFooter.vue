@@ -83,11 +83,7 @@ const links: LinkInterface[] = [
             </NuxtLink>
           </div>
           <div class="insignia">
-            <a
-              href="http://ijkml.bio.link?ref=Voe"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="http://ijkml.bio.link" target="_blank">
               Website by <strong>ML</strong>
             </a>
           </div>
@@ -101,7 +97,7 @@ const links: LinkInterface[] = [
 $dim-white: hsl(264, 5%, 75%);
 
 footer {
-  --at-apply: p-2.5 at-sm:(p-5) text-white bg-brand-pri-dark;
+  --at-apply: p-2.5 sm:(p-5) text-white bg-brand-pri-dark;
 
   > div {
     --at-apply: mx-auto max-w-screen-xl flex gap-5 flex-wrap;
@@ -134,7 +130,7 @@ footer {
   color: $dim-white;
 
   --at-apply: flex py-2 px-4 mx-auto space-y-2 w-full mt-auto
-    items-center flex-col bg-black/20 rounded-sm mb--1.5;
+    items-center flex-col bg-black/20 rounded-sm mb--1 sm:mb--3;
 
   @media (min-width: 450px) and (max-width: 639.9px) {
     --at-apply: space-y-0 flex-row space-x-4 justify-between;
