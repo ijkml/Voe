@@ -1,7 +1,13 @@
 @font-face {
   font-family: "Venturis";
-  src: url("/fonts/venturisa-faux.woff2") format("woff2"), url("/fonts/venturisa-faux.woff") format("woff"),
-    url("/fonts/venturisa-faux.ttf") format("truetype");
+  src: url("/fonts/VenturisSans-Bold.otf");
   font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Venturis";
+  src: url("/fonts/VenturisSans-Regular.otf");
+  font-weight: normal;
   font-style: normal;
 }
