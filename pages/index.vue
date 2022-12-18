@@ -80,13 +80,11 @@ function searchAction() {
   }
 
   form {
-    @apply md:(flex items-center gap-4);
+    @apply md:(flex items-center gap-5);
   }
 
   .info-input-cont {
-    @apply grid gap-4 overflow-hidden p-1 flex-grow grid-cols-1;
-
-    grid-template-columns: repeat(1, minmax(0, 1fr));
+    @apply grid gap-5 overflow-hidden flex-grow py-2 grid-cols-1;
 
     @media (min-width: 400px) {
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -94,11 +92,11 @@ function searchAction() {
   }
 
   .info-input {
-    @apply w-full;
+    @apply w-auto max-w-full;
   }
 
   h2 {
-    @apply text-1.32rem sm:(text-2xl) mb-4;
+    @apply text-1.32rem sm:(text-2xl) mb-3;
 
     font-family: Venturis;
   }
