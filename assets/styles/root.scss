@@ -52,13 +52,6 @@ html {
   scroll-behavior: smooth;
 }
 
-:where(html, *) {
-  transition-property: color, background-color, border-color,
-    text-decoration-color;
-  transition-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
-  transition-duration: 300ms;
-}
-
 .hr,
 .divider {
   border: solid;
