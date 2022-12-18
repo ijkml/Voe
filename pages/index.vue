@@ -96,7 +96,7 @@ function searchAction() {
   }
 
   h2 {
-    @apply text-1.32rem sm:(text-2xl) mb-3 font-(serif semibold);
+    @apply text-1.32rem sm:(text-2xl) mb-3 font-(serif medium);
   }
 
   .search-button {
