@@ -43,7 +43,6 @@ const socials = [
       title=""
       :href="soc.link"
       target="_blank"
-      rel="noopener noreferrer"
       class="soc-link"
       tabindex="0"
     >
