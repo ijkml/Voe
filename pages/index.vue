@@ -60,14 +60,14 @@ function searchAction() {
     url('@img/hero-pattern.svg') top left / contain repeat,
     $brand-pri url('@img/hero.webp') center / cover no-repeat;
 
-  --at-apply: lg:bg-fixed 2xl:bg-local;
+  @apply lg:(bg-fixed) 2xl:(bg-local);
 }
 
 .screamer {
-  --at-apply: text-3.3rem font-medium pb-25 tracking-wide;
+  font-family: Venturis, ui-serif, serif;
 
-  // font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont;
-  font-family: Venturis;
+  @apply text-2.5rem md:(text-3.3rem) font-semibold transition
+    sm:(tracking-wide text-2.8rem) mb-30 p-5 text-center;
 }
 
 #ze-search-overlap {
@@ -75,7 +75,7 @@ function searchAction() {
 
   > div {
     @apply bg-white rounded-lg mt--30 mb-8 p-4 w-full
-      sm:(p-9) light:(shadow-lg sm:shadow-xl shadow-zinc)
+      sm:(p-9) light:(shadow-(lg zinc) sm:shadow-xl)
         dark:(bg-dark-7 shadow-none border border-zinc-1/8);
   }
 
@@ -96,9 +96,7 @@ function searchAction() {
   }
 
   h2 {
-    @apply text-1.32rem sm:(text-2xl) mb-3;
-
-    font-family: Venturis;
+    @apply text-1.32rem sm:(text-2xl) mb-3 font-(serif semibold);
   }
 
   .search-button {
@@ -106,17 +104,17 @@ function searchAction() {
       rounded-md bg-brand-pri text-white focus:outline-none
         font-medium mt-4 sm:(h-11) md:(mt-0) relative;
 
-    &:hover, &:focus-visible {
+    &:hover,
+    &:focus-visible {
       @apply outline-none bg-opacity-80 dark:(bg-opacity-50);
     }
 
-    > span {
+    > * {
       @apply transition;
     }
 
     .icon {
-      @apply invisible transition absolute top-1/2 left-1/2
-        transform translate--1/2;
+      @apply invisible absolute top-1/2 left-1/2 transform translate--1/2;
     }
 
     &.loading {
