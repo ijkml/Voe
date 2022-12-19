@@ -28,6 +28,9 @@ export default defineConfig({
         sec: 'hsl(264, 100%, 88%)',
       },
     },
+    fontFamily: {
+      serif: 'Venturis,ui-serif,Georgia,Cambria,"Times New Roman",Times,serif',
+    },
   },
   presets: [
     presetUno(),
