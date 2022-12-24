@@ -16,12 +16,16 @@ function searchAction() {
 
 <template>
   <div>
-    <section class="hero">
-      <h1 class="screamer">Fly with peace of mind</h1>
+    <section class="ze-hero" aria-labelledby="screamer">
+      <h1 id="screamer">Fly with peace of mind</h1>
     </section>
-    <section id="ze-search-overlap">
+
+    <section
+      class="ze-section ze-search-overlap"
+      aria-labelledby="find-ur-flight"
+    >
       <div>
-        <h2>Find your flight</h2>
+        <h2 id="find-ur-flight">Find your flight</h2>
         <form>
           <div class="info-input-cont">
             <VInput class="info-input" label="Departure Airport" />
@@ -39,6 +43,25 @@ function searchAction() {
         </form>
       </div>
     </section>
+
+    <section class="ze-section ze-stats-info" aria-labelledby="find-covid-info">
+      <div>
+        <div class="covid-info">
+          <div class="img" role="img" title="A woman wearing a mask" />
+          <div class="text">
+            <div>
+              <h2 id="find-covid-info">
+                Find out everything you need to know about the safety measures
+                implemented to safeguard travellers against COVID-19.
+              </h2>
+              <button>Learn More</button>
+              <VButton tabindex="0">Test Test</VButton>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <div class="test">
       <!-- <section class="h-150vh bg-blue-300"></section> -->
       <!-- <section class="h-150vh bg-white"></section> -->
@@ -49,7 +72,7 @@ function searchAction() {
 </template>
 
 <style scoped lang="scss">
-.hero {
+.ze-hero {
   --at-apply: w-full text-white flex items-center justify-center;
 
   $overlay: hsla(0, 100%, 50%, 0.1);
@@ -63,20 +86,19 @@ function searchAction() {
   @apply lg:(bg-fixed) 2xl:(bg-local);
 }
 
-.screamer {
-  font-family: Venturis, ui-serif, serif;
-
-  @apply text-2.5rem md:(text-3.3rem) font-semibold transition
-    sm:(tracking-wide text-2.8rem) mb-30 p-5 text-center;
+#screamer {
+  @apply text-2.5rem md:(text-3.1rem) font-semibold transition
+    sm:(text-2.8rem) mb-30 p-5 text-center font-serif;
 }
 
-#ze-search-overlap {
-  @apply relative mx-auto p-4 md:(p-8) lg:(max-w-screen-lg);
+.ze-search-overlap {
+  @apply relative;
 
   > div {
-    @apply bg-white rounded-lg mt--30 mb-8 p-4 w-full
-      sm:(p-9) light:(shadow-(lg zinc) sm:shadow-xl)
-        dark:(bg-dark-7 shadow-none border border-zinc-1/8);
+    @apply rounded-lg mt--30 p-8 bg-light-2 mx-auto shadow-(lg zinc)
+      sm:(px-12 py-10) md:(px-16 py-12) border-(1 transparent) w-full
+        dark:(bg-dark-6 shadow-transparent border-zinc-1/10)
+          lg:(max-w-screen-lg);
   }
 
   form {
@@ -96,7 +118,7 @@ function searchAction() {
   }
 
   h2 {
-    @apply text-1.32rem sm:(text-2xl) mb-3 font-(serif medium);
+    @apply text-1.4rem sm:(text-3xl) mb-3 font-(semibold serif);
   }
 
   .search-button {
@@ -126,6 +148,37 @@ function searchAction() {
       .icon {
         @apply visible;
       }
+    }
+  }
+}
+
+.ze-stats-info {
+  @apply my-2;
+
+  > div {
+    @apply lg:(max-w-screen-lg) mx-auto;
+  }
+}
+
+.covid-info {
+  @apply flex shadow light:(bg-light-2) rounded-xl
+    border-(1 l-0 zinc-5/25) dark:(bg-dark-6 border-zinc-5/20);
+
+  .img {
+    @apply w-1/2 min-h-270px rounded-l-inherit;
+
+    background: blue url('/img/img-01.webp') top center / cover;
+  }
+
+  .text {
+    @apply w-1/2 rounded-r-inherit p-8 flex place-items-center;
+
+    h2 {
+      @apply text-xl mb-4;
+    }
+
+    button {
+      // @apply border-2 border-blue;
     }
   }
 }

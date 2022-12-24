@@ -53,7 +53,7 @@ function setFocus(on: boolean) {
 
   --input-bg-color: hsl(0, 0%, 100%);
   --input-tx-color: hsl(210, 29%, 24%);
-  --input-active-color: hsl(265, 60%, 25%);
+  --input-active-color: hsl(265, 60%, 40%);
 
   .dark & {
     --input-bg-color: hsl(0, 0%, 10%); // hsl(0, 0%, 7%);
