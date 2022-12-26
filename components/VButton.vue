@@ -5,11 +5,13 @@ import { NuxtLink } from '#components';
 interface ButtonProps extends NuxtLinkProps {
   variant?: 'primary' | 'secondary';
   small?: boolean;
+  type?: 'button' | 'submit' | 'reset';
 }
 
 const props = withDefaults(defineProps<ButtonProps>(), {
   small: false,
   variant: 'primary',
+  type: 'button',
 });
 
 const emit = defineEmits<{
@@ -20,14 +22,15 @@ function bubble(event: any) {
   emit('click', event);
 }
 
-const { to, href, external, variant, small, ...otherProps } = toRefs(props);
+const { to, href, external, variant, small, type, ...otherProps } =
+  toRefs(props);
 
 const isLink = computed(() => {
   return Boolean(to?.value || href?.value || external?.value);
 });
 
 const btnStyles = computed(() => {
-  return `app-bttn-${variant.value} ${small.value ? 'abttn-sm' : ''}`.trim();
+  return `voe-btn-${variant.value} ${small.value ? 'voe-btn-sm' : ''}`.trim();
 });
 
 const linkProps = isLink.value ? { to, href, external } : undefined;
@@ -42,115 +45,82 @@ export default {
 <template>
   <component
     :is="isLink ? NuxtLink : 'button'"
+    :type="!isLink && type"
+    class="voe-btn"
     :class="[btnStyles]"
     v-bind="{ ...otherProps, ...linkProps }"
     v-bind.attr="$attrs"
     @click="bubble($event)"
   >
-    <span>
-      <slot />
-    </span>
+    <slot />
   </component>
 </template>
 
 <style scoped lang="scss">
-.test {
-  @apply bg-cyan-9 p-4 text-white;
-}
+.voe-btn {
+  @apply border-none text-base inline-block font-medium z-0 truncate
+    relative transition duration-300 rounded-md max-w-full bg-none
+      overflow-hidden text-center outline-none focus:outline-none
+        bg-[var(--bg-def)] color-[var(--txt-color)];
 
-.app-bttn {
-  &-primary,
-  &-secondary {
-    background-image: linear-gradient(
-      to bottom right,
-      var(--stop-1),
-      var(--stop-2)
-    );
+  &::after {
+    @apply content-[''] absolute top-0 left-0 z--1 h-full w-full
+      transition duration-300 rounded-inherit transform
+        transform-origin-left scale-x-0 bg-[var(--bg-hov)];
+  }
 
-    @apply inline-block relative rounded-5px
-      transition duration-300 cursor-pointer
-        overflow-hidden truncate;
+  &:disabled {
+    @apply cursor-not-allowed;
+  }
 
-    > span {
-      @apply inline-flex w-auto z-1 font-medium
-        items-center justify-center round-inherit
-          relative leading-none;
-    }
+  &:not(:disabled) {
+    @apply cursor-pointer;
 
-    &::after {
-      @apply outline-none bg-[var(--stop-3)] absolute
-        left-0 top-0 z-0 opacity-0 content-[''] w-full
-          h-full transition duration-400 rounded-inherit
-            pointer-events-none;
-    }
-
-    &:disabled,
-    &.disabled {
-      @apply cursor-not-allowed;
-    }
-
-    &.loading {
-      @apply cursor-wait;
-    }
-
-    &:not(.abttn-sm) {
-      span {
-        @apply h-10 px-4 min-w-16;
-      }
-    }
-
-    &.abttn-sm {
-      span {
-        @apply h-8.8 px-4 min-w-13;
-      }
-    }
-
-    &:not(:disabled) {
-      &:hover,
-      &:focus-visible {
-        @apply bg-opacity-0 outline-none;
+    &:hover,
+    &:focus-visible {
+      &:after {
+        @apply scale-x-full;
       }
     }
   }
 
-  &-primary {
-    // --stop-2: #{$brand-pri-dark};
-    // --stop-1: theme('colors.purple.5');
-    --stop-1: #{lighten($brand-pri, 15%)};
-    --stop-2: #{darken($brand-pri, 15%)};
-    --stop-3: var(--stop-2);
-    color: #f5f5f5;
-
-    &:not(:disabled) {
-      &:hover,
-      &:focus-visible {
-        &::after {
-          @apply opacity-100;
-        }
-      }
-    }
+  &.voe-btn-sm {
+    @apply h-8.8 px-4 min-w-13;
   }
 
-  // &-secondary {
-  //   --stop-1: transparent;
-  //   --stop-2: transparent;
-  //   --stop-3: $text;
-  //   color: $text;
+  &:not(.voe-btn-sm) {
+    @apply h-10 px-4 min-w-16;
+  }
 
-  //   &::after {
-  //     @apply opacity-8;
-  //   }
+  &.voe-btn-primary {
+    --bg-def: #{lighten($brand-pri, 1%)};
+    --bg-hov: #{darken($brand-pri, 10%)};
+    --txt-color: white;
+  }
 
-  //   &:not(:disabled) {
-  //     &:hover,
-  //     &:focus-visible {
-  //       @apply text-brand-pri;
+  &.voe-btn-secondary {
+    // --bg-def: theme('colors.light.4');
+    // --bg-hov: theme('colors.light.6');
+    --bg-def: transparent;
+    --bg-hov: hsla(263, 60%, 35%, 0.05);
+    --txt-color: #{$brand-pri};
 
-  //       &::after {
-  //         @apply bg-current opacity-10;
-  //       }
-  //     }
-  //   }
-  // }
+    @apply border border-zinc-4/50;
+
+    .dark & {
+      // --bg-def: theme('colors.dark.6');
+      // --bg-hov: theme('colors.dark.8');
+      --bg-def: transparent;
+      --bg-hov: hsla(263, 60%, 35%, 0.2);
+      --txt-color: #{$brand-sec};
+
+      @apply border-zinc-5/50;
+    }
+
+    &:hover,
+    &:focus-visible {
+      @apply border-brand-pri/50 dark:(border-brand-sec/50);
+    }
+  }
 }
 </style>
