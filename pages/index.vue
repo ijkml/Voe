@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import LoadingSvg from '@icons/loading.svg?component';
-const isSearching = ref(false);
 
+const isSearching = ref(false);
 function searchAction() {
   if (isSearching.value) {
     return;
@@ -31,15 +31,16 @@ function searchAction() {
             <VInput class="info-input" label="Departure Airport" />
             <VInput class="info-input" label="Arrival Airport" />
           </div>
-          <button
-            type="submit"
+          <VButton
             class="search-button"
             :class="{ loading: isSearching }"
+            tabindex="0"
+            type="submit"
             @click.prevent="searchAction"
           >
             <span>Search</span>
             <LoadingSvg class="icon" />
-          </button>
+          </VButton>
         </form>
       </div>
     </section>
@@ -54,8 +55,9 @@ function searchAction() {
                 Find out everything you need to know about the safety measures
                 implemented to safeguard travellers against COVID-19.
               </h2>
-              <button>Learn More</button>
-              <VButton tabindex="0">Test Test</VButton>
+              <div class="buttons space-x-3 space-y-3">
+                <VButton tabindex="0">Learn More</VButton>
+              </div>
             </div>
           </div>
         </div>
@@ -122,14 +124,7 @@ function searchAction() {
   }
 
   .search-button {
-    @apply px-6 h-10 flex items-center transition duration-300
-      rounded-md bg-brand-pri text-white focus:outline-none
-        font-medium mt-4 sm:(h-11) md:(mt-0) relative;
-
-    &:hover,
-    &:focus-visible {
-      @apply outline-none bg-opacity-80 dark:(bg-opacity-50);
-    }
+    @apply px-6 h-10 flex items-center mt-4 sm:(h-11) md:(mt-0) relative;
 
     > * {
       @apply transition;
@@ -173,12 +168,12 @@ function searchAction() {
   .text {
     @apply w-1/2 rounded-r-inherit p-8 flex place-items-center;
 
-    h2 {
-      @apply text-xl mb-4;
+    > div {
+      @apply max-w-full;
     }
 
-    button {
-      // @apply border-2 border-blue;
+    h2 {
+      @apply text-1.2rem mb-4;
     }
   }
 }
