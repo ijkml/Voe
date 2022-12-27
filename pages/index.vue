@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import LoadingSvg from '@icons/loading.svg?component';
+import whyVoe from '@/i18n/copy/whyVoe';
 
 const isSearching = ref(false);
 function searchAction() {
@@ -12,35 +13,12 @@ function searchAction() {
     isSearching.value = false;
   }, 3581);
 }
-
-const voeStats = [
-  {
-    figure: 500,
-    suffix: 'k+',
-    title: 'Flights',
-  },
-  {
-    figure: 0,
-    suffix: '',
-    title: 'Crashes',
-  },
-  {
-    figure: 250,
-    suffix: '',
-    title: 'Destinations',
-  },
-  {
-    figure: 10.1,
-    suffix: 'M+',
-    title: 'Passengers',
-  },
-];
 </script>
 
 <template>
   <div>
     <section class="ze-hero" aria-labelledby="screamer">
-      <h1 id="screamer">Fly with peace of mind</h1>
+      <h1 id="screamer" class="font-serif">Fly with peace of mind</h1>
     </section>
 
     <section
@@ -48,7 +26,7 @@ const voeStats = [
       aria-labelledby="find-ur-flight"
     >
       <div>
-        <h2 id="find-ur-flight">Find your flight</h2>
+        <h2 id="find-ur-flight" class="font-serif">Find your flight</h2>
         <form>
           <div class="info-input-cont">
             <VInput class="info-input" label="Departure Airport" />
@@ -85,18 +63,30 @@ const voeStats = [
           </div>
         </div>
 
-        <div class="voe-stats">
-          <StatBox v-for="stat in voeStats" v-bind="stat" :key="stat.title" />
-        </div>
+        <StatSection />
       </div>
     </section>
 
-    <div class="test">
-      <!-- <section class="h-150vh bg-blue-300"></section> -->
-      <!-- <section class="h-150vh bg-white"></section> -->
-      <!-- <section class="h-150vh bg-blue-800"></section> -->
-      <!-- <section class="h-150vh bg-blue-500"></section> -->
-    </div>
+    <section class="ze-section ze-why-us" aria-labelledby="why-voe-h">
+      <h2 id="why-voe-h" class="font-serif">Why Fly With Us?</h2>
+
+      <div>
+        <section
+          v-for="y in whyVoe"
+          :key="y.title"
+          class="why-reasons"
+          :aria-label="y.title"
+        >
+          <div class="img">
+            <img :alt="y.alt" :src="y.image" />
+          </div>
+          <div class="text">
+            <h3 v-text="y.title" />
+            <p v-text="y.text" />
+          </div>
+        </section>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -116,8 +106,8 @@ const voeStats = [
 }
 
 #screamer {
-  @apply text-2.5rem md:(text-3.1rem) font-semibold transition
-    sm:(text-2.8rem) mb-30 p-5 text-center font-serif;
+  @apply font-semibold transition mb-30 p-5 text-center
+    text-2.5rem sm:(text-2.8rem) md:(text-3.1rem);
 }
 
 .ze-search-overlap {
@@ -147,7 +137,7 @@ const voeStats = [
   }
 
   h2 {
-    @apply text-1.4rem sm:(text-3xl) mb-3 font-(semibold serif);
+    @apply text-1.4rem sm:(text-3xl) mb-3 font-semibold;
   }
 
   .search-button {
@@ -218,27 +208,78 @@ const voeStats = [
   }
 }
 
-.voe-stats {
-  @apply mt-12 p-2 grid gap-4;
+.ze-why-us {
+  @apply my-2;
 
-  grid-template-columns: repeat(2, 1fr);
+  --flex-gap: 2rem;
 
-  @media (min-width: 600px) {
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  h2 {
+    @apply text-center mx-auto max-w-md text-4xl font-semibold mb-10;
   }
 
   > div {
-    @apply p-2 text-center;
-
-    justify-self: center;
+    @apply flex gap-[var(--flex-gap)] flex-wrap sm:px-2;
   }
 
-  :deep(.num) {
-    @apply text-4xl font-serif font-semibold slashed-zero;
+  @media (min-width: 992px) {
+    > div {
+      @apply grid grid-cols-3;
+    }
+  }
+}
+
+.why-reasons {
+  .img {
+    @apply relative h-50 w-full flex-none rounded-t-inherit;
+
+    img {
+      @apply w-full h-full absolute inset-0 object-cover
+        object-top rounded-inherit;
+    }
   }
 
-  :deep(.txt) {
-    @apply text-sm mt-2 uppercase font-medium;
+  .text {
+    @apply p-4 rounded-b-inherit self-center;
+  }
+
+  h3 {
+    @apply text-lg mb-2 font-medium;
+  }
+
+  --avail-width-2: calc((100% - var(--flex-gap)) / 2);
+
+  @apply overflow-hidden mx-auto rounded-6px ring-(1 zinc-6/25)
+    w-full max-w-100 transition-all;
+
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+
+  @mixin spread-horizontal($min-h: 100%) {
+    .img {
+      @apply w-1/2 h-full rounded-(none l-inherit);
+
+      min-height: $min-h;
+    }
+
+    .text {
+      @apply px-5 py-6;
+    }
+  }
+
+  @media (min-width: 500px) and (max-width: 767.9px) {
+    @apply flex max-w-160 mx-auto;
+
+    @include spread-horizontal(11rem);
+  }
+
+  @media (min-width: 768px) and (max-width: 991.9px) {
+    @apply w-[var(--avail-width-2)] mx-auto max-w-full;
+
+    &:last-child {
+      @apply flex w-[75%] mx-auto;
+
+      @include spread-horizontal(13.8rem);
+    }
   }
 }
 </style>
