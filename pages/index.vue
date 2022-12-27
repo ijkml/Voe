@@ -12,6 +12,29 @@ function searchAction() {
     isSearching.value = false;
   }, 3581);
 }
+
+const voeStats = [
+  {
+    figure: 500,
+    suffix: 'k+',
+    title: 'Flights',
+  },
+  {
+    figure: 0,
+    suffix: '',
+    title: 'Crashes',
+  },
+  {
+    figure: 250,
+    suffix: '',
+    title: 'Destinations',
+  },
+  {
+    figure: 10.1,
+    suffix: 'M+',
+    title: 'Passengers',
+  },
+];
 </script>
 
 <template>
@@ -60,6 +83,10 @@ function searchAction() {
               </div>
             </div>
           </div>
+        </div>
+
+        <div class="voe-stats">
+          <StatBox v-for="stat in voeStats" v-bind="stat" :key="stat.title" />
         </div>
       </div>
     </section>
@@ -156,25 +183,62 @@ function searchAction() {
 }
 
 .covid-info {
-  @apply flex shadow light:(bg-light-2) rounded-xl
-    border-(1 l-0 zinc-5/25) dark:(bg-dark-6 border-zinc-5/20);
+  @apply shadow light:(bg-light-2) rounded-xl
+    border-(1 zinc-5/25) dark:(bg-dark-6 border-zinc-5/20);
 
   .img {
-    @apply w-1/2 min-h-270px rounded-l-inherit;
+    @apply w-full min-h-230px rounded-t-inherit;
 
-    background: blue url('/img/img-01.webp') top center / cover;
+    background: $brand-pri-dark url('/img/img-01.webp') center 20% / cover
+      no-repeat;
   }
 
   .text {
-    @apply w-1/2 rounded-r-inherit p-8 flex place-items-center;
+    @apply w-full rounded-r-inherit p-8 flex place-items-center;
 
     > div {
       @apply max-w-full;
     }
 
     h2 {
-      @apply text-1.2rem mb-4;
+      @apply text-1.1rem mb-4 md:(text-1.2rem);
     }
+  }
+
+  @media (min-width: 512px) {
+    @apply flex border-l-0;
+
+    .img {
+      @apply w-1/2 rounded-none rounded-l-inherit;
+    }
+
+    .text {
+      @apply w-1/2;
+    }
+  }
+}
+
+.voe-stats {
+  @apply mt-12 p-2 grid gap-4;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  @media (min-width: 600px) {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+
+  > div {
+    @apply p-2 text-center;
+
+    justify-self: center;
+  }
+
+  :deep(.num) {
+    @apply text-4xl font-serif font-semibold slashed-zero;
+  }
+
+  :deep(.txt) {
+    @apply text-sm mt-2 uppercase font-medium;
   }
 }
 </style>
