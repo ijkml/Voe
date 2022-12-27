@@ -35,7 +35,7 @@
   &.dark {
     --divider-color: #{$divider-dark};
     --voe-root-bg: hsl(0, 0%, 10%); // todo
-    --voe-root-text: #fff; // todo
+    --voe-root-text: #{$text-dark};
 
     color-scheme: dark;
   }
