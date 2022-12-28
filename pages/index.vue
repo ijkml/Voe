@@ -13,6 +13,17 @@ function searchAction() {
     isSearching.value = false;
   }, 3581);
 }
+
+const today = new Date();
+const staleDate = new Date();
+staleDate.setDate(today.getDate() - 30);
+
+function creatInputDate(date: Date) {
+  return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+}
+
+const minDate = creatInputDate(staleDate);
+const maxDate = creatInputDate(today);
 </script>
 
 <template>
@@ -29,8 +40,19 @@ function searchAction() {
         <h2 id="find-ur-flight" class="font-serif">Find your flight</h2>
         <form>
           <div class="info-input-cont">
-            <VInput class="info-input" label="Departure Airport" />
-            <VInput class="info-input" label="Arrival Airport" />
+            <VInput
+              class="info-input"
+              label="Destination / Airline"
+              placeholder="Enter destination or flight number"
+            />
+            <VInput
+              class="info-input"
+              type="date"
+              :min="minDate"
+              :max="maxDate"
+              label="Flight Date"
+              placeholder="Enter arrival or departure date"
+            />
           </div>
           <VButton
             class="search-button"
@@ -86,6 +108,14 @@ function searchAction() {
           </div>
         </section>
       </div>
+    </section>
+
+    <section class="ze-section ze-attractions" aria-labelledby="ze-attractions">
+      <h2 id="ze-attractions" class="font-serif text-4xl font-semibold">
+        Services that go far beyond the ordinary
+      </h2>
+
+      <SliderContainer />
     </section>
   </div>
 </template>
