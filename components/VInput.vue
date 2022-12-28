@@ -2,18 +2,24 @@
 interface Props {
   label: string;
   placeholder?: string;
-  type?: 'text' | 'email';
+  type?: 'text' | 'email' | 'date';
+  class?: string;
+  id?: string;
+  name?: string;
 }
 
 const props = withDefaults(defineProps<Props>(), {
   label: 'Input',
   placeholder: undefined,
   type: 'text',
+  class: undefined,
+  id: undefined,
+  name: undefined,
 });
 
-const { type, placeholder, label } = toRefs(props);
+const { type, placeholder, label, class: elemClass, id, name } = toRefs(props);
 
-const inputPlaceholder = placeholder.value || label.value;
+const inputPlaceholder = placeholder.value ?? label.value;
 
 const inputValue = ref('');
 const isFocused = ref(false);
@@ -24,21 +30,27 @@ function setFocus(on: boolean) {
     setTimeout(() => {
       isFocused.value = true;
     });
+
     return;
   }
 
-  isFocused.value = false;
+  setTimeout(() => {
+    isFocused.value = false;
+  });
 }
 </script>
 
 <template>
-  <div class="input-container">
+  <div class="input-container" :class="elemClass">
     <div class="input-box" :class="{ focus: isFocused, error: hasError }">
       <label class="input-label" v-text="label" />
       <input
-        v-model.trim="inputValue"
+        :id="id"
+        v-model="inputValue"
         :type="type"
         class="input-1"
+        :name="name"
+        v-bind="$attrs"
         :placeholder="inputPlaceholder"
         @focus="setFocus(true)"
         @blur="setFocus(false)"
@@ -67,11 +79,12 @@ function setFocus(on: boolean) {
 
   &.focus {
     .input-label {
-      top: -8px;
       background: var(--input-bg-color);
       font-size: 11px;
       transform: translateY(0%);
       color: var(--input-active-color);
+
+      @apply top--8px h-auto min-w-auto;
     }
   }
 }
@@ -79,13 +92,14 @@ function setFocus(on: boolean) {
 .input-label {
   @apply absolute text-16px font-normal overflow-hidden text-ellipsis
     whitespace-nowrap pointer-events-none select-none z-1 left-2
-      py-0 px-2 top-1/2 rounded-full;
+      py-0 px-2 top-1/2 h-4/5 min-w-4/5 items-center flex rounded-full;
 
   contain: layout paint;
   max-width: calc(100% - 16px);
   transform: translateY(-50%);
   transition: 250ms;
   color: var(--input-text-color);
+  background-color: var(--input-bg-color);
 }
 
 .input-1 {
