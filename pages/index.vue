@@ -15,15 +15,17 @@ function searchAction() {
 }
 
 const today = new Date();
+const futureDate = new Date();
 const staleDate = new Date();
 staleDate.setDate(today.getDate() - 30);
+staleDate.setDate(today.getDate() + 7);
 
 function creatInputDate(date: Date) {
   return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
 }
 
 const minDate = creatInputDate(staleDate);
-const maxDate = creatInputDate(today);
+const maxDate = creatInputDate(futureDate);
 </script>
 
 <template>
