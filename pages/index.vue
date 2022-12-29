@@ -15,17 +15,15 @@ function searchAction() {
 }
 
 const today = new Date();
-const futureDate = new Date();
 const staleDate = new Date();
 staleDate.setDate(today.getDate() - 30);
-staleDate.setDate(today.getDate() + 7);
 
 function creatInputDate(date: Date) {
   return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
 }
 
 const minDate = creatInputDate(staleDate);
-const maxDate = creatInputDate(futureDate);
+const maxDate = creatInputDate(today);
 </script>
 
 <template>
@@ -112,12 +110,13 @@ const maxDate = creatInputDate(futureDate);
       </div>
     </section>
 
-    <section class="ze-section ze-attractions" aria-labelledby="ze-attractions">
-      <h2 id="ze-attractions" class="font-serif text-4xl font-semibold mb-9">
-        Services that go far beyond the ordinary
-      </h2>
-
-      <SliderContainer />
+    <section class="ze-services" aria-labelledby="ze-services">
+      <div class="nailed-down">
+        <h2 id="ze-services" class="font-serif">
+          Services that go far beyond the ordinary
+        </h2>
+      </div>
+      <SliderContainer class="slider-cont" />
     </section>
   </div>
 </template>
@@ -271,7 +270,7 @@ const maxDate = creatInputDate(futureDate);
   }
 
   .text {
-    @apply p-4 rounded-b-inherit self-center;
+    @apply p-5 rounded-b-inherit self-center;
   }
 
   h3 {
@@ -280,7 +279,7 @@ const maxDate = creatInputDate(futureDate);
 
   --avail-width-2: calc((100% - var(--flex-gap)) / 2);
 
-  @apply overflow-hidden mx-auto w-full max-w-100 rounded-6px
+  @apply overflow-hidden mx-auto w-full max-w-100 rounded-xl
     dark:(ring-(1 zinc-6/25)) transition-all;
 
   box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
@@ -312,6 +311,53 @@ const maxDate = creatInputDate(futureDate);
 
       @include spread-horizontal(13.8rem);
     }
+  }
+}
+
+.ze-services {
+  @media (min-width: 1024px) and (max-width: 1279.9px) {
+    margin-left: calc((100vw - 1024px) / 2);
+  }
+
+  @media (min-width: 1279.9px) and (max-width: 1535.9px) {
+    margin-left: calc((100vw - 1280px) / 2);
+  }
+
+  @media (min-width: 1536px) {
+    @apply ml-auto;
+
+    max-width: 1400px;
+  }
+
+  @apply mt-4 p-4 md:(p-8 pr-4 flex items-center relative);
+
+  h2 {
+    @apply text-3xl font-semibold;
+  }
+
+  --nd-max-w: 100%;
+  --nd-space: 0;
+
+  .nailed-down {
+    @apply mb-6 w-full max-w-[var(--nd-max-w)] border-(1 blue);
+  }
+
+  .slider-cont {
+    margin-left: var(--nd-space);
+    width: calc(100% - var(--nd-space));
+  }
+
+  @media (min-width: 768px) {
+    --nd-max-w: 16.3rem;
+    --nd-space: calc(var(--nd-max-w) + 2rem);
+
+    .nailed-down {
+      @apply absolute top-1/2 transform translate-y--1/2;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    --nd-max-w: 17.5rem;
   }
 }
 </style>

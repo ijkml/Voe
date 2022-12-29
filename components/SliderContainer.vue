@@ -2,20 +2,19 @@
 import type { Options as SplideOptions } from '@splidejs/vue-splide';
 import { Splide, SplideSlide, SplideTrack } from '@splidejs/vue-splide';
 
-import takeoff from '@img/airport-takeoff.webp?url';
-import lounge from '@img/airport-lounge.webp?url';
-import terminal from '@img/airport-terminal.webp?url';
+import services from '@/i18n/copy/services';
 
 const splideOptions: SplideOptions = {
   rewind: false,
   pagination: false,
   focus: 0,
   omitEnd: true,
+  perMove: 1,
   autoWidth: true,
   // drag: 'free',
   // snap: true,
   gap: '24px',
-  padding: '1rem',
+  // padding: '1rem',
 };
 
 const progressBarWidth = ref('0%');
@@ -35,21 +34,15 @@ function updateProgress(splide: typeof Splide) {
       aria-label="My Favorite Images"
       @splide:mounted="updateProgress"
       @splide:move="updateProgress"
-      @splide:dragged="updateProgress"
     >
       <SplideTrack>
-        <SplideSlide v-for="i in 6" :key="i">
+        <SplideSlide v-for="serv in services" :key="serv.title">
           <div class="slide-container">
-            <a class="atrraction-card">
-              <img :src="terminal" alt="" />
+            <a class="services-card">
+              <img :src="serv.image" :alt="serv.alt" />
               <div class="text">
-                <h3>Heading Heading {{ i }}</h3>
-                <p>
-                  Our infinitely reconfigurable feature set is unparalleled in
-                  the industry, but our vertical, customized efficient,
-                  user-centric TQM and non-complex use is usually considered an
-                  amazing achievement.
-                </p>
+                <h3 v-text="serv.title" />
+                <p v-text="serv.text" />
               </div>
             </a>
           </div>
@@ -84,8 +77,7 @@ function updateProgress(splide: typeof Splide) {
 
 <style scoped lang="scss">
 .splide__arrows {
-  @apply flex items-center justify-end
-    px-8 py-2 gap-16 mt-4;
+  @apply hidden flex items-center justify-end px-8 py-2 gap-16 mt-4;
 }
 
 .slider-progress {
@@ -103,7 +95,7 @@ function updateProgress(splide: typeof Splide) {
 }
 
 .slider-arrows {
-  @apply gap-3 inline-flex items-center;
+  @apply hidden md:(gap-3 inline-flex items-center);
 }
 
 .splide__arrow {
@@ -130,21 +122,22 @@ function updateProgress(splide: typeof Splide) {
   @apply p-2;
 }
 
-.atrraction-card {
-  @apply w-78 h-95 rounded-xl overflow-hidden block
-    relative focus:outline-none cursor-pointer;
-
+.services-card {
   box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
     0 1px 5px 0 rgba(0, 0, 0, 0.12);
 
+  @apply w-75 h-85 rounded-xl overflow-hidden block
+    relative focus:outline-none cursor-pointer dark:(ring-(1 zinc-5/25));
+
   img {
-    @apply rounded-inherit w-full mb-1px object-cover
-      transform transition duration-300;
+    @apply rounded-inherit w-full object-cover object-center
+      transform transition duration-300 h-full;
   }
 
   .text {
-    @apply w-full h-auto absolute z-1 bottom-0
-      left-0 bg-zinc-1 p-5 transition-all duration-300;
+    @apply w-full h-auto absolute z-1 left-0 bottom-0 p-5 filter
+      transition-all duration-300 bg-zinc-1/85 dark:bg-zinc-8/95
+        backdrop-blur-6;
   }
 
   h3 {
@@ -152,7 +145,14 @@ function updateProgress(splide: typeof Splide) {
   }
 
   p {
-    @apply text-0.95rem;
+    @apply text-0.95rem transition-all;
+
+    @media (hover: hover) and (min-width: 768px) {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      overflow: hidden;
+    }
   }
 
   &:hover,
@@ -163,6 +163,10 @@ function updateProgress(splide: typeof Splide) {
 
     .text {
       @apply pb-10;
+
+      p {
+        -webkit-line-clamp: 8;
+      }
     }
   }
 }
