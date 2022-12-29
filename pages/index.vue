@@ -89,26 +89,28 @@ const maxDate = creatInputDate(today);
       </div>
     </section>
 
-    <section class="ze-section ze-why-us" aria-labelledby="why-voe-h">
-      <h2 id="why-voe-h" class="font-serif">Why Fly With Us?</h2>
+    <div class="ze-why-us">
+      <section class="ze-section" aria-labelledby="why-voe-h">
+        <h2 id="why-voe-h" class="font-serif">Why Fly With Us?</h2>
 
-      <div>
-        <section
-          v-for="y in whyVoe"
-          :key="y.title"
-          class="why-reasons"
-          :aria-label="y.title"
-        >
-          <div class="img">
-            <img :alt="y.alt" :src="y.image" />
-          </div>
-          <div class="text">
-            <h3 v-text="y.title" />
-            <p v-text="y.text" />
-          </div>
-        </section>
-      </div>
-    </section>
+        <div>
+          <section
+            v-for="y in whyVoe"
+            :key="y.title"
+            class="why-reasons"
+            :aria-label="y.title"
+          >
+            <div class="img">
+              <img :alt="y.alt" :src="y.image" />
+            </div>
+            <div class="text">
+              <h3 v-text="y.title" />
+              <p v-text="y.text" />
+            </div>
+          </section>
+        </div>
+      </section>
+    </div>
 
     <section class="ze-services" aria-labelledby="ze-services">
       <div class="nailed-down">
@@ -240,21 +242,23 @@ const maxDate = creatInputDate(today);
 }
 
 .ze-why-us {
-  @apply my-2;
-
-  --flex-gap: 2rem;
+  @apply py-6 bg-white/50 dark:bg-black/25;
 
   h2 {
     @apply text-center mx-auto max-w-md text-4xl font-semibold mb-10;
   }
 
-  > div {
-    @apply flex gap-[var(--flex-gap)] flex-wrap sm:px-2;
-  }
+  > section {
+    --flex-gap: 2rem;
 
-  @media (min-width: 992px) {
     > div {
-      @apply grid grid-cols-3;
+      @apply flex gap-[var(--flex-gap)] flex-wrap sm:px-2;
+    }
+
+    @media (min-width: 992px) {
+      > div {
+        @apply grid grid-cols-3;
+      }
     }
   }
 }
@@ -329,7 +333,7 @@ const maxDate = creatInputDate(today);
     max-width: 1400px;
   }
 
-  @apply mt-4 p-4 md:(p-8 pr-4 flex items-center relative);
+  @apply my-4 p-4 md:(p-8 pr-4 flex items-center relative);
 
   h2 {
     @apply text-3xl font-semibold;
@@ -339,7 +343,7 @@ const maxDate = creatInputDate(today);
   --nd-space: 0;
 
   .nailed-down {
-    @apply mb-6 w-full max-w-[var(--nd-max-w)] border-(1 blue);
+    @apply mb-6 w-full max-w-[var(--nd-max-w)];
   }
 
   .slider-cont {
