@@ -113,7 +113,7 @@ const maxDate = creatInputDate(futureDate);
     </section>
 
     <section class="ze-section ze-attractions" aria-labelledby="ze-attractions">
-      <h2 id="ze-attractions" class="font-serif text-4xl font-semibold">
+      <h2 id="ze-attractions" class="font-serif text-4xl font-semibold mb-9">
         Services that go far beyond the ordinary
       </h2>
 
