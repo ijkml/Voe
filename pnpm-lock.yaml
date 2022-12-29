@@ -8,6 +8,7 @@ specifiers:
   '@mdi/js': ^7.0.96
   '@nuxt/image-edge': 1.0.0-27840416.dc1ed65
   '@nuxtjs/color-mode': ^3.2.0
+  '@splidejs/vue-splide': ^0.6.12
   '@unocss/nuxt': ^0.47.5
   '@vueuse/nuxt': ^9.6.0
   eslint: latest
@@ -30,6 +31,7 @@ devDependencies:
   '@mdi/js': 7.0.96
   '@nuxt/image-edge': 1.0.0-27840416.dc1ed65
   '@nuxtjs/color-mode': 3.2.0
+  '@splidejs/vue-splide': 0.6.12
   '@unocss/nuxt': 0.47.5
   '@vueuse/nuxt': 9.6.0_nuxt@3.0.0
   eslint: 8.30.0
@@ -1023,6 +1025,16 @@ packages:
       estree-walker: 2.0.2
       picomatch: 2.3.1
       rollup: 2.79.1
+    dev: true
+
+  /@splidejs/splide/4.1.4:
+    resolution: {integrity: sha512-5I30evTJcAJQXt6vJ26g2xEkG+l1nXcpEw4xpKh0/FWQ8ozmAeTbtniVtVmz2sH1Es3vgfC4SS8B2X4o5JMptA==}
+    dev: true
+
+  /@splidejs/vue-splide/0.6.12:
+    resolution: {integrity: sha512-eQb8pnGMN8Tr0FVaQo1PUMZlMHl8fSqHNXPTx79eeE2dkZqbsvq6jRzXoT9ZF7hFkxdOEmB6qYNp93SUwV684g==}
+    dependencies:
+      '@splidejs/splide': 4.1.4
     dev: true
 
   /@trysound/sax/0.2.0:
