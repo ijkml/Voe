@@ -61,7 +61,7 @@ export default {
   @apply border-none text-base inline-block font-medium z-0 truncate
     relative transition duration-300 rounded-md max-w-full bg-none
       overflow-hidden text-center outline-none focus:outline-none
-        bg-[var(--bg-def)] color-[var(--txt-color)];
+        bg-[var(--bg-def)] color-[var(--txt-color)] select-none;
 
   &::after {
     @apply content-[''] absolute top-0 left-0 z--1 h-full w-full

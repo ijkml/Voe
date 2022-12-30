@@ -72,3 +72,7 @@ img {
 .ze-section {
   @apply mx-auto p-4 md:(p-8) lg:(max-w-screen-lg) xl:(max-w-screen-xl);
 }
+
+.ze-sec-alt {
+  @apply py-6 bg-white/50 dark:bg-black/25;
+}
