@@ -115,8 +115,12 @@ const maxDate = creatInputDate(today);
     <section class="ze-services" aria-labelledby="ze-services">
       <div class="nailed-down">
         <h2 id="ze-services" class="font-serif">
-          Services that go far beyond the ordinary
+          Services that go far <i>beyond the&nbsp;ordinary</i>
         </h2>
+        <p>
+          We offer exceptional services and amenities to make your travel
+          experience comfortable and convenient.
+        </p>
       </div>
       <SliderContainer class="slider-cont" />
     </section>
@@ -335,15 +339,27 @@ const maxDate = creatInputDate(today);
 
   @apply my-4 p-4 md:(p-8 pr-4 flex items-center relative);
 
-  h2 {
-    @apply text-3xl font-semibold;
-  }
-
   --nd-max-w: 100%;
   --nd-space: 0;
 
   .nailed-down {
     @apply mb-6 w-full max-w-[var(--nd-max-w)];
+
+    h2 {
+      @apply text-3xl font-semibold mb-4;
+
+      i {
+        @apply text-brand-pri dark:text-fuchsia-4
+          underline underline-(1px dashed offset-4);
+
+        font-style: normal;
+      }
+    }
+
+    h2,
+    p {
+      @apply text-center mx-auto max-w-md;
+    }
   }
 
   .slider-cont {
@@ -357,6 +373,11 @@ const maxDate = creatInputDate(today);
 
     .nailed-down {
       @apply absolute top-1/2 transform translate-y--1/2;
+
+      h2,
+      p {
+        @apply text-left mx-0 max-w-full;
+      }
     }
   }
 
