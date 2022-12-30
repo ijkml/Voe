@@ -89,7 +89,7 @@ const maxDate = creatInputDate(today);
       </div>
     </section>
 
-    <div class="ze-why-us">
+    <div class="ze-why-us ze-sec-alt">
       <section class="ze-section" aria-labelledby="why-voe-h">
         <h2 id="why-voe-h" class="font-serif">Why Fly With Us?</h2>
 
@@ -101,7 +101,7 @@ const maxDate = creatInputDate(today);
             :aria-label="y.title"
           >
             <div class="img">
-              <img :alt="y.alt" :src="y.image" />
+              <img loading="lazy" :alt="y.alt" :src="y.image" />
             </div>
             <div class="text">
               <h3 v-text="y.title" />
@@ -124,6 +124,22 @@ const maxDate = creatInputDate(today);
       </div>
       <SliderContainer class="slider-cont" />
     </section>
+
+    <div class="ze-cta">
+      <section>
+        <div>
+          <h2 class="font-serif">
+            Discover the Ultimate Travel Experience with First&nbsp;Class
+          </h2>
+          <p>
+            Experience luxury and comfort with our first class services,
+            including exclusive lounges, premium dining, and personalized
+            assistance. Elevate your journey with us.
+          </p>
+          <VButton>Experience First Class</VButton>
+        </div>
+      </section>
+    </div>
   </div>
 </template>
 
@@ -246,8 +262,6 @@ const maxDate = creatInputDate(today);
 }
 
 .ze-why-us {
-  @apply py-6 bg-white/50 dark:bg-black/25;
-
   h2 {
     @apply text-center mx-auto max-w-md text-4xl font-semibold mb-10;
   }
@@ -323,24 +337,10 @@ const maxDate = creatInputDate(today);
 }
 
 .ze-services {
-  @media (min-width: 1024px) and (max-width: 1279.9px) {
-    margin-left: calc((100vw - 1024px) / 2);
-  }
-
-  @media (min-width: 1279.9px) and (max-width: 1535.9px) {
-    margin-left: calc((100vw - 1280px) / 2);
-  }
-
-  @media (min-width: 1536px) {
-    @apply ml-auto;
-
-    max-width: 1400px;
-  }
-
-  @apply my-4 p-4 md:(p-8 pr-4 flex items-center relative);
-
   --nd-max-w: 100%;
   --nd-space: 0;
+
+  @apply my-8 p-4 md:(p-8 pr-4 flex items-center relative);
 
   .nailed-down {
     @apply mb-6 w-full max-w-[var(--nd-max-w)];
@@ -383,6 +383,53 @@ const maxDate = creatInputDate(today);
 
   @media (min-width: 1024px) {
     --nd-max-w: 17.5rem;
+  }
+
+  @media (min-width: 1024px) and (max-width: 1279.9px) {
+    margin-left: calc((100vw - 1024px) / 2);
+  }
+
+  @media (min-width: 1279.9px) and (max-width: 1535.9px) {
+    margin-left: calc((100vw - 1280px) / 2);
+  }
+
+  @media (min-width: 1536px) {
+    margin-left: auto;
+    max-width: 1400px;
+  }
+}
+
+.ze-cta {
+  section {
+    @apply w-full mx-auto max-w-screen-xl text-center flex
+      py-16 px-8 xl:(rounded my-10) text-white items-center
+        justify-center min-h-100 sm:(px-16 min-h-110);
+
+    @media (min-width: 1300px) {
+      @apply rounded-xl;
+    }
+
+    background: 
+    // radial gradient `at` safari iOS ??
+      radial-gradient(ellipse at top, hsla(327, 72%, 20%, 0.95), transparent),
+      radial-gradient(ellipse at bottom, hsla(263, 60%, 20%, 0.95), transparent),
+      #12020df3 url('@img/first-class.webp') bottom center / cover no-repeat;
+
+    > div {
+      @apply max-w-125 sm:max-w-150;
+
+      > * {
+        @apply mx-auto;
+      }
+    }
+
+    h2 {
+      @apply text-2rem sm:(text-2.4rem) font-semibold leading-tight;
+    }
+
+    p {
+      @apply max-w-50ch sm:(text-lg) my-6;
+    }
   }
 }
 </style>
