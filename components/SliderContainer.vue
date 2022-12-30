@@ -11,9 +11,9 @@ const splideOptions: SplideOptions = {
   omitEnd: true,
   perMove: 1,
   autoWidth: true,
+  gap: '24px',
   // drag: 'free',
   // snap: true,
-  gap: '24px',
   // padding: '1rem',
 };
 
@@ -31,7 +31,7 @@ function updateProgress(splide: typeof Splide) {
     <Splide
       :options="splideOptions"
       :has-track="false"
-      aria-label="My Favorite Images"
+      aria-label="Services that go far beyond the ordinary"
       @splide:mounted="updateProgress"
       @splide:move="updateProgress"
     >
@@ -39,7 +39,7 @@ function updateProgress(splide: typeof Splide) {
         <SplideSlide v-for="serv in services" :key="serv.title">
           <div class="slide-container">
             <a class="services-card">
-              <img :src="serv.image" :alt="serv.alt" />
+              <img loading="lazy" :src="serv.image" :alt="serv.alt" />
               <div class="text">
                 <h3 v-text="serv.title" />
                 <p v-text="serv.text" />
