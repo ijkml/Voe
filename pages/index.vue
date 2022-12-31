@@ -140,6 +140,12 @@ const maxDate = creatInputDate(today);
         </div>
       </section>
     </div>
+
+    <div class="ze-sec-alt">
+      <section class="ze-section">
+        <BlogSection />
+      </section>
+    </div>
   </div>
 </template>
 
