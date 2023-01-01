@@ -5,6 +5,10 @@ export default defineNuxtConfig({
   app: {
     head: {
       link: [{ rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
+      htmlAttrs: {
+        lang: 'en-US',
+      },
+      meta: [{ name: 'description', content: 'Voe Air' }],
     },
   },
   modules: [

@@ -38,13 +38,13 @@ function updateProgress(splide: typeof Splide) {
       <SplideTrack>
         <SplideSlide v-for="serv in services" :key="serv.title">
           <div class="slide-container">
-            <a class="services-card">
+            <NuxtLink :to="serv.link" class="services-card">
               <img loading="lazy" :src="serv.image" :alt="serv.alt" />
               <div class="text">
                 <h3 v-text="serv.title" />
                 <p v-text="serv.text" />
               </div>
-            </a>
+            </NuxtLink>
           </div>
         </SplideSlide>
       </SplideTrack>
@@ -152,6 +152,7 @@ function updateProgress(splide: typeof Splide) {
       display: -webkit-box;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 3;
+      line-clamp: 3;
       overflow: hidden;
     }
   }
@@ -167,6 +168,7 @@ function updateProgress(splide: typeof Splide) {
 
       p {
         -webkit-line-clamp: 8;
+        line-clamp: 8;
       }
     }
   }
