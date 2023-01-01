@@ -126,8 +126,9 @@ function updateProgress(splide: typeof Splide) {
   box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
     0 1px 5px 0 rgba(0, 0, 0, 0.12);
 
-  @apply w-75 h-85 rounded-xl overflow-hidden block
-    relative focus:outline-none cursor-pointer dark:(ring-(1 zinc-5/25));
+  @apply h-85 rounded-xl overflow-hidden block
+    relative focus:outline-none cursor-pointer
+      dark:(ring-(1 zinc-5/20)) w-85vw max-w-75;
 
   img {
     @apply rounded-inherit w-full object-cover object-center
