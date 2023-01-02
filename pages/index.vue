@@ -38,7 +38,7 @@ const maxDate = creatInputDate(today);
     >
       <div>
         <h2 id="find-ur-flight" class="font-serif">Find your flight</h2>
-        <form>
+        <form class="ze-form">
           <div class="info-input-cont">
             <VInput
               class="info-input"
@@ -142,13 +142,51 @@ const maxDate = creatInputDate(today);
     </div>
 
     <div class="ze-sec-alt">
-      <section class="ze-section blog-sect" aria-labelledby="from-blog">
+      <section class="ze-section ze-blog" aria-labelledby="from-blog">
         <h2 id="from-blog" class="font-serif">Around the World with&nbsp;Us</h2>
         <p>
           Discover travel tips, the latest news, and inspiration for your next
           adventure on our blog.
         </p>
         <BlogSection />
+      </section>
+    </div>
+
+    <div class="ze-sec-alt">
+      <section class="ze-section ze-newsletter">
+        <h2 class="font-serif">Join Our Mailing List</h2>
+        <p>
+          Sign up for our mailing list to stay up to date on flight news,
+          promotions, deals and exclusive offers.
+        </p>
+
+        <div class="form-cont">
+          <form class="ze-form">
+            <div class="info-input-cont">
+              <VInput
+                class="info-input"
+                label="First Name"
+                placeholder="Enter your first name"
+              />
+              <VInput
+                class="info-input"
+                type="email"
+                label="Your Email"
+                placeholder="Enter your email address"
+              />
+            </div>
+            <VButton
+              class="search-button"
+              :class="{ loading: isSearching }"
+              tabindex="0"
+              type="submit"
+              @click.prevent="searchAction"
+            >
+              <span>Search</span>
+              <LoadingSvg class="icon" />
+            </VButton>
+          </form>
+        </div>
       </section>
     </div>
   </div>
@@ -174,19 +212,8 @@ const maxDate = creatInputDate(today);
     text-2.5rem sm:(text-2.8rem) md:(text-3.1rem);
 }
 
-.ze-search-overlap {
-  @apply relative;
-
-  > div {
-    @apply rounded-lg mt--30 p-8 bg-light-2 mx-auto shadow-(lg zinc)
-      sm:(px-12 py-10) md:(px-16 py-12) border-(1 transparent) w-full
-        dark:(bg-dark-6 shadow-transparent border-zinc-5/20)
-          lg:(max-w-screen-lg);
-  }
-
-  form {
-    @apply md:(flex items-center gap-5);
-  }
+.ze-form {
+  @apply md:(flex items-center gap-5);
 
   .info-input-cont {
     @apply grid gap-5 overflow-hidden flex-grow py-2 grid-cols-1;
@@ -198,10 +225,6 @@ const maxDate = creatInputDate(today);
 
   .info-input {
     @apply w-auto max-w-full;
-  }
-
-  h2 {
-    @apply text-1.4rem sm:(text-3xl) mb-3 font-semibold;
   }
 
   .search-button {
@@ -225,6 +248,21 @@ const maxDate = creatInputDate(today);
         @apply visible;
       }
     }
+  }
+}
+
+.ze-search-overlap {
+  @apply relative;
+
+  > div {
+    @apply rounded-lg mt--30 p-8 bg-light-2 mx-auto shadow-(lg zinc)
+      sm:(px-12 py-10) md:(px-16 py-12) border-(1 transparent) w-full
+        dark:(bg-dark-6 shadow-transparent border-zinc-5/20)
+          lg:(max-w-screen-lg);
+  }
+
+  h2 {
+    @apply text-1.4rem sm:(text-3xl) mb-3 font-semibold;
   }
 }
 
@@ -444,13 +482,28 @@ const maxDate = creatInputDate(today);
   }
 }
 
-.blog-sect {
+.ze-blog,
+.ze-newsletter {
+  @apply py-10;
+
   h2 {
     @apply text-center mx-auto max-w-md text-4xl font-semibold;
 
-    + p {
+    + :where(p) {
       @apply text-center mx-auto max-w-md mt-3 mb-12 text-lg leading-relaxed;
     }
+  }
+}
+
+.ze-newsletter {
+  @apply shadow rounded-xl;
+
+  > p {
+    @apply mb-0;
+  }
+
+  .form-cont {
+    @apply mx-auto p-8 sm:(px-12) md:(px-16) lg:(max-w-screen-lg);
   }
 }
 </style>
