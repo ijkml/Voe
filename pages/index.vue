@@ -38,17 +38,19 @@ const maxDate = creatInputDate(today);
     >
       <div>
         <h2 id="find-ur-flight" class="font-serif">Find your flight</h2>
-        <form class="ze-form">
+        <form class="ze-form" @submit.prevent="searchAction">
           <div class="info-input-cont">
             <VInput
               class="info-input"
               label="Destination / Airline"
+              required
               placeholder="Enter destination or flight number"
             />
             <VInput
               class="info-input"
               type="date"
               :min="minDate"
+              required
               :max="maxDate"
               label="Flight Date"
               placeholder="Enter arrival or departure date"
@@ -59,7 +61,6 @@ const maxDate = creatInputDate(today);
             :class="{ loading: isSearching }"
             tabindex="0"
             type="submit"
-            @click.prevent="searchAction"
           >
             <span>Search</span>
             <LoadingSvg class="icon" />
@@ -152,8 +153,8 @@ const maxDate = creatInputDate(today);
       </section>
     </div>
 
-    <div class="ze-sec-alt">
-      <section class="ze-section ze-newsletter">
+    <section class="ze-newsletter">
+      <div>
         <h2 class="font-serif">Join Our Mailing List</h2>
         <p>
           Sign up for our mailing list to stay up to date on flight news,
@@ -161,17 +162,19 @@ const maxDate = creatInputDate(today);
         </p>
 
         <div class="form-cont">
-          <form class="ze-form">
+          <form class="ze-form" @submit.prevent="searchAction">
             <div class="info-input-cont">
               <VInput
                 class="info-input"
                 label="First Name"
+                required
                 placeholder="Enter your first name"
               />
               <VInput
                 class="info-input"
                 type="email"
                 label="Your Email"
+                required
                 placeholder="Enter your email address"
               />
             </div>
@@ -180,15 +183,15 @@ const maxDate = creatInputDate(today);
               :class="{ loading: isSearching }"
               tabindex="0"
               type="submit"
-              @click.prevent="searchAction"
+              required
             >
-              <span>Search</span>
+              <span>Sign Up</span>
               <LoadingSvg class="icon" />
             </VButton>
           </form>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -489,21 +492,21 @@ const maxDate = creatInputDate(today);
   h2 {
     @apply text-center mx-auto max-w-md text-4xl font-semibold;
 
-    + :where(p) {
+    + p {
       @apply text-center mx-auto max-w-md mt-3 mb-12 text-lg leading-relaxed;
     }
   }
 }
 
 .ze-newsletter {
-  @apply shadow rounded-xl;
+  @apply bg-light-1 mx-auto p-4 md:(p-8);
 
-  > p {
-    @apply mb-0;
+  > div {
+    @apply py-8 lg:(max-w-screen-lg mx-auto);
   }
 
   .form-cont {
-    @apply mx-auto p-8 sm:(px-12) md:(px-16) lg:(max-w-screen-lg);
+    @apply mx-auto mt--4 px-4 sm:(px-12) md:(px-16);
   }
 }
 </style>
