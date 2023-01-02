@@ -126,9 +126,9 @@ const maxDate = creatInputDate(today);
     </section>
 
     <div class="ze-cta">
-      <section>
+      <section aria-labelledby="discover-fc">
         <div>
-          <h2 class="font-serif">
+          <h2 id="discover-fc" class="font-serif">
             Discover the Ultimate Travel Experience with First&nbsp;Class
           </h2>
           <p>
@@ -142,7 +142,12 @@ const maxDate = creatInputDate(today);
     </div>
 
     <div class="ze-sec-alt">
-      <section class="ze-section">
+      <section class="ze-section blog-sect" aria-labelledby="from-blog">
+        <h2 id="from-blog" class="font-serif">Around the World with&nbsp;Us</h2>
+        <p>
+          Discover travel tips, the latest news, and inspiration for your next
+          adventure on our blog.
+        </p>
         <BlogSection />
       </section>
     </div>
@@ -175,7 +180,7 @@ const maxDate = creatInputDate(today);
   > div {
     @apply rounded-lg mt--30 p-8 bg-light-2 mx-auto shadow-(lg zinc)
       sm:(px-12 py-10) md:(px-16 py-12) border-(1 transparent) w-full
-        dark:(bg-dark-6 shadow-transparent border-zinc-1/10)
+        dark:(bg-dark-6 shadow-transparent border-zinc-5/20)
           lg:(max-w-screen-lg);
   }
 
@@ -289,7 +294,7 @@ const maxDate = creatInputDate(today);
 
 .why-reasons {
   .img {
-    @apply relative h-50 w-full flex-none rounded-t-inherit;
+    @apply relative h-52 w-full flex-none rounded-t-inherit;
 
     img {
       @apply w-full h-full absolute inset-0 object-cover
@@ -308,7 +313,7 @@ const maxDate = creatInputDate(today);
   --avail-width-2: calc((100% - var(--flex-gap)) / 2);
 
   @apply overflow-hidden mx-auto w-full max-w-100 rounded-xl
-    dark:(ring-(1 zinc-6/25)) transition-all;
+    dark:(ring-(1 zinc-5/20)) transition-all;
 
   box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
     0 1px 5px 0 rgba(0, 0, 0, 0.12);
@@ -435,6 +440,16 @@ const maxDate = creatInputDate(today);
 
     p {
       @apply max-w-50ch sm:(text-lg) my-6;
+    }
+  }
+}
+
+.blog-sect {
+  h2 {
+    @apply text-center mx-auto max-w-md text-4xl font-semibold;
+
+    + p {
+      @apply text-center mx-auto max-w-md mt-3 mb-12 text-lg leading-relaxed;
     }
   }
 }
