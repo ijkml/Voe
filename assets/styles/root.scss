@@ -76,3 +76,13 @@ img {
 .ze-sec-alt {
   @apply py-6 bg-white/50 dark:bg-black/25;
 }
+
+.page-enter-active,
+.page-leave-active {
+  transition: all 500ms;
+}
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+  filter: blur(0.5rem);
+}
