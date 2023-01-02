@@ -499,7 +499,7 @@ const maxDate = creatInputDate(today);
 }
 
 .ze-newsletter {
-  @apply bg-light-1 mx-auto p-4 md:(p-8);
+  @apply bg-light-1 dark:(bg-dark-8) mx-auto p-4 md:(p-8);
 
   > div {
     @apply py-8 lg:(max-w-screen-lg mx-auto);
