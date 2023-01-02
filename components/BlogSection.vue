@@ -1,142 +1,99 @@
 <script setup lang="ts">
+import blog from '@/i18n/copy/blog';
 </script>
 
 <template>
-  <div class="container px-6 py-10 mx-auto">
-    <h1
-      class="text-3xl font-semibold text-gray-800 capitalize lg:text-4xl dark:text-white"
-    >
-      From the blog
-    </h1>
-
-    <div class="grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-2">
-      <div class="lg:flex">
-        <img
-          class="object-cover w-full h-56 rounded-lg lg:w-64"
-          src="https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80"
-          alt=""
-        />
-
-        <div class="flex flex-col justify-between py-6 lg:mx-6">
-          <a
-            href="#"
-            class="text-xl font-semibold text-gray-800 hover:underline dark:text-white"
-          >
-            How to use sticky note for problem solving
-          </a>
-
-          <span class="text-sm text-gray-500 dark:text-gray-300"
-            >On: 20 October 2019</span
-          >
-        </div>
-      </div>
-
-      <div class="lg:flex">
-        <img
-          class="object-cover w-full h-56 rounded-lg lg:w-64"
-          src="https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80"
-          alt=""
-        />
-
-        <div class="flex flex-col justify-between py-6 lg:mx-6">
-          <a
-            href="#"
-            class="text-xl font-semibold text-gray-800 hover:underline dark:text-white"
-          >
-            How to use sticky note for problem solving
-          </a>
-
-          <span class="text-sm text-gray-500 dark:text-gray-300"
-            >On: 20 October 2019</span
-          >
-        </div>
-      </div>
-
-      <div class="lg:flex">
-        <img
-          class="object-cover w-full h-56 rounded-lg lg:w-64"
-          src="https://images.unsplash.com/photo-1544654803-b69140b285a1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80"
-          alt=""
-        />
-
-        <div class="flex flex-col justify-between py-6 lg:mx-6">
-          <a
-            href="#"
-            class="text-xl font-semibold text-gray-800 hover:underline dark:text-white"
-          >
-            Morning routine to boost your mood
-          </a>
-
-          <span class="text-sm text-gray-500 dark:text-gray-300"
-            >On: 25 November 2020</span
-          >
-        </div>
-      </div>
-
-      <div class="lg:flex">
-        <img
-          class="object-cover w-full h-56 rounded-lg lg:w-64"
-          src="https://images.unsplash.com/photo-1530099486328-e021101a494a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80"
-          alt=""
-        />
-
-        <div class="flex flex-col justify-between py-6 lg:mx-6">
-          <a
-            href="#"
-            class="text-xl font-semibold text-gray-800 hover:underline dark:text-white"
-          >
-            All the features you want to know
-          </a>
-
-          <span class="text-sm text-gray-500 dark:text-gray-300"
-            >On: 30 September 2020</span
-          >
-        </div>
-      </div>
-
-      <div class="lg:flex">
-        <img
-          class="object-cover w-full h-56 rounded-lg lg:w-64"
-          src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80"
-          alt=""
-        />
-
-        <div class="flex flex-col justify-between py-6 lg:mx-6">
-          <a
-            href="#"
-            class="text-xl font-semibold text-gray-800 hover:underline dark:text-white"
-          >
-            Minimal workspace for your inspirations
-          </a>
-
-          <span class="text-sm text-gray-500 dark:text-gray-300"
-            >On: 13 October 2019</span
-          >
-        </div>
-      </div>
-
-      <div class="lg:flex">
-        <img
-          class="object-cover w-full h-56 rounded-lg lg:w-64"
-          src="https://images.unsplash.com/photo-1624996379697-f01d168b1a52?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80"
-          alt=""
-        />
-
-        <div class="flex flex-col justify-between py-6 lg:mx-6">
-          <a
-            href="#"
-            class="text-xl font-semibold text-gray-800 hover:underline dark:text-white"
-          >
-            What do you want to know about Blockchane
-          </a>
-
-          <span class="text-sm text-gray-500 dark:text-gray-300"
-            >On: 20 October 2019</span
-          >
-        </div>
-      </div>
-    </div>
+  <div class="top-cont">
+    <BlogItem v-for="bl in blog" :key="bl.title" v-bind="bl" />
   </div>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+$line-no: 3;
+$pad-top: 1rem;
+$line-ht: 1.3rem;
+$elem-ht: ($line-ht * $line-no) + $pad-top;
+$overlay: hsla(263, 60%, 20%, 0.088);
+
+.top-cont {
+  @apply grid grid-cols-1 gap-6 md:gap-8;
+}
+
+:deep(.blog-card) {
+  @apply flex justify-center overflow-hidden rounded-xl items-end
+    transition-all duration-400 min-h-80 ease-in-out text-light-1
+      relative focus:outline-none bg-brand-pri-dark max-w-90 mx-auto
+        md:(max-w-100) ring-(1 zinc-5/25);
+
+  &::after {
+    @apply w-full h-full top-0 left-0 absolute z-0 transition-inherit
+      rounded-inherit filter;
+
+    content: '';
+    background: linear-gradient($overlay, $overlay),
+      #210123 var(--card-image) bottom center / cover no-repeat;
+  }
+
+  > div {
+    @apply z-1 relative w-full bg-black/70 p-4 rounded-b-inherit
+      transition-inherit;
+
+    margin-bottom: -$elem-ht;
+  }
+
+  h3 {
+    @apply text-lg font-semibold;
+  }
+
+  .dated {
+    @apply text-xs font-mono block mt-2 text-zinc-3;
+  }
+
+  .peekaboo {
+    font-size: 0.88rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $line-no;
+    line-clamp: $line-no;
+    padding-top: $pad-top;
+    line-height: $line-ht;
+    min-height: $elem-ht;
+
+    @apply overflow-hidden invisible transition max-w-50ch
+      duration-500 transform translate-y-full;
+  }
+
+  &:hover,
+  &:focus-visible {
+    &::after {
+      @apply sepia-75 brightness-40;
+    }
+
+    > div {
+      @apply mb-0;
+    }
+
+    .peekaboo {
+      @apply delay-150 visible translate-y-0;
+    }
+  }
+}
+
+@media (min-width: 400px) and (max-width: 519.9px) {
+  .blog-card {
+    @apply w-full max-w-full min-h-60;
+  }
+}
+
+@media (min-width: 520px) and (max-width: 991.9px) {
+  .top-cont {
+    @apply grid-cols-2;
+  }
+}
+
+@media (min-width: 992px) {
+  .top-cont {
+    @apply grid-cols-3;
+  }
+}
+</style>
