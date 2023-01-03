@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300">
-    <filter id="a" x="0" y="0">
-        <feTurbulence baseFrequency="0.8" stitchTiles="stitch" type="turbulence"/>
-    </filter>
-    <path fill="none" d="M0 0h300v300H0z"/>
-    <path d="M0 0h300v300H0z" filter="url(#a)" opacity=".5"/>
-</svg>
