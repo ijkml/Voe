@@ -5,9 +5,9 @@ import expansion from '@img/blog/expansion.webp?url';
 import paris from '@img/blog/paris.webp?url';
 import secureTravel from '@img/blog/secure-travel.webp?url';
 
-import type { BlogItem } from '@/types';
+import type { BlogCard } from '@/types';
 
-const blog: BlogItem[] = [
+const blog: BlogCard[] = [
   {
     title: '5 Tips for Stress-Free Travel at Voe',
     text: "Feeling overwhelmed by the thought of packing, navigating unfamiliar airports, and dealing with flight delays? We've got you covered with these 5 simple tips for stress-free travel at Voe. From packing essentials to preparing for flight delays, these tips will help you stay calm and focused on your journey.",
