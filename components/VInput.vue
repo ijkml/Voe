@@ -6,6 +6,7 @@ interface Props {
   class?: string;
   id?: string;
   name?: string;
+  required?: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -15,9 +16,18 @@ const props = withDefaults(defineProps<Props>(), {
   class: undefined,
   id: undefined,
   name: undefined,
+  required: false,
 });
 
-const { type, placeholder, label, class: elemClass, id, name } = toRefs(props);
+const {
+  type,
+  placeholder,
+  label,
+  class: elemClass,
+  id,
+  name,
+  required,
+} = toRefs(props);
 
 const inputPlaceholder = placeholder.value ?? label.value;
 
@@ -50,6 +60,7 @@ function setFocus(on: boolean) {
         :type="type"
         class="input-1"
         :name="name"
+        :required="required"
         v-bind="$attrs"
         :placeholder="inputPlaceholder"
         @focus="setFocus(true)"
