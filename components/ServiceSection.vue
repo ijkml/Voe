@@ -11,7 +11,12 @@ const splideOptions: SplideOptions = {
   omitEnd: true,
   perMove: 1,
   autoWidth: true,
-  gap: '24px',
+  gap: '1.5rem',
+  breakpoints: {
+    600: {
+      gap: '1.2rem',
+    },
+  },
   // drag: 'free',
   // snap: true,
   // padding: '1rem',

@@ -4,12 +4,14 @@ import type { ServicesCard } from '@/types';
 const props = defineProps<ServicesCard>();
 
 const { image, link, text, title } = toRefs(props);
+
+const imageUrl = `url(${image.value})`;
 </script>
 
 <template>
   <div class="slide-container">
     <NuxtLink :to="link" class="services-card">
-      <img loading="lazy" :src="image" alt="" />
+      <div v-lazy-img class="card-img" />
       <div class="text">
         <h3 v-text="title" />
         <p v-text="text" />
@@ -19,28 +21,40 @@ const { image, link, text, title } = toRefs(props);
 </template>
 
 <style scoped lang="scss">
+$leading: 1.5em;
+
+.img-y {
+  --card-image: v-bind('imageUrl');
+}
+
 .slide-container {
-  @apply p-2;
+  @apply sm:p-2;
 }
 
 .services-card {
   box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
     0 1px 5px 0 rgba(0, 0, 0, 0.12);
 
-  @apply h-85 rounded-xl overflow-hidden block
-    relative focus:outline-none cursor-pointer
-      dark:(ring-(1 zinc-5/20)) w-85vw max-w-75;
+  @apply w-85vw max-w-75 bg-zinc-1 dark:bg-zinc-8 h-85 relative
+      rounded-xl transition duration-350 overflow-hidden flex flex-col
+        focus:outline-none cursor-pointer dark:(ring-(1 zinc-5/20));
 }
 
-img {
-  @apply rounded-inherit w-full object-cover object-center
-      transform transition duration-300 h-full;
+.card-img {
+  @apply w-full h-49;
+
+  &::after {
+    @apply content-[''] absolute inset-0 w-full h-inherit
+        transition-all duration-350 rounded-inherit;
+
+    background: var(--card-image) center center / cover no-repeat;
+  }
 }
 
 .text {
-  @apply w-full h-auto absolute z-1 left-0 bottom-0 p-5 filter
-      transition-all duration-300 bg-zinc-1/85 dark:bg-zinc-8/95
-        backdrop-blur-6;
+  @apply transition-all duration-350 w-full p-5 z-2
+    filter bg-zinc-1 dark:bg-zinc-8 backdrop-blur-6
+      rounded-b-inherit relative h-auto flex-grow-0;
 }
 
 h3 {
@@ -48,30 +62,36 @@ h3 {
 }
 
 p {
-  @apply text-0.95rem transition-all;
+  font-size: 0.95rem;
+  transition: all 350ms cubic-bezier(0.4, 0, 0.2, 1);
+  line-height: $leading;
 
   @media (hover: hover) and (min-width: 768px) {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
-    overflow: hidden;
+    @apply line-clamp-3;
+
+    line-height: $leading;
+    max-height: $leading * 3;
   }
 }
 
 .services-card {
-  &:hover,
-  &:focus-visible {
-    img {
-      @apply scale-125;
+  &:hover {
+    .card-img::after {
+      @apply h-full opacity-90;
     }
 
     .text {
-      @apply pb-10;
+      @apply bg-opacity-70 dark:bg-opacity-85;
+    }
 
-      p {
-        -webkit-line-clamp: 8;
-        line-clamp: 8;
+    p {
+      @media (hover: hover) and (min-width: 768px) {
+        -webkit-line-clamp: 5;
+        line-clamp: 5;
+        max-height: $leading * 5;
+        // max-height: 100%;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
       }
     }
   }
