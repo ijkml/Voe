@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { BlogItem } from '@/types';
+import type { BlogCard } from '@/types';
 
-const props = defineProps<BlogItem>();
+const props = defineProps<BlogCard>();
 
 const { date, image, link, text, title } = toRefs(props);
 const imageUrl = `url(${image.value})`;

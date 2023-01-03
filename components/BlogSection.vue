@@ -4,7 +4,7 @@ import blog from '@/i18n/copy/blog';
 
 <template>
   <div class="top-cont">
-    <BlogItem v-for="bl in blog" :key="bl.title" v-bind="bl" />
+    <BlogCard v-for="bl in blog" :key="bl.title" v-bind="bl" />
   </div>
 </template>
 
@@ -46,7 +46,7 @@ $overlay: hsla(263, 60%, 20%, 0.088);
   }
 
   .dated {
-    @apply text-xs font-mono block mt-2 text-zinc-3;
+    @apply text-xs font-mono block mt-2 text-zinc-2;
   }
 
   .peekaboo {
