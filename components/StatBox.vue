@@ -10,7 +10,7 @@ const props = withDefaults(
 
 const { figure, suffix, title } = toRefs(props);
 
-const target = ref<HTMLDivElement>();
+const target = ref<HTMLElement>();
 const source = ref(0);
 const { stop } = useIntersectionObserver(target, ([{ isIntersecting }]) => {
   if (isIntersecting) {
