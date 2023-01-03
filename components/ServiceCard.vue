@@ -28,7 +28,7 @@ $leading: 1.5em;
 }
 
 .slide-container {
-  @apply sm:p-2;
+  @apply py-2 px-1 sm:px-2;
 }
 
 .services-card {

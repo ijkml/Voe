@@ -61,8 +61,8 @@ function generateMessage(): string {
 }
 
 .demo-page-root {
-  @apply flex px-16 py-32 w-full items-center relative
-    justify-center min-h-90vh;
+  @apply flex w-full items-center relative justify-center
+    min-h-90vh px-8 py-16 sm:(px-16 py-32);
 }
 
 .page-container {
