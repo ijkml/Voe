@@ -29,7 +29,7 @@ onMounted(() => {
       <LanguageIcon aria-hidden="true" class="lang" />
       <span class="wrapper">
         {{ current }}
-        <div
+        <span
           :class="{ open }"
           class="i-carbon-chevron-down"
           aria-hidden="true"
@@ -84,7 +84,7 @@ onMounted(() => {
   &:focus-visible {
     --at-apply: bg-opacity-40;
 
-    .wrapper > div {
+    .wrapper > span {
       --at-apply: rotate-90;
     }
   }
@@ -96,8 +96,9 @@ onMounted(() => {
   .wrapper {
     --at-apply: hidden sm:inline-flex;
 
-    > div {
-      --at-apply: transition-transform transform ml-2 -mr-1 h-5 w-5 duration-200;
+    > span {
+      --at-apply: transition-transform transform ml-2 -mr-1 h-5 w-5
+        duration-200 backface-hidden block;
 
       &.open {
         --at-apply: rotate-180;
