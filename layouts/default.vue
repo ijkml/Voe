@@ -27,7 +27,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="app-layout--default">
+  <div class="app-layout--default" data-scroll>
     <TheHeader :blend="blendHeader" />
     <main>
       <slot />

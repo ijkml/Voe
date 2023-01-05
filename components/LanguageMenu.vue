@@ -1,19 +1,31 @@
 <script setup lang="ts">
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue';
 import LanguageIcon from '@icons/language.svg?component';
+import type { LocaleCode } from '@/types';
 
-const languages = [
-  { short: 'English', long: 'English' },
-  { short: '简体中文', long: '简体中文 / Simplified Chinese' },
-  { short: 'Español', long: 'Español' },
-  { short: 'Française', long: 'Française' },
-  { short: '日本語', long: '日本語 / Japanese' },
+const { locale, availableLocales } = useI18n();
+
+interface Locale {
+  short: string;
+  long: string;
+  code: LocaleCode;
+}
+
+const languages: Locale[] = [
+  { short: 'English', long: 'English', code: 'en' },
+  { short: '简体中文', long: '简体中文 / Simplified Chinese', code: 'zh' },
+  { short: 'Español', long: 'Español', code: 'es' },
+  { short: 'Française', long: 'Française', code: 'fr' },
+  { short: '日本語', long: '日本語 / Japanese', code: 'ja' },
 ];
 
 const current = ref(languages[0].short);
 
-function setLanguage(index: number) {
-  current.value = languages[index].short;
+function setLanguage(code: LocaleCode) {
+  if (locale.value !== code) {
+    current.value = languages.find((l) => l.code === code)?.short || '';
+    locale.value = code;
+  }
 }
 
 onMounted(() => {
@@ -47,11 +59,15 @@ onMounted(() => {
     >
       <MenuItems class="menu-body">
         <MenuItem
-          v-for="(lang, i) in languages"
+          v-for="lang in languages"
           v-slot="{ active }"
           :key="lang.short"
         >
-          <button class="menu-item" :class="{ active }" @click="setLanguage(i)">
+          <button
+            class="menu-item"
+            :class="{ active }"
+            @click="setLanguage(lang.code)"
+          >
             {{ lang.long }}
           </button>
         </MenuItem>
