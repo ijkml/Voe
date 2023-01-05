@@ -17,6 +17,7 @@ export default defineNuxtConfig({
     '@unocss/nuxt',
     '@nuxtjs/color-mode',
     'vite-plugin-vue-type-imports/nuxt',
+    '@nuxtjs/i18n',
   ],
   alias: {
     '@img': fileURLToPath(new URL('./assets/images', import.meta.url)),
@@ -44,6 +45,43 @@ export default defineNuxtConfig({
       svgLoader({
         defaultImport: 'url',
       }),
+    ],
+  },
+  i18n: {
+    strategy: 'no_prefix',
+    detectBrowserLanguage: {
+      useCookie: false,
+      fallbackLocale: 'en',
+    },
+    vueI18n: {
+      fallbackLocale: 'en',
+      legacy: false,
+    },
+    // lazy: true,
+    defaultLocale: 'en',
+    types: 'composition',
+    langDir: 'i18n/locales',
+    locales: [
+      {
+        code: 'en',
+        file: 'en.json',
+      },
+      {
+        code: 'es',
+        file: 'es.json',
+      },
+      {
+        code: 'fr',
+        file: 'fr.json',
+      },
+      {
+        code: 'ja',
+        file: 'ja.json',
+      },
+      {
+        code: 'zh',
+        file: 'zh.json',
+      },
     ],
   },
 });
