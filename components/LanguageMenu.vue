@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue';
-import LanguageIcon from '@icons/language.svg?component';
 import type { LocaleCode } from '@/types';
 
-const { locale, availableLocales } = useI18n();
+const { locale } = useI18n();
+const { push } = useRouter();
+const localePath = useLocalePath();
 
 interface Locale {
   short: string;
@@ -11,20 +12,25 @@ interface Locale {
   code: LocaleCode;
 }
 
-const languages: Locale[] = [
+const languages: Readonly<Locale[]> = [
   { short: 'English', long: 'English', code: 'en' },
   { short: '简体中文', long: '简体中文 / Simplified Chinese', code: 'zh' },
   { short: 'Español', long: 'Español', code: 'es' },
   { short: 'Française', long: 'Française', code: 'fr' },
   { short: '日本語', long: '日本語 / Japanese', code: 'ja' },
-];
+] as const;
 
-const current = ref(languages[0].short);
+const current = computed(() => {
+  return languages.find((l) => l.code === locale.value)?.short;
+});
 
 function setLanguage(code: LocaleCode) {
   if (locale.value !== code) {
-    current.value = languages.find((l) => l.code === code)?.short || '';
-    locale.value = code;
+    const { fullPath } = useRoute();
+    // const plainUrl = removeLocaleCode(fullPath);
+    // const intlUrl = localePath(plainUrl, code);
+    // push(intlUrl);
+    push(localePath(removeLocaleCode(fullPath), code));
   }
 }
 
@@ -38,7 +44,6 @@ onMounted(() => {
 <template>
   <Menu v-slot="{ open }" as="div" class="menu-root">
     <MenuButton class="menu-button" tabindex="0" title="Choose language">
-      <LanguageIcon aria-hidden="true" class="lang" />
       <span class="wrapper">
         {{ current }}
         <span
