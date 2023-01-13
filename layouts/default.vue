@@ -2,7 +2,6 @@
 import type { WritableComputedRef } from 'vue';
 
 const route = useRoute();
-const localePath = useLocalePath();
 const blendHeader = ref([localePath('/'), '/'].includes(route.path));
 
 const nuxtApp = useNuxtApp();

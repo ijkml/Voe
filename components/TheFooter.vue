@@ -65,7 +65,7 @@ const links: LinkInterface[] = [
                 v-for="lnk of cat.links"
                 :key="lnk.text"
                 class="ftr-link"
-                :to="lnk.link"
+                :to="localePath(lnk.link)"
                 :external="lnk.external"
                 :target="lnk.external ? '_blank' : undefined"
               >
@@ -77,7 +77,7 @@ const links: LinkInterface[] = [
 
         <div class="bottom">
           <div class="copyleft">
-            <NuxtLink to="/" tabindex="0">
+            <NuxtLink :to="localePath('/')" tabindex="0">
               &copy;{{ new Date().getFullYear() }}
               Voe International
             </NuxtLink>

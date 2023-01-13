@@ -5,13 +5,13 @@ import reportsIcon from '@icons/reports.svg?component';
 
 import type { MenuItem } from '@/types/header';
 
-interface Props {
-  blend?: boolean;
-}
-
 const props = withDefaults(defineProps<Props>(), {
   blend: false,
 });
+
+interface Props {
+  blend?: boolean;
+}
 
 const { blend } = toRefs(props);
 
@@ -55,7 +55,12 @@ const solutions: MenuItem[] = [
   },
 ];
 
-const headerLinks = [
+type HeaderLinks = (
+  | { text: string; to: string; menu?: false }
+  | { title: string; menu: true; items: MenuItem[] }
+)[];
+
+const headerLinks: HeaderLinks = [
   { text: 'Home', to: '/' },
   { text: 'Tour', to: '/other' },
   { title: 'Flights', menu: true, items: solutions },
@@ -67,7 +72,7 @@ const headerLinks = [
 <template>
   <header :class="{ blend, scrolled, elevated }">
     <div>
-      <NuxtLink v-once title="Voe logo" to="/">
+      <NuxtLink v-once title="Voe logo" :to="localePath('/')">
         <TheLogo class="the-logo" />
       </NuxtLink>
 
@@ -78,7 +83,7 @@ const headerLinks = [
           </HeaderMenu>
           <NuxtLink
             v-else
-            :to="hl.to"
+            :to="localePath(hl.to)"
             tabindex="0"
             exact-active-class="active"
             class="header-link"

@@ -88,7 +88,7 @@ const mobileMenuLinks = [
             <NuxtLink
               v-for="sv of nl.drop"
               :key="sv.text"
-              :to="sv.to"
+              :to="localePath(sv.to)"
               tabindex="0"
               exact-active-class="active"
             >

@@ -4,7 +4,6 @@ import type { LocaleCode } from '@/types';
 
 const { locale } = useI18n();
 const { push } = useRouter();
-const localePath = useLocalePath();
 
 interface Locale {
   short: string;
