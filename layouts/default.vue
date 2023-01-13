@@ -2,12 +2,13 @@
 import type { WritableComputedRef } from 'vue';
 
 const route = useRoute();
-const blendHeader = ref(route.path === '/');
+const localePath = useLocalePath();
+const blendHeader = ref([localePath('/'), '/'].includes(route.path));
 
 const nuxtApp = useNuxtApp();
 nuxtApp.hook('page:start', closeSideNav);
 nuxtApp.hook('page:finish', () => {
-  blendHeader.value = route.path === '/';
+  blendHeader.value = [localePath('/'), '/'].includes(route.path);
 });
 
 let isLocked: WritableComputedRef<boolean> | null = null;
