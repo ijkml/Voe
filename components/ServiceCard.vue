@@ -11,7 +11,7 @@ const imageUrl = `url(${image.value})`;
 <template>
   <div class="slide-container">
     <NuxtLink :to="link" class="services-card">
-      <div v-lazy-img class="card-img" />
+      <div v-lazy-pix:bg class="card-img" />
       <div class="text">
         <h3 v-text="title" />
         <p v-text="text" />

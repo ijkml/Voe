@@ -26,7 +26,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-prettier-vue": "^4.2.0",
     "eslint-plugin-vue": "^9.8.0",
-    "lazy-pix": "0.1.0",
+    "lazy-pix": "1.0.0",
     "nuxt": "^3.0.0",
     "prettier": "^2.8.2",
     "sass": "^1.57.1",

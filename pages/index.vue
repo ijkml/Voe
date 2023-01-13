@@ -73,7 +73,7 @@ const maxDate = creatInputDate(today);
       <div>
         <div class="covid-info">
           <div
-            v-lazy-img="'y'"
+            v-lazy-pix:bg="'y'"
             class="img"
             role="img"
             title="A woman wearing a mask"
@@ -107,7 +107,8 @@ const maxDate = creatInputDate(today);
             :aria-label="y.title"
           >
             <div class="img">
-              <img loading="lazy" :alt="y.alt" :src="y.image" />
+              <!-- <img loading="lazy" :alt="y.alt" :src="y.image" /> -->
+              <img v-lazy-pix="y.image" :alt="y.alt" />
             </div>
             <div class="text">
               <h3 v-text="y.title" />
@@ -131,7 +132,7 @@ const maxDate = creatInputDate(today);
       <ServiceSection class="slider-cont" />
     </section>
 
-    <section v-lazy-img class="ze-discover-fc" aria-labelledby="discover-fc">
+    <section v-lazy-pix:bg class="ze-discover-fc" aria-labelledby="discover-fc">
       <div>
         <h2 id="discover-fc" class="font-serif">
           Discover the Ultimate Travel Experience with First&nbsp;Class
