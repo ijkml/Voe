@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue';
+import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue';
+
 import type { LocaleCode } from '@/types';
 
 const { locale } = useI18n();
@@ -20,7 +21,7 @@ const languages: Readonly<Locale[]> = [
 ] as const;
 
 const current = computed(() => {
-  return languages.find((l) => l.code === locale.value)?.short;
+  return languages.find((l) => l.code === locale.value) as Locale;
 });
 
 function setLanguage(code: LocaleCode) {
@@ -32,118 +33,119 @@ function setLanguage(code: LocaleCode) {
     push(localePath(removeLocaleCode(fullPath), code));
   }
 }
-
-onMounted(() => {
-  document.querySelectorAll('.menu-root').forEach((elem) => {
-    elem.setAttribute('tabindex', '-1');
-  });
-});
 </script>
 
 <template>
-  <Menu v-slot="{ open }" as="div" class="menu-root">
-    <MenuButton class="menu-button" tabindex="0" title="Choose language">
+  <Popover v-slot="{ open, close }" class="relative">
+    <PopoverButton class="menu-button">
+      <span class="short" v-text="current.code" />
       <span class="wrapper">
-        {{ current }}
+        {{ current.short }}
         <span
           :class="{ open }"
           class="i-carbon-chevron-down"
           aria-hidden="true"
         />
       </span>
-    </MenuButton>
+    </PopoverButton>
 
     <Transition
-      enter-active-class="transition duration-100 ease-out"
-      enter-from-class="transform scale-95 opacity-0"
-      enter-to-class="transform scale-100 opacity-100"
-      leave-active-class="transition duration-75 ease-in"
-      leave-from-class="transform scale-100 opacity-100"
-      leave-to-class="transform scale-95 opacity-0"
+      enter-active-class="transition duration-200 ease-out"
+      enter-from-class="translate-y-1 opacity-0"
+      enter-to-class="translate-y-0 opacity-100"
+      leave-active-class="transition duration-150 ease-in"
+      leave-from-class="translate-y-0 opacity-100"
+      leave-to-class="translate-y-1 opacity-0"
     >
-      <MenuItems class="menu-body">
-        <MenuItem
-          v-for="lang in languages"
-          v-slot="{ active }"
-          :key="lang.short"
-        >
+      <PopoverPanel class="pop-panel-body">
+        <div>
           <button
+            v-for="lang in languages"
+            :key="lang.short"
             class="menu-item"
-            :class="{ active }"
-            @click="setLanguage(lang.code)"
-          >
-            {{ lang.long }}
-          </button>
-        </MenuItem>
-      </MenuItems>
+            @click="
+              () => {
+                close();
+                setLanguage(lang.code);
+              }
+            "
+            v-text="lang.long"
+          />
+        </div>
+      </PopoverPanel>
     </Transition>
-  </Menu>
+  </Popover>
 </template>
 
-<style lang="scss" scoped>
+<style scoped lang="scss">
 .menu-root {
-  --at-apply: relative inline-block text-left;
+  @apply relative inline-block text-left;
 
   &:focus,
   &:focus-visible {
-    --at-apply: outline-none;
+    @apply outline-none;
   }
 }
 
-.menu-button {
-  --at-apply: inline-flex w-full justify-center rounded-md px-2.5 py-2 text-sm
+:deep(.menu-button) {
+  @apply inline-flex w-full justify-center rounded-md px-2.5 py-2 text-sm
     font-medium text-white bg-black bg-opacity-20 transition duration-250
     sm:(px-4);
 
   &:focus,
   &:focus-visible {
-    --at-apply: outline-none;
+    @apply outline-none;
   }
 
   &:hover,
   &:focus-visible {
-    --at-apply: bg-opacity-40;
+    @apply bg-opacity-40;
 
     .wrapper > span {
-      --at-apply: rotate-90;
+      @apply rotate-90;
     }
   }
 
   .lang {
-    --at-apply: h-5 w-5 sm:(mr-2 ml--1);
+    @apply h-5 w-5 sm:(mr-2 ml--1);
+  }
+
+  .short {
+    @apply inline-flex sm:hidden uppercase;
   }
 
   .wrapper {
-    --at-apply: hidden sm:inline-flex;
+    @apply hidden sm:inline-flex;
 
     > span {
-      --at-apply: transition-transform transform ml-2 -mr-1 h-5 w-5
-        duration-200 backface-hidden block;
+      @apply transition-transform transform ml-2 -mr-1 h-5 w-5
+        duration-200 backface-hidden block delay-50;
 
       &.open {
-        --at-apply: rotate-180;
+        @apply rotate-180;
       }
     }
   }
 }
 
-.menu-body {
-  --at-apply: absolute right--10 mt-1 w-44 origin-top-right shadow-lg rounded-md
-    bg-light-2 ring-1 ring-black/5 overflow-hidden sm:(right-0 w-56)
-    text-zinc-800 py-1px dark:(bg-brand-pri-dark text-zinc-1) overflow-hidden;
+.pop-panel-body {
+  @apply absolute right--10 mt-1 w-44 origin-top-right sm:(right-0 w-56);
 
-  &:focus,
-  &:focus-visible {
-    --at-apply: outline-none;
+  > div {
+    @apply rounded-md shadow-lg bg-light-2 text-zinc-800
+      ring-(1 black/5) py-1px of-hidden dark:shadow-none
+        dark:(bg-brand-pri-dark text-zinc-1 ring-brand-pri/85);
   }
 }
 
 .menu-item {
-  --at-apply: flex w-full items-center rounded-sm font-medium px-4 py-3 text-sm
-    text-left focus:outline-none;
+  @apply flex w-full items-center rounded-sm font-medium
+    px-4 py-3 text-sm text-left focus:outline-none;
 
-  &.active {
-    --at-apply: text-brand-pri bg-zinc-3/80 dark:(bg-brand-pri/50 text-white);
+  &:hover,
+  &:focus-visible {
+    @apply text-brand-pri bg-zinc-3/80
+      dark:(bg-brand-pri/50 text-white);
   }
 }
 </style>
