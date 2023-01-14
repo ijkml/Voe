@@ -22,7 +22,7 @@ export default defineNuxtConfig({
   alias: {
     '@img': fileURLToPath(new URL('./assets/images', import.meta.url)),
     '@icons': fileURLToPath(new URL('./assets/icons', import.meta.url)),
-    // '#data': fileURLToPath(new URL('./assets/data', import.meta.url)),
+    '@data': fileURLToPath(new URL('./assets/data', import.meta.url)),
   },
   experimental: {
     reactivityTransform: false,
