@@ -1,8 +1,5 @@
 <script setup lang="ts">
-import insightsIcon from '@icons/insights.svg?component';
-import automationsIcon from '@icons/automations.svg?component';
-import reportsIcon from '@icons/reports.svg?component';
-
+import { menuData } from '@data/header';
 import type { MenuItem } from '@/types/header';
 
 const props = withDefaults(defineProps<Props>(), {
@@ -34,38 +31,21 @@ watchThrottled(
   { throttle: 150 }
 );
 
-const solutions: MenuItem[] = [
-  {
-    name: 'Insights',
-    description: 'Measure actions your users take',
-    link: '/a',
-    icon: insightsIcon,
-  },
-  {
-    name: 'Automations',
-    description: 'Create your own targeted content',
-    link: '/b',
-    icon: automationsIcon,
-  },
-  {
-    name: 'Reports',
-    description: 'Keep track of your growth',
-    link: '/other',
-    icon: reportsIcon,
-  },
-];
-
 type HeaderLinks = (
   | { text: string; to: string; menu?: false }
-  | { title: string; menu: true; items: MenuItem[] }
+  | { title: string; menu: { id: string; items: MenuItem[] } }
 )[];
 
+const { t } = useI18n();
+
+const transMenu = (id: string) => t(`header.${id}.text`);
+
 const headerLinks: HeaderLinks = [
-  { text: 'Home', to: '/' },
-  { text: 'Tour', to: '/other' },
-  { title: 'Flights', menu: true, items: solutions },
-  { title: 'Car Rental', menu: true, items: solutions },
-  { text: 'Contact', to: '/contact' },
+  { text: 'home', to: '/' },
+  { title: 'tour', menu: menuData.tour },
+  { title: 'flight', menu: menuData.flight },
+  { title: 'park', menu: menuData.park },
+  { title: 'about', menu: menuData.about },
 ];
 </script>
 
@@ -78,8 +58,8 @@ const headerLinks: HeaderLinks = [
 
       <nav class="main-nav">
         <template v-for="hl in headerLinks" :key="hl.text">
-          <HeaderMenu v-if="hl.menu" :items="hl.items">
-            {{ hl.title }}
+          <HeaderMenu v-if="hl.menu" v-bind="hl.menu">
+            {{ transMenu(hl.title) }}
           </HeaderMenu>
           <NuxtLink
             v-else
@@ -87,9 +67,9 @@ const headerLinks: HeaderLinks = [
             tabindex="0"
             exact-active-class="active"
             class="header-link"
-            :title="hl.text"
+            :title="$t(`header.${hl.text}`)"
           >
-            {{ hl.text }}
+            {{ $t(`header.${hl.text}`) }}
           </NuxtLink>
         </template>
       </nav>
@@ -218,7 +198,7 @@ header {
   --at-apply: hidden sm:inline-flex;
 }
 
-@media (min-width: 980px) {
+@media (min-width: 1000px) {
   .sidenav-button {
     // display: none;
   }

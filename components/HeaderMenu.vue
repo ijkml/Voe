@@ -5,14 +5,19 @@ import type { MenuItem } from '@/types/header';
 
 const props = defineProps<{
   items: MenuItem[];
+  id: string;
 }>();
 
-const { items } = toRefs(props);
+const { items, id } = toRefs(props);
+
+const { t } = useI18n();
+
+const transMenu = (index: string) => t(`header.${id.value}.menu.${index}`);
 </script>
 
 <template>
   <Popover v-slot="{ open: active, close }" class="relative">
-    <PopoverButton :class="{ active }" class="group header-link">
+    <PopoverButton :class="{ active }" class="header-link">
       <slot />
       <div
         :class="{ active }"
@@ -35,7 +40,7 @@ const { items } = toRefs(props);
             <NuxtLink
               v-for="item in items"
               :key="item.name"
-              :title="`${item.name}: ${item.description}`"
+              :title="`${transMenu(item.name)}: ${transMenu(item.description)}`"
               :to="localePath(item.link)"
               class="pop-panel-item"
               exact-active-class="active"
@@ -45,10 +50,8 @@ const { items } = toRefs(props);
                 <component :is="item.icon"></component>
               </div>
               <div class="ppi-body">
-                <p>{{ item.name }}</p>
-                <p>
-                  {{ item.description }}
-                </p>
+                <p v-text="transMenu(item.name)" />
+                <p v-text="transMenu(item.description)" />
               </div>
             </NuxtLink>
           </div>
@@ -61,10 +64,11 @@ const { items } = toRefs(props);
 <style lang="scss" scoped>
 .header-link {
   .icon {
-    --at-apply: ml-2 mr--1 h-5 w-5 transition-transform transform duration-200;
+    @apply ml-2 mr--1 h-4.5 w-4.5 transition-transform
+      transform duration-200 self-center;
 
     &.active {
-      --at-apply: rotate-180;
+      @apply rotate-180;
     }
   }
 }
@@ -110,8 +114,13 @@ const { items } = toRefs(props);
 }
 
 .ppi-icon {
-  --at-apply: flex h-10 w-10 shrink-0 items-center justify-center text-white
-    sm:(h-12 w-12);
+  @apply flex h-10 w-10 p-1 shrink-0 items-center justify-center
+    sm:(h-12 w-12 p-1.6) rounded-md of-hidden text-brand-pri
+      bg-brand-pri/10 dark:(text-brand-sec bg-brand-sec/10);
+
+    :where(svg) {
+      @apply fill-current;
+    }
 }
 
 .ppi-body {
@@ -122,7 +131,7 @@ const { items } = toRefs(props);
   }
 
   :nth-child(2) {
-    @apply text-zinc-500 dark:(text-zinc-300);
+    @apply text-zinc-500 dark:(text-zinc-300) line-clamp-2;
   }
 }
 </style>
