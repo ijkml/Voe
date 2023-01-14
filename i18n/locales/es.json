@@ -1,3 +1,55 @@
 {
-  "test-lang": "Prueba de idioma inglés"
+  "header": {
+    "home": "Inicio",
+    "tour": {
+      "text": "Giras",
+      "menu": {
+        "city": "Excursiones por la ciudad",
+        "city-text": "Explora la ciudad con nuestros paquetes de excursiones",
+        "custom": "Excursiones personalizadas",
+        "custom-text": "Crea tu propio itinerario de excursión",
+        "package": "Paquetes todo incluido",
+        "package-text": "Paquetes de vacaciones todo incluido"
+      }
+    },
+    "flight": {
+      "text": "Vuelos",
+      "menu": {
+        "schedule": "Horario de vuelos",
+        "schedule-text": "Consulta el horario de vuelos en tiempo real",
+        "destinations": "Destinos",
+        "destinations-text": "Explora destinos y planifica tu viaje",
+        "domestic": "Vuelos nacionales",
+        "domestic-text": "Reserva tus vuelos nacionales",
+        "international": "Vuelos internacionales",
+        "international-text": "Reserva tus vuelos internacionales"
+      }
+    },
+    "park": {
+      "text": "Transporte",
+      "menu": {
+        "short": "Estacionamiento a corto plazo",
+        "short-text": "Opciones de estacionamiento convenientes para tus necesidades a corto plazo",
+        "long": "Estacionamiento a largo plazo",
+        "long-text": "Opciones de estacionamiento económicas para tus planes de viaje prolongados",
+        "rate": "Tarifas de estacionamiento",
+        "rate-text": "Consulta las tarifas y planifica tu presupuesto de estacionamiento",
+        "rent": "Alquiler de coches",
+        "rent-text": "Consulta las opciones de alquiler disponibles y selecciona la mejor para ti"
+      }
+    },
+    "about": {
+      "text": "Acerca",
+      "menu": {
+        "about": "Acerca de nosotros",
+        "about-text": "Conoce más sobre nuestro aeropuerto",
+        "customer": "Servicio al cliente",
+        "customer-text": "Obtén ayuda con tu viaje",
+        "terms": "Términos de servicio",
+        "terms-text": "Consulta nuestros términos y condiciones",
+        "contact": "Contacta con nosotros",
+        "contact-text": "Comunícate con nosotros"
+      }
+    }
+  }
 }

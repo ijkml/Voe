@@ -1,3 +1,55 @@
 {
-  "test-lang": "英語の言語テスト"
+  "header": {
+    "home": "ホーム",
+    "tour": {
+      "text": "ツアー",
+      "menu": {
+        "city": "都市ツアー",
+        "city-text": "私たちのツアーパッケージで都市を探検しましょう",
+        "custom": "カスタマイズツアー",
+        "custom-text": "独自のツアーイテレーションを作成しましょう",
+        "package": "オールインクルーシブパッケージ",
+        "package-text": "オールインクルーシブバケーションパッケージ"
+      }
+    },
+    "flight": {
+      "text": "フライト情報",
+      "menu": {
+        "schedule": "フライトスケジュール",
+        "schedule-text": "リアルタイムフライトスケジュールを確認しましょう",
+        "destinations": "目的地",
+        "destinations-text": "目的地を探検し、旅行を計画しましょう",
+        "domestic": "国内線",
+        "domestic-text": "国内線を予約しましょう",
+        "international": "国際線",
+        "international-text": "国際線を予約しましょう"
+      }
+    },
+    "park": {
+      "text": "駐車場",
+      "menu": {
+        "short": "短期駐車場",
+        "short-text": "短期の需要に合わせた便利な駐車オプション",
+        "long": "長期駐車場",
+        "long-text": "長期旅行計画に合わせた手頃な駐車オプション",
+        "rate": "駐車場料金",
+        "rate-text": "料金を確認し、駐車費用を計画しましょう",
+        "rent": "レンタカー",
+        "rent-text": "利用可能なレンタルオプションを確認し、最適なものを選択しましょう"
+      }
+    },
+    "about": {
+      "text": "当社について",
+      "menu": {
+        "about": "私たちについて",
+        "about-text": "私たちの空港について学びましょう",
+        "customer": "カスタマーサービス",
+        "customer-text": "旅行のアシスタンスを受けましょう",
+        "terms": "サービス利用規約",
+        "terms-text": "私たちの利用規約をご覧ください",
+        "contact": "お問い合わせ",
+        "contact-text": "お問い合わせください"
+      }
+    }
+  }
 }

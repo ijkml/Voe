@@ -1,3 +1,55 @@
 {
-  "test-lang": "English Language Test" 
+  "header": {
+    "home": "Home",
+    "tour": {
+      "text": "Tours",
+      "menu": {
+        "city": "City Tours",
+        "city-text": "Explore the city with our tour packages",
+        "custom": "Customized Tours",
+        "custom-text": "Create your own tour itinerary",
+        "package": "All-Inclusive Packages",
+        "package-text": "All-inclusive vacation packages"
+      }
+    },
+    "flight": {
+      "text": "Flight Info",
+      "menu": {
+        "schedule": "Flight Schedule",
+        "schedule-text": "Check real-time flight schedule",
+        "destinations": "Destinations",
+        "destinations-text": "Explore destinations and plan your trip",
+        "domestic": "Domestic Flights",
+        "domestic-text": "Book your domestic flights",
+        "international": "International Flights",
+        "international-text": "Book your international flights"
+      }
+    },
+    "park": {
+      "text": "Parking",
+      "menu": {
+        "short": "Short-term parking",
+        "short-text": "Convenient parking options for your short-term needs",
+        "long": "Long-term parking",
+        "long-text": "Affordable parking options for your extended travel plans",
+        "rate": "Parking rates",
+        "rate-text": "Check the rates and plan your parking budge",
+        "rent": "Car Rental",
+        "rent-text": "View the available rental options and select the best one for you"
+      }
+    },
+    "about": {
+      "text": "About Us",
+      "menu": {
+        "about": "About Us",
+        "about-text": "Learn about our airport",
+        "customer": "Customer Service",
+        "customer-text": "Get assistance with your travel",
+        "terms": "Terms of Service",
+        "terms-text": "View our terms and conditions",
+        "contact": "Contact Us",
+        "contact-text": "Reach out to us"
+      }
+    }
+  }
 }

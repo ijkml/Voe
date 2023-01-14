@@ -1,3 +1,55 @@
 {
-  "test-lang": "Test de langue anglaise"
+  "header": {
+    "home": "Accueil",
+    "tour": {
+      "text": "Tours",
+      "menu": {
+        "city": "Tours de la ville",
+        "city-text": "Explorez la ville avec nos forfaits de visite",
+        "custom": "Tours personnalisés",
+        "custom-text": "Créez votre propre itinéraire de visite",
+        "package": "Forfaits tout compris",
+        "package-text": "Forfaits de vacances tout compris"
+      }
+    },
+    "flight": {
+      "text": "Info vol",
+      "menu": {
+        "schedule": "Horaires des vols",
+        "schedule-text": "Consultez les horaires des vols en temps réel",
+        "destinations": "Destinations",
+        "destinations-text": "Explorez les destinations et planifiez votre voyage",
+        "domestic": "Vols intérieurs",
+        "domestic-text": "Réservez vos vols intérieurs",
+        "international": "Vols internationaux",
+        "international-text": "Réservez vos vols internationaux"
+      }
+    },
+    "park": {
+      "text": "Parking",
+      "menu": {
+        "short": "Stationnement à court terme",
+        "short-text": "Options de stationnement pratiques pour vos besoins à court terme",
+        "long": "Stationnement à long terme",
+        "long-text": "Options de stationnement abordables pour vos projets de voyage prolongés",
+        "rate": "Tarifs de stationnement",
+        "rate-text": "Consultez les tarifs et planifiez votre budget de stationnement",
+        "rent": "Location de voitures",
+        "rent-text": "Consultez les options de location disponibles et choisissez celle qui convient le mieux à vos besoins"
+      }
+    },
+    "about": {
+      "text": "L'aéroport",
+      "menu": {
+        "about": "À propos de nous",
+        "about-text": "En savoir plus sur notre aéroport",
+        "customer": "Service client",
+        "customer-text": "Obtenez de l'aide pour votre voyage",
+        "terms": "Conditions d'utilisation",
+        "terms-text": "Consultez nos conditions d'utilisation",
+        "contact": "Nous contacter",
+        "contact-text": "Contactez-nous"
+      }
+    }
+  }
 }

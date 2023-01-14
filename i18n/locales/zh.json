@@ -1,3 +1,55 @@
 {
-  "test-lang": "英语语言测试"
+  "header": {
+    "home": "主页",
+    "tour": {
+      "text": "旅游",
+      "menu": {
+        "city": "城市旅游",
+        "city-text": "用我们的旅游套餐探索城市",
+        "custom": "定制旅游",
+        "custom-text": "制定你自己的旅游行程",
+        "package": "全包套餐",
+        "package-text": "全包度假套餐"
+      }
+    },
+    "flight": {
+      "text": "航班信息",
+      "menu": {
+        "schedule": "航班时间表",
+        "schedule-text": "实时查询航班时间表",
+        "destinations": "目的地",
+        "destinations-text": "探索目的地并规划旅行",
+        "domestic": "国内航班",
+        "domestic-text": "预订国内航班",
+        "international": "国际航班",
+        "international-text": "预订国际航班"
+      }
+    },
+    "park": {
+      "text": "停车",
+      "menu": {
+        "short": "短期停车",
+        "short-text": "便于短期需求的便利停车选择",
+        "long": "长期停车",
+        "long-text": "便于长期旅行计划的经济停车选择",
+        "rate": "停车费用",
+        "rate-text": "查看费用并规划停车预算",
+        "rent": "租车",
+        "rent-text": "浏览可用租车选项并选择最佳选择"
+      }
+    },
+    "about": {
+      "text": "关于我们",
+      "menu": {
+        "about": "关于我们",
+        "about-text": "了解我们的机场",
+        "customer": "客户服务",
+        "customer-text": "获得旅行帮助",
+        "terms": "服务条款",
+        "terms-text": "查看我们的条款和条件",
+        "contact": "联系我们",
+        "contact-text": "与我们联系"
+      }
+    }
+  }
 }
