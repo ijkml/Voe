@@ -3,8 +3,10 @@
 
   $overlay: hsla(0, 100%, 50%, 0.1);
 
-  min-height: clamp(400px, 99vh, 900px);
-  padding-top: $nav-height * 1.5;
+  // min-height: clamp(400px, 99vh, 900px);
+  min-height: 92vh;
+
+  padding: $nav-height * 1.5 0;
   background: linear-gradient(to bottom right, $overlay, $overlay),
     url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj4KICAgIDxmaWx0ZXIgaWQ9ImEiIHg9IjAiIHk9IjAiPgogICAgICAgIDxmZVR1cmJ1bGVuY2UgYmFzZUZyZXF1ZW5jeT0iMC44IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIiB0eXBlPSJ0dXJidWxlbmNlIi8+CiAgICA8L2ZpbHRlcj4KICAgIDxwYXRoIGZpbGw9Im5vbmUiIGQ9Ik0wIDBoMzAwdjMwMEgweiIvPgogICAgPHBhdGggZD0iTTAgMGgzMDB2MzAwSDB6IiBmaWx0ZXI9InVybCgjYSkiIG9wYWNpdHk9Ii41Ii8+Cjwvc3ZnPg==')
       top left / contain repeat,

@@ -28,10 +28,9 @@ const maxDate = creatInputDate(today);
 
 <template>
   <div>
-    <div class="h-100"></div>
-    <!-- <section class="ze-hero" aria-labelledby="screamer">
+    <section class="ze-hero" aria-labelledby="screamer">
       <h1 id="screamer" class="font-serif" v-text="$t('hero')" />
-    </section> -->
+    </section>
 
     <section
       class="ze-section ze-search-overlap"
