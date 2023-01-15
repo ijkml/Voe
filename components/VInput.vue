@@ -60,6 +60,7 @@ function setFocus(on: boolean) {
         :type="type"
         class="input-1"
         :name="name"
+        :aria-label="label"
         :required="required"
         v-bind="$attrs"
         :placeholder="inputPlaceholder"
