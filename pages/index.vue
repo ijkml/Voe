@@ -108,7 +108,6 @@ const maxDate = creatInputDate(today);
             :aria-label="y.title"
           >
             <div class="img">
-              <!-- <img loading="lazy" :alt="y.alt" :src="y.image" /> -->
               <img v-lazy-pix="y.image" :alt="y.alt" />
             </div>
             <div class="text">
