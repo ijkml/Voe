@@ -29,7 +29,8 @@ export default defineConfig({
       },
     },
     fontFamily: {
-      serif: 'Venturis,ui-serif,Georgia,Cambria,"Times New Roman",Times,serif',
+      // serif: 'Venturis,ui-serif,Georgia,Cambria,"Times New Roman",Times,serif',
+      serif: '',
     },
   },
   presets: [
