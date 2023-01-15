@@ -41,7 +41,7 @@ const transMenu = (index: string) => t(`header.${id.value}.menu.${index}`);
               v-for="item in items"
               :key="item.name"
               :title="`${transMenu(item.name)}: ${transMenu(item.description)}`"
-              :to="localePath(item.link)"
+              :to="localizeUrl(item.link)"
               class="pop-panel-item"
               exact-active-class="active"
               @click="close"

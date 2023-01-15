@@ -9,7 +9,7 @@ const imageUrl = `url(${image.value})`;
 </script>
 
 <template>
-  <NuxtLink v-lazy-pix:bg :to="localePath(link)" class="blog-card">
+  <NuxtLink v-lazy-pix:bg :to="localizeUrl(link)" class="blog-card">
     <div>
       <h3 v-text="title" />
       <div class="dated" v-text="date" />

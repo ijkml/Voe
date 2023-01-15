@@ -28,9 +28,9 @@ function setLanguage(code: LocaleCode) {
   if (locale.value !== code) {
     const { fullPath } = useRoute();
     // const plainUrl = removeLocaleCode(fullPath);
-    // const intlUrl = localePath(plainUrl, code);
+    // const intlUrl = localizeUrl(plainUrl, code);
     // push(intlUrl);
-    push(localePath(removeLocaleCode(fullPath), code));
+    push(localizeUrl(removeLocaleCode(fullPath), code));
   }
 }
 </script>

@@ -77,7 +77,7 @@ const links: LinkInterface[] = [
 
         <div class="bottom">
           <div class="copyleft">
-            <NuxtLink :to="localePath('/')" tabindex="0">
+            <NuxtLink :to="localizeUrl('/')" tabindex="0">
               &copy;{{ new Date().getFullYear() }}
               Voe International
             </NuxtLink>

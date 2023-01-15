@@ -10,7 +10,7 @@ const imageUrl = `url(${image.value})`;
 
 <template>
   <div class="slide-container">
-    <NuxtLink :to="localePath(link)" class="services-card">
+    <NuxtLink :to="localizeUrl(link)" class="services-card">
       <div v-lazy-pix:bg class="card-img" />
       <div class="text">
         <h3 v-text="title" />

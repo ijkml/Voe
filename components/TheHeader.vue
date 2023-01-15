@@ -52,7 +52,7 @@ const headerLinks: HeaderLinks = [
 <template>
   <header :class="{ blend, scrolled, elevated }">
     <div>
-      <NuxtLink v-once title="Voe logo" :to="localePath('/')">
+      <NuxtLink v-once title="Voe logo" :to="localizeUrl('/')">
         <TheLogo class="the-logo" />
       </NuxtLink>
 
@@ -63,7 +63,7 @@ const headerLinks: HeaderLinks = [
           </HeaderMenu>
           <NuxtLink
             v-else
-            :to="localePath(hl.to)"
+            :to="localizeUrl(hl.to)"
             tabindex="0"
             exact-active-class="active"
             class="header-link"
