@@ -41,12 +41,18 @@ const options = {
       </div>
 
       <div class="slider-arrows">
-        <button class="splide__arrow splide__arrow--prev">
+        <button
+          aria-label="Previous slide"
+          class="splide__arrow splide__arrow--prev"
+        >
           <svg role="img" viewBox="0 0 32 32">
             <path d="M10 16L20 6l1.4 1.4l-8.6 8.6l8.6 8.6L20 26z" />
           </svg>
         </button>
-        <button class="splide__arrow splide__arrow--next">
+        <button
+          aria-label="Next slide"
+          class="splide__arrow splide__arrow--next"
+        >
           <svg role="img" viewBox="0 0 32 32">
             <path d="M22 16L12 26l-1.4-1.4l8.6-8.6l-8.6-8.6L12 6z" />
           </svg>
