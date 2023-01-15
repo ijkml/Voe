@@ -6,7 +6,8 @@
   // min-height: clamp(400px, 99vh, 900px);
   min-height: 92vh;
 
-  --bg-url: url('@img/hero-sm.webp');
+  --bg-url: url('');
+  // --bg-url: url('@img/hero-sm.webp');
 
   padding: $nav-height * 1.5 0;
   background: linear-gradient(to bottom right, $overlay, $overlay),
@@ -17,7 +18,7 @@
   @apply lg:(bg-fixed) 2xl:(bg-local);
 
   @media (min-width: 800px) {
-    --bg-url: url('@img/hero.webp');
+    // --bg-url: url('@img/hero.webp');
   }
 }
 
