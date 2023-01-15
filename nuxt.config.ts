@@ -48,7 +48,10 @@ export default defineNuxtConfig({
       }),
     ],
   },
-  swiper: {},
+  swiper: {
+    modules: ['navigation'],
+    styleLang: 'scss',
+  },
   i18n: {
     strategy: 'prefix',
     skipSettingLocaleOnNavigate: true,
