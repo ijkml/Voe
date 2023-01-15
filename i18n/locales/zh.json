@@ -1,4 +1,5 @@
 {
+  "hero": "安心飞行",
   "header": {
     "home": "主页",
     "tour": {
@@ -51,5 +52,26 @@
         "contact-text": "与我们联系"
       }
     }
+  },
+  "finder": {
+    "heading": "查找你的航班",
+    "destination": {
+      "label": "航班目的地",
+      "placeholder": "输入航班目的地"
+    },
+    "date": {
+      "label": "航班日期"
+    },
+    "search": "寻找"
+  },
+  "safety": {
+    "text": "了解所有关于实施保护旅客免受 COVID-19 影响的安全措施的信息。",
+    "button": "了解更多"
+  },
+  "stats": {
+    "flights": "航班",
+    "crashes": "坠毁",
+    "destinations": "目的地",
+    "passengers": "乘客"
   }
 }

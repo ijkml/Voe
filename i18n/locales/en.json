@@ -1,4 +1,5 @@
 {
+  "hero": "Fly with peace of mind",
   "header": {
     "home": "Home",
     "tour": {
@@ -51,5 +52,26 @@
         "contact-text": "Reach out to us"
       }
     }
+  },
+  "finder": {
+    "heading": "Find your flight",
+    "destination": {
+      "label": "Flight Destination",
+      "placeholder": "Enter flight destination"
+    },
+    "date": {
+      "label": "Flight Date"
+    },
+    "search": "Search"
+  },
+  "safety": {
+    "text": "Find out everything you need to know about the safety measures implemented to safeguard travellers against COVID-19. ",
+    "button": "Learn More"
+  },
+  "stats": {
+    "flights": "Flights",
+    "crashes": "Crashes",
+    "destinations": "Destinations",
+    "passengers": "Passengers"
   }
 }

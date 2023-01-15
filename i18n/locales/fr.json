@@ -1,4 +1,5 @@
 {
+  "hero": "Volez en toute sérénité",
   "header": {
     "home": "Accueil",
     "tour": {
@@ -51,5 +52,25 @@
         "contact-text": "Contactez-nous"
       }
     }
+  },
+  "finder": {
+    "heading": "Trouvez votre vol",
+    "destination": {
+      "label": "Destination de vol",
+      "placeholder": "Entrez la destination de vol"
+    },
+    "date": {
+      "label": "Date de vol"
+    },
+    "search": "Trouver"
+  },
+  "safety": {
+    "text": "Découvrez tout ce que vous devez savoir sur les mesures de sécurité mises en place pour protéger les voyageurs contre COVID-19.",
+    "button": "En savoir plus"
+  },  "stats": {
+    "flights": "Vols",
+    "crashes": "Accidents",
+    "destinations": "Destinations",
+    "passengers": "Passagers"
   }
 }

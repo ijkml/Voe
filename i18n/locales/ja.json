@@ -1,4 +1,5 @@
 {
+  "hero": "安心して飛びましょう",
   "header": {
     "home": "ホーム",
     "tour": {
@@ -51,5 +52,26 @@
         "contact-text": "お問い合わせください"
       }
     }
+  },
+  "finder": {
+    "heading": "あなたの飛行を探す",
+    "destination": {
+      "label": "飛行先",
+      "placeholder": "飛行先を入力してください"
+    },
+    "date": {
+      "label": "飛行日"
+    },
+    "search": "探す"
+  },
+  "safety": {
+    "text": "COVID-19から旅行者を守るために実施された安全対策に関するすべてのことを知りましょう。",
+    "button": "もっと知る"
+  },
+  "stats": {
+    "flights": "航空便",
+    "crashes": "墜落",
+    "destinations": "目的地",
+    "passengers": "旅客"
   }
 }

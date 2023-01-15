@@ -31,8 +31,8 @@ const output = useTransition(source, {
 </script>
 
 <template>
-  <div ref="target" :title="`${figure}${suffix} ${title}`">
+  <div ref="target" :title="`${figure}${suffix} ${$t(`stats.${title}`)}`">
     <div class="num">{{ output.toFixed(dp) }}&thinsp;{{ suffix }}</div>
-    <div class="txt">{{ title }}</div>
+    <div class="txt">{{ $t(`stats.${title}`) }}</div>
   </div>
 </template>

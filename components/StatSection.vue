@@ -3,22 +3,22 @@ const voeStats = [
   {
     figure: 500,
     suffix: 'k+',
-    title: 'Flights',
+    title: 'flights',
   },
   {
     figure: 0,
     suffix: '',
-    title: 'Crashes',
+    title: 'crashes',
   },
   {
     figure: 250,
     suffix: '',
-    title: 'Destinations',
+    title: 'destinations',
   },
   {
     figure: 10.1,
     suffix: 'M+',
-    title: 'Passengers',
+    title: 'passengers',
   },
 ];
 </script>

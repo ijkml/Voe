@@ -29,7 +29,7 @@ const maxDate = creatInputDate(today);
 <template>
   <div>
     <section class="ze-hero" aria-labelledby="screamer">
-      <h1 id="screamer" class="font-serif">Fly with peace of mind</h1>
+      <h1 id="screamer" class="font-serif" v-text="$t('hero')" />
     </section>
 
     <section
@@ -37,14 +37,18 @@ const maxDate = creatInputDate(today);
       aria-labelledby="find-ur-flight"
     >
       <div>
-        <h2 id="find-ur-flight" class="font-serif">Find your flight</h2>
+        <h2
+          id="find-ur-flight"
+          class="font-serif"
+          v-text="$t('finder.heading')"
+        />
         <form class="ze-form" @submit.prevent="searchAction">
           <div class="info-input-cont">
             <VInput
               class="info-input"
-              label="Flight Destination"
+              :label="$t('finder.destination.label')"
               required
-              placeholder="Enter flight destination"
+              :placeholder="$t('finder.destination.placeholder')"
             />
             <VInput
               class="info-input"
@@ -52,7 +56,7 @@ const maxDate = creatInputDate(today);
               :min="minDate"
               required
               :max="maxDate"
-              label="Flight Date"
+              :label="$t('finder.date.label')"
               placeholder=""
             />
           </div>
@@ -62,7 +66,7 @@ const maxDate = creatInputDate(today);
             tabindex="0"
             type="submit"
           >
-            <span>Search</span>
+            <span v-text="$t('finder.search')" />
             <LoadingSvg class="icon" />
           </VButton>
         </form>
@@ -80,12 +84,9 @@ const maxDate = creatInputDate(today);
           />
           <div class="text">
             <div>
-              <h2 id="find-covid-info">
-                Find out everything you need to know about the safety measures
-                implemented to safeguard travellers against COVID-19.
-              </h2>
+              <h2 id="find-covid-info" v-text="$t('safety.text')" />
               <div class="buttons space-x-3 space-y-3">
-                <VButton tabindex="0">Learn More</VButton>
+                <VButton tabindex="0">{{ $t('safety.button') }}</VButton>
               </div>
             </div>
           </div>
