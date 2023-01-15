@@ -3,7 +3,7 @@ import svgLoader from 'vite-svg-loader';
 
 export default defineNuxtConfig({
   app: {
-    pageTransition: { name: 'page', mode: 'out-in' },
+    // pageTransition: { name: 'page', mode: 'out-in' },
     head: {
       link: [{ rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
       htmlAttrs: {
@@ -18,6 +18,7 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     'vite-plugin-vue-type-imports/nuxt',
     '@nuxtjs/i18n',
+    'nuxt-swiper',
   ],
   alias: {
     '@img': fileURLToPath(new URL('./assets/images', import.meta.url)),
@@ -47,8 +48,10 @@ export default defineNuxtConfig({
       }),
     ],
   },
+  swiper: {},
   i18n: {
     strategy: 'prefix',
+    skipSettingLocaleOnNavigate: true,
     detectBrowserLanguage: {
       useCookie: false,
       fallbackLocale: 'en',
