@@ -65,7 +65,7 @@ const links: LinkInterface[] = [
                 v-for="lnk of cat.links"
                 :key="lnk.text"
                 class="ftr-link"
-                :to="localePath(lnk.link)"
+                :href="lnk.link"
                 :external="lnk.external"
                 :target="lnk.external ? '_blank' : undefined"
               >
