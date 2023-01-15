@@ -1,76 +1,60 @@
 <script setup lang="ts">
-import type { Options as SplideOptions } from '@splidejs/vue-splide';
-import { Splide, SplideSlide, SplideTrack } from '@splidejs/vue-splide';
-
 import services from '@/i18n/copy/services';
 
-const splideOptions: SplideOptions = {
-  rewind: false,
-  pagination: false,
-  focus: 0,
-  omitEnd: true,
-  perMove: 1,
-  autoWidth: true,
-  gap: '1.5rem',
+const progress = ref('0%');
+const progressBarWidth = refThrottled(progress, 250);
+
+function updateProgress(prog: number) {
+  const pcent = prog * 100;
+  progress.value = `${pcent < 2 ? 2 : pcent}%`;
+}
+
+const options = {
+  slidesPerView: 'auto',
+  spaceBetween: 19.2,
+  modules: [SwiperNavigation],
+  navigation: {
+    nextEl: '.splide__arrow--next',
+    prevEl: '.splide__arrow--prev',
+    disabledClass: 'disabled',
+  },
   breakpoints: {
     600: {
-      gap: '1.2rem',
+      spaceBetween: 24,
     },
   },
-  // drag: 'free',
-  // snap: true,
-  // padding: '1rem',
 };
-
-const progressBarWidth = ref('0%');
-
-function updateProgress(splide: typeof Splide) {
-  const end = splide.Components.Controller.getEnd() + 1;
-  const rate = Math.min((splide.index + 1) / end, 1);
-  progressBarWidth.value = `${String(100 * rate)}%`;
-}
 </script>
 
 <template>
-  <div>
-    <Splide
-      :options="splideOptions"
-      :has-track="false"
-      aria-label="Services that go far beyond the ordinary"
-      @splide:mounted="updateProgress"
-      @splide:move="updateProgress"
-    >
-      <SplideTrack>
-        <SplideSlide v-for="serv in services" :key="serv.title">
-          <ServiceCard v-bind="serv" />
-        </SplideSlide>
-      </SplideTrack>
+  <Swiper
+    v-bind="options"
+    @progress="(_: any, prog: number) => updateProgress(prog)"
+  >
+    <SwiperSlide v-for="serv in services" :key="serv.title" class="w-auto">
+      <ServiceCard v-bind="serv" />
+    </SwiperSlide>
 
-      <div class="splide__arrows">
-        <div class="slider-progress">
-          <div class="slider-progress-bar" />
-        </div>
-
-        <div class="slider-arrows">
-          <button class="splide__arrow splide__arrow--prev">
-            <svg viewBox="0 0 32 32">
-              <path d="M10 16L20 6l1.4 1.4l-8.6 8.6l8.6 8.6L20 26z" />
-            </svg>
-          </button>
-          <button class="splide__arrow splide__arrow--next">
-            <svg viewBox="0 0 32 32">
-              <path d="M22 16L12 26l-1.4-1.4l8.6-8.6l-8.6-8.6L12 6z" />
-            </svg>
-          </button>
-        </div>
+    <div class="splide__arrows">
+      <div class="slider-progress">
+        <div class="slider-progress-bar" />
       </div>
-    </Splide>
-  </div>
-</template>
 
-<style lang="scss">
-@use '@splidejs/vue-splide/css/core';
-</style>
+      <div class="slider-arrows">
+        <button class="splide__arrow splide__arrow--prev">
+          <svg role="img" viewBox="0 0 32 32">
+            <path d="M10 16L20 6l1.4 1.4l-8.6 8.6l8.6 8.6L20 26z" />
+          </svg>
+        </button>
+        <button class="splide__arrow splide__arrow--next">
+          <svg role="img" viewBox="0 0 32 32">
+            <path d="M22 16L12 26l-1.4-1.4l8.6-8.6l-8.6-8.6L12 6z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </Swiper>
+</template>
 
 <style scoped lang="scss">
 .splide__arrows {
@@ -104,11 +88,12 @@ function updateProgress(splide: typeof Splide) {
       dark:(fill-brand-sec);
   }
 
-  &:disabled {
+  &:disabled,
+  &.disabled {
     @apply opacity-40;
   }
 
-  &:not(:disabled) {
+  &:not(:disabled):not(.disabled) {
     &:hover,
     &:focus-visible {
       @apply ring-2;

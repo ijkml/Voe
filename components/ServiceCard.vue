@@ -54,7 +54,8 @@ $leading: 1.5em;
 .text {
   @apply transition-all duration-350 w-full p-5 z-2
     filter bg-zinc-1 dark:bg-zinc-8 backdrop-blur-6
-      rounded-b-inherit relative h-auto flex-grow-0;
+      rounded-b-inherit relative h-auto flex-grow-0
+        select-none;
 }
 
 h3 {
