@@ -3,7 +3,9 @@
 
   $overlay: hsla(0, 100%, 50%, 0.1);
 
-  min-height: clamp(400px, 99vh, 900px);
+  min-height: 400px;
+  height: 99vh;
+  max-height: 900px;
 
   --bg-url: url();
   // --bg-url: url('@img/hero-sm.webp');
