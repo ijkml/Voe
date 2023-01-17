@@ -4,7 +4,7 @@ import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue';
 import type { LocaleCode } from '@/types';
 
 const { locale } = useI18n();
-const { push } = useRouter();
+const { replace } = useRouter();
 
 interface Locale {
   short: string;
@@ -27,10 +27,8 @@ const current = computed(() => {
 function setLanguage(code: LocaleCode) {
   if (locale.value !== code) {
     const { fullPath } = useRoute();
-    // const plainUrl = removeLocaleCode(fullPath);
-    // const intlUrl = localizeUrl(plainUrl, code);
-    // push(intlUrl);
-    push(localizeUrl(removeLocaleCode(fullPath), code));
+    const newUrl = changeLocale(fullPath, code);
+    replace(newUrl);
   }
 }
 </script>
