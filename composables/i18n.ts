@@ -2,16 +2,15 @@ import type { RouteLocationRaw } from 'vue-router';
 import type { LocaleCode } from '@/types';
 
 const availableLocales: LocaleCode[] = ['en', 'es', 'fr', 'ja', 'zh'];
+const localeRegex = new RegExp(`^/(${availableLocales.join('|')})`, 'i');
 
 function removeLocaleCode(inputString: string) {
-  const regex = new RegExp(`^/(${availableLocales.join('|')})`, 'i');
-  const plain = inputString.replace(regex, '');
+  const plain = inputString.replace(localeRegex, '');
   return plain.startsWith('?') || plain.startsWith('#') ? `/${plain}` : plain;
 }
 
 function changeLocale(inputString: string, code: LocaleCode) {
-  const regex = new RegExp(`^/(${availableLocales.join('|')})`, 'i');
-  return inputString.replace(regex, `/${code}`);
+  return inputString.replace(localeRegex, `/${code}`);
 }
 
 const localizeUrl = (route: RouteLocationRaw, locale?: string | undefined) =>
