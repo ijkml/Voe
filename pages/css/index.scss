@@ -7,10 +7,9 @@
   height: 99vh;
   max-height: 900px;
 
-  --bg-url: url();
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', ui-serif,
     serif;
-  // --bg-url: url('@img/hero.webp');
+  --bg-url: url('@img/hero.webp');
 
   padding-top: $nav-height * 1.5;
   background: linear-gradient(to bottom right, $overlay, $overlay),
