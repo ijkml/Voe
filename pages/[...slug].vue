@@ -24,13 +24,13 @@ function generateMessage(): string {
     <div class="z-2 relative">
       <div class="page-container">
         <h1>404</h1>
-        <p class="label" v-text="path" />
+        <p class="label" v-text="removeLocaleCode(path)" />
         <ClientOnly>
           <Transition name="fade">
             <p v-text="generateMessage()" />
           </Transition>
         </ClientOnly>
-        <button class="btn" @click="router.back">Go Back</button>
+        <button class="bttn" @click="router.back">Go Back</button>
       </div>
     </div>
 
@@ -79,5 +79,19 @@ p {
 
 .label {
   @apply text-sm uppercase line-clamp-1;
+}
+
+.bttn {
+  @apply px-4 py-1.2 rounded inline-block bg-brand-pri text-white
+    cursor-pointer transition;
+
+  &:focus-visible,
+  &:hover {
+    @apply bg-fuchsia-9;
+  }
+
+  &::disabled {
+    @apply bg-zinc-6 opacity-50 cursor-default;
+  }
 }
 </style>
