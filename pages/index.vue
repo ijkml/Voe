@@ -29,7 +29,7 @@ const maxDate = creatInputDate(today);
 <template>
   <div>
     <section class="ze-hero" aria-labelledby="screamer">
-      <h1 id="screamer" class="font-serif" v-text="$t('hero')" />
+      <h1 id="screamer" v-text="$t('hero')" />
     </section>
 
     <section
