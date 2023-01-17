@@ -1,5 +1,5 @@
 .ze-hero {
-  --at-apply: w-full text-white flex items-center justify-center;
+  @apply w-full text-white flex items-center justify-center relative;
 
   $overlay: hsla(0, 100%, 50%, 0.1);
 
@@ -9,24 +9,41 @@
 
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', ui-serif,
     serif;
-  --bg-url: url('@img/hero.webp');
+  // --bg-url: url('@img/hero.webp');
 
-  padding-top: $nav-height * 1.5;
-  background: linear-gradient(to bottom right, $overlay, $overlay),
-    url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj4KICAgIDxmaWx0ZXIgaWQ9ImEiIHg9IjAiIHk9IjAiPgogICAgICAgIDxmZVR1cmJ1bGVuY2UgYmFzZUZyZXF1ZW5jeT0iMC44IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIiB0eXBlPSJ0dXJidWxlbmNlIi8+CiAgICA8L2ZpbHRlcj4KICAgIDxwYXRoIGZpbGw9Im5vbmUiIGQ9Ik0wIDBoMzAwdjMwMEgweiIvPgogICAgPHBhdGggZD0iTTAgMGgzMDB2MzAwSDB6IiBmaWx0ZXI9InVybCgjYSkiIG9wYWNpdHk9Ii41Ii8+Cjwvc3ZnPg==')
-      top left / contain repeat,
-    $brand-pri var(--bg-url) center / cover no-repeat;
+  padding: ($nav-height * 1.5) 0;
 
-  @apply lg:(bg-fixed) 2xl:(bg-local);
+  // @apply lg:(bg-fixed) 2xl:(bg-local);
 
-  @media (min-width: 800px) {
-    // --bg-url: url('@img/hero.webp');
+  // @media (min-width: 800px) {
+  //   // --bg-url: url('@img/hero.webp');
+  // }
+
+  .bg-container {
+    @apply absolute inset-0 h-full w-full overflow-hidden;
+
+    .bg-wrapper {
+      @apply sticky w-full h-full;
+    }
+
+    img {
+      @apply w-full h-full absolute inset-0 object-cover
+        object-top rounded-inherit z--2;
+    }
+
+    .overlay {
+      @apply w-full absolute inset-0 h-full z--1;
+
+      background: linear-gradient(to bottom right, $overlay, $overlay),
+        url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj4KICAgIDxmaWx0ZXIgaWQ9ImEiIHg9IjAiIHk9IjAiPgogICAgICAgIDxmZVR1cmJ1bGVuY2UgYmFzZUZyZXF1ZW5jeT0iMC44IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIiB0eXBlPSJ0dXJidWxlbmNlIi8+CiAgICA8L2ZpbHRlcj4KICAgIDxwYXRoIGZpbGw9Im5vbmUiIGQ9Ik0wIDBoMzAwdjMwMEgweiIvPgogICAgPHBhdGggZD0iTTAgMGgzMDB2MzAwSDB6IiBmaWx0ZXI9InVybCgjYSkiIG9wYWNpdHk9Ii41Ii8+Cjwvc3ZnPg==')
+          top left / contain repeat;
+    }
   }
 }
 
 #screamer {
-  @apply font-semibold transition mb-30 p-5 text-center
-    text-2.5rem sm:(text-2.8rem) md:(text-3.1rem);
+  @apply font-semibold transition mb-20 p-5 text-center
+    text-2.5rem sm:(text-2.8rem) md:(text-3.1rem) relative z-1;
 }
 
 .ze-form {

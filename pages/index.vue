@@ -30,6 +30,13 @@ const maxDate = creatInputDate(today);
   <div>
     <section class="ze-hero" aria-labelledby="screamer">
       <h1 id="screamer" v-text="$t('hero')" />
+
+      <div class="bg-container">
+        <div class="bg-wrapper">
+          <img src="@img/hero.webp" loading="eager" alt="" class="bg" />
+          <div class="overlay"></div>
+        </div>
+      </div>
     </section>
 
     <section
