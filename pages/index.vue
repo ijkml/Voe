@@ -33,7 +33,7 @@ const maxDate = creatInputDate(today);
 
       <div class="bg-container">
         <div class="bg-wrapper">
-          <img src="@img/hero.webp" loading="eager" alt="" class="bg" />
+          <img src="@img/hero-sm.webp" loading="eager" alt="" class="bg" />
           <div class="overlay"></div>
         </div>
       </div>
