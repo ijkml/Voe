@@ -1,15 +1,27 @@
 @font-face {
-  font-family: "Venturis";
+  font-family: 'Venturis';
   font-display: swap;
-  src: url("/fonts/VenturisSans-Bold.otf");
-  font-weight: bold;
   font-style: normal;
+  src: url('/fonts/VenturisSans-Bold.otf') format('truetype');
+  font-weight: bold;
 }
 
 @font-face {
-  font-family: "Venturis";
+  font-family: 'Venturis';
   font-display: swap;
-  src: url("/fonts/VenturisSans-Regular.otf");
-  font-weight: normal;
   font-style: normal;
+  src: url('/fonts/VenturisSans-Regular.otf') format('truetype');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Venturis Fallback';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Cambria'), local('Times New Roman'), local('Times'),
+    local('Georgia');
+  ascent-override: 92.93%;
+  descent-override: 25.15%;
+  line-gap-override: 2.51%;
+  size-adjust: 91.47%;
 }

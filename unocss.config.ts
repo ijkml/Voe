@@ -29,7 +29,7 @@ export default defineConfig({
       },
     },
     fontFamily: {
-      serif: 'Venturis,ui-serif,Georgia,Cambria,"Times New Roman",Times,serif',
+      serif: 'Venturis,"Venturis Fallback", ui-serif',
     },
   },
   presets: [
