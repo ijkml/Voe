@@ -7,7 +7,7 @@
   height: 99vh;
   max-height: 900px;
 
-  --bg-url: url('/img/hero.webp');
+  --bg-url: url();
 
   background: linear-gradient(to bottom right, $overlay, $overlay),
     // url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj4KICAgIDxmaWx0ZXIgaWQ9ImEiIHg9IjAiIHk9IjAiPgogICAgICAgIDxmZVR1cmJ1bGVuY2UgYmFzZUZyZXF1ZW5jeT0iMC44IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIiB0eXBlPSJ0dXJidWxlbmNlIi8+CiAgICA8L2ZpbHRlcj4KICAgIDxwYXRoIGZpbGw9Im5vbmUiIGQ9Ik0wIDBoMzAwdjMwMEgweiIvPgogICAgPHBhdGggZD0iTTAgMGgzMDB2MzAwSDB6IiBmaWx0ZXI9InVybCgjYSkiIG9wYWNpdHk9Ii41Ii8+Cjwvc3ZnPg==')
