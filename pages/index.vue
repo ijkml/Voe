@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import LoadingSvg from '@icons/loading.svg?component';
+import heroBg from '@img/hero.64.txt?raw';
 import whyVoe from '@/i18n/copy/whyVoe';
+
+const bgUrl = `url(${heroBg})`;
 
 const isSearching = ref(false);
 function searchAction() {
@@ -200,3 +203,9 @@ const maxDate = creatInputDate(today);
 </template>
 
 <style scoped lang="scss" src="./css/index.scss" />
+
+<style scoped lang="scss">
+.ze-hero {
+  --hero-bg: v-bind('bgUrl');
+}
+</style>
