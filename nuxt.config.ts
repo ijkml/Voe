@@ -55,6 +55,7 @@ export default defineNuxtConfig({
   },
   i18n: {
     strategy: 'prefix',
+    baseUrl: 'https://voey.netlify.app',
     skipSettingLocaleOnNavigate: true,
     detectBrowserLanguage: {
       useCookie: false,
@@ -64,29 +65,34 @@ export default defineNuxtConfig({
       fallbackLocale: 'en',
       legacy: false,
     },
-    lazy: !true,
+    lazy: false,
     defaultLocale: 'en',
     types: 'composition',
     langDir: 'i18n/locales',
     locales: [
       {
         code: 'en',
+        iso: 'en',
         file: 'en.json',
       },
       {
         code: 'es',
+        iso: 'es',
         file: 'es.json',
       },
       {
         code: 'fr',
+        iso: 'fr',
         file: 'fr.json',
       },
       {
         code: 'ja',
+        iso: 'ja',
         file: 'ja.json',
       },
       {
         code: 'zh',
+        iso: 'zh',
         file: 'zh.json',
       },
     ],
