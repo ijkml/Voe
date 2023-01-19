@@ -26,7 +26,7 @@ $elem-ht: ($line-ht * $line-no) + $pad-top;
 $overlay: hsla(263, 60%, 20%, 0.088);
 
 .img-y {
-  --card-image: v-bind('imageUrl');
+  // --card-image: v-bind('imageUrl');
 }
 
 .blog-card {
