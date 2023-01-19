@@ -29,7 +29,7 @@ const {
   required,
 } = toRefs(props);
 
-const inputPlaceholder = placeholder.value ?? label.value;
+const inputPlaceholder = computed(() => placeholder.value ?? label.value);
 
 const inputValue = ref('');
 const isFocused = ref(false);
