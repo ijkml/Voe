@@ -67,10 +67,17 @@
   "safety": {
     "text": "Découvrez tout ce que vous devez savoir sur les mesures de sécurité mises en place pour protéger les voyageurs contre COVID-19.",
     "button": "En savoir plus"
-  },  "stats": {
+  },
+  "stats": {
     "flights": "Vols",
     "crashes": "Accidents",
     "destinations": "Destinations",
     "passengers": "Passagers"
+  },
+  "nav": {
+    "tour": "Tours et forfaits",
+    "flight": "Informations sur les vols",
+    "park": "Stationnement et locations",
+    "about": "À propos de nous"
   }
 }

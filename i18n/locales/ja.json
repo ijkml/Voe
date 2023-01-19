@@ -73,5 +73,11 @@
     "crashes": "墜落",
     "destinations": "目的地",
     "passengers": "旅客"
+  },
+  "nav": {
+    "tour": "ツアーとパッケージ",
+    "flight": "フライト情報",
+    "park": "駐車場とレンタル",
+    "about": "私たちについて"
   }
 }

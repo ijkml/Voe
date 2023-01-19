@@ -1,4 +1,16 @@
 <script setup lang="ts">
+import { menuData } from '@data/header';
+import type { MenuItem } from '@/types/header';
+
+const { t } = useI18n();
+
+interface NavLink {
+  id: string;
+  drop: MenuItem[];
+}
+
+type NavLinks = NavLink[];
+
 const asideNav = ref<null | HTMLElement>(null);
 
 const [visible, close] = [navIsOpen, closeSideNav];
@@ -7,48 +19,14 @@ onClickOutside(asideNav, () => {
   visible.value && close();
 });
 
-const mobileMenuLinks = [
-  {
-    text: 'Tours and Flights',
-    id: 'voe-demo-intro',
-    drop: [
-      { text: 'Tour Packages', to: '/t-pkg' },
-      { text: 'All Flights', to: '/a-flt' },
-      { text: 'Book a Flight', to: '/b-flt' },
-    ],
-  },
-  {
-    text: 'Rentals',
-    id: 'voe-demo-rents',
-    drop: [
-      { text: 'Rent a Plane', to: '/r-pln' },
-      { text: 'Car Rentals', to: '/r-car' },
-      { text: 'Rent Policies', to: '/r-tos' },
-    ],
-  },
-  {
-    text: 'About Us',
-    id: 'voe-demo-about',
-    drop: [
-      { text: 'About Us', to: '/abtus' },
-      { text: 'Administration', to: '/admin' },
-      { text: 'Our History', to: '/hstry' },
-      { text: 'Terms of Service', to: '/tosrv' },
-      { text: 'Cookies and Privacy', to: '/cooky' },
-      { text: 'Careers at Voe', to: '/vwork' },
-    ],
-  },
-  {
-    text: 'Customer Service',
-    id: 'voe-demo-srvce',
-    drop: [
-      { text: 'Contact Us', to: '/cntct' },
-      { text: 'FAQs', to: '/faqes' },
-      { text: 'Special Needs', to: '/s-nds' },
-      { text: 'Lost and Found', to: '/l-fnd' },
-    ],
-  },
-];
+const { about, flight, park, tour } = menuData;
+
+const navLinks = [about, flight, park, tour].map(({ id, items }): NavLink => {
+  return { id, drop: items };
+});
+
+const transMenu = (id: string, index: string) =>
+  t(`header.${id}.menu.${index}`);
 </script>
 
 <template>
@@ -80,19 +58,19 @@ const mobileMenuLinks = [
     <hr class="hr" tabindex="-1" />
 
     <div class="body" tabindex="-1">
-      <template v-for="nl of mobileMenuLinks" :key="nl.id">
+      <template v-for="nl of navLinks" :key="nl.id">
         <div class="item-group-cont" tabindex="-1">
-          <div class="subheader" tabindex="-1">{{ nl.text }}</div>
+          <div class="subheader" tabindex="-1">{{ t(`nav.${nl.id}`) }}</div>
 
           <div class="item-group" tabindex="-1">
             <NuxtLink
               v-for="sv of nl.drop"
-              :key="sv.text"
-              :to="localizeUrl(sv.to)"
+              :key="sv.name"
+              :to="localizeUrl(sv.link)"
               tabindex="0"
               exact-active-class="active"
             >
-              {{ sv.text }}
+              {{ transMenu(nl.id, sv.name) }}
             </NuxtLink>
           </div>
         </div>

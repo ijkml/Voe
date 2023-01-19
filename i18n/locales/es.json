@@ -73,5 +73,11 @@
     "crashes": "Accidentes",
     "destinations": "Destinos",
     "passengers": "Pasajeros"
+  },
+  "nav": {
+    "tour": "Tours y paquetes",
+    "flight": "Información de vuelos",
+    "park": "Estacionamiento y alquileres",
+    "about": "Sobre nosotros"
   }
 }

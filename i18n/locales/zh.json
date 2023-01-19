@@ -73,5 +73,11 @@
     "crashes": "坠毁",
     "destinations": "目的地",
     "passengers": "乘客"
+  },
+  "nav": {
+    "tour": "旅游和套餐",
+    "flight": "航班信息",
+    "park": "停车和租赁",
+    "about": "关于我们"
   }
 }
