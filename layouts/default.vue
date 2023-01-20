@@ -4,14 +4,6 @@ import type { WritableComputedRef } from 'vue';
 const route = useRoute();
 const blendHeader = ref(localeHome.includes(route.path));
 
-const { t } = useI18n();
-
-const head = useLocaleHead({
-  addDirAttribute: true,
-  identifierAttribute: 'id',
-  addSeoAttributes: true,
-});
-
 const nuxtApp = useNuxtApp();
 nuxtApp.hook('page:start', closeSideNav);
 nuxtApp.hook('page:finish', () => {
@@ -32,28 +24,25 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('orientationchange', closeSideNav);
 });
+
+const i18nHead = useLocaleHead({
+  addDirAttribute: true,
+  identifierAttribute: 'id',
+  addSeoAttributes: true,
+});
+
+useHead({
+  htmlAttrs: i18nHead.value.htmlAttrs,
+  link: i18nHead.value.link,
+  meta: i18nHead.value.meta,
+});
 </script>
 
 <template>
-  <Html :lang="head.htmlAttrs?.lang">
-    <Head>
-      <template v-for="link in head.link" :key="link.id">
-        <Link
-          :id="link.id"
-          :rel="link.rel"
-          :href="link.href"
-          :hreflang="link.hreflang"
-        />
-      </template>
-      <template v-for="meta in head.meta" :key="meta.id">
-        <Meta :id="meta.id" :property="meta.property" :content="meta.content" />
-      </template>
-    </Head>
-  </Html>
   <div class="app-layout--default" data-scroll>
     <TheHeader :blend="blendHeader" />
     <main>
-      <slot />
+      <slot :key="route.path" />
     </main>
     <TheFooter v-once />
     <TheSidenav v-once />

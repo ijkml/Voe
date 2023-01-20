@@ -1,18 +1,19 @@
 <script setup lang="ts">
+import { Navigation } from 'swiper';
 import services from '@/i18n/copy/services';
 
 const progress = ref('0%');
 const progressBarWidth = refThrottled(progress, 250);
 
-function updateProgress(prog: number) {
+function updateProgress(_: any, prog: number) {
   const pcent = prog * 100;
-  progress.value = `${pcent < 2 ? 2 : pcent}%`;
+  progress.value = `${pcent <= 1 ? 1 : pcent}%`;
 }
 
 const options = {
   slidesPerView: 'auto',
   spaceBetween: 19.2,
-  modules: [SwiperNavigation],
+  modules: [Navigation],
   navigation: {
     nextEl: '.splide__arrow--next',
     prevEl: '.splide__arrow--prev',
@@ -24,13 +25,25 @@ const options = {
     },
   },
 };
+
+const arrows = [
+  {
+    label: 'Previous slide',
+    path: 'M10 16L20 6l1.4 1.4l-8.6 8.6l8.6 8.6L20 26z',
+    class: ' splide__arrow--prev',
+    dir: 'prev',
+  },
+  {
+    label: 'Next slide',
+    path: 'M22 16L12 26l-1.4-1.4l8.6-8.6l-8.6-8.6L12 6z',
+    class: 'splide__arrow--next',
+    dir: 'next',
+  },
+];
 </script>
 
 <template>
-  <Swiper
-    v-bind="options"
-    @progress="(_: any, prog: number) => updateProgress(prog)"
-  >
+  <Swiper v-bind="options" @progress="updateProgress">
     <SwiperSlide v-for="serv in services" :key="serv.title" class="w-auto">
       <ServiceCard v-bind="serv" />
     </SwiperSlide>
@@ -42,19 +55,16 @@ const options = {
 
       <div class="slider-arrows">
         <button
-          aria-label="Previous slide"
-          class="splide__arrow splide__arrow--prev"
+          v-for="arr in arrows"
+          :key="arr.label"
+          :aria-label="arr.label"
+          class="splide__arrow"
+          :class="[arr.class]"
         >
-          <svg role="img" viewBox="0 0 32 32">
-            <path d="M10 16L20 6l1.4 1.4l-8.6 8.6l8.6 8.6L20 26z" />
-          </svg>
-        </button>
-        <button
-          aria-label="Next slide"
-          class="splide__arrow splide__arrow--next"
-        >
-          <svg role="img" viewBox="0 0 32 32">
-            <path d="M22 16L12 26l-1.4-1.4l8.6-8.6l-8.6-8.6L12 6z" />
+          <!-- :disabled="arr.dir === 'prev' ? isFront : isEnd"
+          @click="swipe(arr.dir)" -->
+          <svg viewBox="0 0 32 32">
+            <path :d="arr.path" />
           </svg>
         </button>
       </div>

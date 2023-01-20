@@ -50,8 +50,7 @@ export default defineNuxtConfig({
     ],
   },
   swiper: {
-    modules: ['navigation'],
-    styleLang: 'scss',
+    modules: [],
   },
   i18n: {
     strategy: 'prefix',
@@ -65,7 +64,7 @@ export default defineNuxtConfig({
       fallbackLocale: 'en',
       legacy: false,
     },
-    lazy: false,
+    lazy: true,
     defaultLocale: 'en',
     types: 'composition',
     langDir: 'i18n/locales',
