@@ -44,8 +44,8 @@ useHead({
     <main>
       <slot :key="route.path" />
     </main>
-    <TheFooter v-once />
-    <TheSidenav v-once />
+    <TheFooter />
+    <TheSidenav />
     <BlurryOverlay />
   </div>
 </template>
