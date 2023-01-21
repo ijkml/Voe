@@ -1,7 +1,11 @@
 <script setup lang="ts">
-import type { BlogCard } from '@/types';
-
-const props = defineProps<BlogCard>();
+const props = defineProps<{
+  date: string;
+  image: string;
+  text: string;
+  title: string;
+  link: string;
+}>();
 
 const { date, image, link, text, title } = toRefs(props);
 
