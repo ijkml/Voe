@@ -5,6 +5,7 @@ import type { LocaleCode } from '@/types';
 
 const { locale } = useI18n();
 const { replace } = useRouter();
+const switchLocalePath = useSwitchLocalePath();
 
 interface Locale {
   short: string;
@@ -26,8 +27,7 @@ const current = computed(() => {
 
 function setLanguage(code: LocaleCode) {
   if (locale.value !== code) {
-    const { fullPath } = useRoute();
-    const newUrl = changeLocale(fullPath, code);
+    const newUrl = switchLocalePath(code);
     replace(newUrl);
   }
 }
