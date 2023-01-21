@@ -79,5 +79,66 @@
     "flight": "Flight Information",
     "park": "Parking and Rentals",
     "about": "About Us"
+  },
+  "features": {
+    "heading": "Why Fly With Us?",
+    "ease": {
+      "title": "Convenience and Ease",
+      "text": "Our central location and wide range of flights make it easy for you to get to your destination without the need for long layovers.",
+      "alt": "A well-lit and modern airport terminal with a bustling crowd of travelers."
+    },
+    "perf": {
+      "title": "On-time Performance",
+      "text": "We have a strong track record of on-time performance, so you can trust that you'll arrive at your destination on time.",
+      "alt": "An airplane taking off in mid-air with the airport waiting area visible in the foreground."
+    },
+    "a11y": {
+      "title": "Amenities and Accesibility",
+      "text": "Enjoy our range of amenities and services, recreational facilities and assistance for anyone with disabilities or special needs.",
+      "alt": "A travelling business man relaxing in a lounge at the airport."
+    }
+  },
+  "services": {
+    "heading": "Services that go far beyond the ordinary",
+    "sub": "We offer exceptional services and amenities to make your travel experience comfortable and convenient.",
+    "slides": {
+      "1": {
+        "title": "Dining options",
+        "text": "Satisfy your hunger with a variety of dining options at the airport, including restaurants, cafes, and snack bars."
+      },
+      "2": {
+        "title": "Shopping",
+        "text": "Find the perfect gift or treat yourself at the airport's retail options, including duty-free and souvenir shops."
+      },
+      "3": {
+        "title": "Lounges",
+        "text": "Relax in style at the airport's lounges, with comfortable seating and refreshments available."
+      },
+      "4": {
+        "title": "Special assistance",
+        "text": "We offer special assistance for passengers with disabilities or special needs, including pre-booking and wheelchair assistance."
+      },
+      "5": {
+        "title": "Traveler information",
+        "text": "Get the information you need for a smooth, stress-free travel experience, including currency exchange and baggage storage."
+      },
+      "6": {
+        "title": "Transportation and parking",
+        "text": "Easily access transportation and parking options at the airport, including rental car agencies and shuttle services."
+      },
+      "7": {
+        "title": "Wi-Fi and charging stations",
+        "text": "Stay connected with free Wi-Fi and charging stations available throughout the airport. Find out more about locations and login information."
+      },
+      "8": {
+        "title": "Other amenities",
+        "text": "Unwind and recharge at the airport with a range of amenities, including spas, gyms, and children's play areas."
+      }
+    }
+  },
+  "first-class": {
+    "title": "Discover the Ultimate Travel Experience with First Class ",
+    "text": "Experience luxury and comfort with our first class services, including exclusive lounges, premium dining, and personalized assistance. Elevate your journey with us.",
+    "button": "Experience First Class"
   }
 }

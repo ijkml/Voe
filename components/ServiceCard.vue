@@ -1,11 +1,19 @@
 <script setup lang="ts">
-import type { ServicesCard } from '@/types';
+const props = defineProps<{
+  id: string | number;
+  image: string;
+  link: string;
+}>();
 
-const props = defineProps<ServicesCard>();
+const { t } = useI18n();
 
-const { image, link, text, title } = toRefs(props);
+const { image, link, id } = toRefs(props);
 
 const imageUrl = `url(${image.value})`;
+
+function trans(part: string) {
+  return t(`services.slides.${id.value}.${part}`);
+}
 </script>
 
 <template>
@@ -13,8 +21,8 @@ const imageUrl = `url(${image.value})`;
     <NuxtLink :to="localizeUrl(link)" class="services-card">
       <div v-lazy-pix:bg class="card-img" />
       <div class="text">
-        <h3 v-text="title" />
-        <p v-text="text" />
+        <h3 v-text="trans('title')" />
+        <p v-text="trans('text')" />
       </div>
     </NuxtLink>
   </div>

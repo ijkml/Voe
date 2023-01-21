@@ -79,5 +79,66 @@
     "flight": "Informations sur les vols",
     "park": "Stationnement et locations",
     "about": "À propos de nous"
+  },
+  "features": {
+    "heading": "Pourquoi voyager avec nous?",
+    "ease": {
+      "title": "Convénience et facilité",
+      "text": "Notre emplacement central et notre large éventail de vols vous facilitent le voyage sans avoir besoin de longues escales.",
+      "alt": "Un aéroport moderne et bien éclairé avec une foule de voyageurs animée."
+    },
+    "perf": {
+      "title": "Performance à l'heure",
+      "text": "Nous avons un bon bilan en matière de performance à l'heure, vous pouvez donc être sûr d'arriver à destination à temps.",
+      "alt": "Un avion décollant en vol avec la zone d'attente de l'aéroport visible en arrière-plan."
+    },
+    "a11y": {
+      "title": "Commodités et accessibilité",
+      "text": "Profitez de notre gamme de commodités et de services, de installations de loisirs et d'assistance pour les personnes handicapées ou ayant des besoins spéciaux.",
+      "alt": "Un homme d'affaires voyageant se détendant dans un salon à l'aéroport."
+    }
+  },
+  "services": {
+    "heading": "Des services qui vont bien au-delà de l'ordinaire",
+    "sub": "Nous offrons des services et des équipements exceptionnels pour rendre votre expérience de voyage confortable et pratique.",
+    "slides": {
+      "1": {
+        "title": "Options de restauration",
+        "text": "Satisfaire votre faim avec une variété d'options de restauration à l'aéroport, y compris des restaurants, des cafés et des bars à collations."
+      },
+      "2": {
+        "title": "Shopping",
+        "text": "Trouvez le cadeau parfait ou offrez-vous quelque chose aux options de vente au détail de l'aéroport, y compris les magasins duty-free et les souvenirs."
+      },
+      "3": {
+        "title": "Lounges",
+        "text": "Détendez-vous avec élégance dans les salons de l'aéroport, avec des sièges confortables et des rafraîchissements disponibles."
+      },
+      "4": {
+        "title": "Aide spéciale",
+        "text": "Nous offrons une aide spéciale pour les passagers en situation de handicap ou ayant des besoins spécifiques, y compris la réservation anticipée et l'assistance en fauteuil roulant."
+      },
+      "5": {
+        "title": "Informations pour les voyageurs",
+        "text": "Obtenez les informations dont vous avez besoin pour un voyage fluide et déstressant, y compris le change de devises et le stockage des bagages."
+      },
+      "6": {
+        "title": "Transports et stationnement",
+        "text": "Accédez facilement aux options de transport et de stationnement de l'aéroport, y compris les agences de location de voitures et les services de navette."
+      },
+      "7": {
+        "title": "Wi-Fi et bornes de recharge",
+        "text": "Restez connecté grâce au Wi-Fi gratuit et aux bornes de recharge disponibles dans tout l'aéroport. En savoir plus sur les emplacements et les informations de connexion."
+      },
+      "8": {
+        "title": "Autres commodités",
+        "text": "Détendez-vous et rechargez-vous à l'aéroport grâce à une gamme de commodités, notamment des spas, des salles de gym et des aires de jeux pour enfants."
+      }
+    }
+  },
+  "first-class": {
+    "title": "Découvrez l'expérience de voyage ultime en première classe",
+    "text": "Vivez le luxe et le confort avec nos services de première classe, notamment des salons exclusifs, des repas de qualité supérieure et une assistance personnalisée. Faites de votre voyage un moment inoubliable avec nous.",
+    "button": "Vivez la première classe"
   }
 }

@@ -208,19 +208,13 @@
     @apply mb-6 w-full max-w-[var(--nd-max-w)];
 
     h2 {
-      @apply text-3xl font-semibold mb-4;
-
-      i {
-        @apply text-brand-pri dark:text-fuchsia-4
-          underline underline-(1px dashed offset-4);
-
-        font-style: normal;
-      }
+      @apply text-3xl font-semibold mb-4 underline text-brand-pri
+        dark:(text-fuchsia-4) underline-(1px dashed offset-4);
     }
 
     h2,
     p {
-      @apply text-center mx-auto max-w-md;
+      @apply text-center mx-auto max-w-sm;
     }
   }
 
@@ -261,9 +255,14 @@
   }
 }
 
+.dfc-wrap {
+  @apply xl:(py-12) from-transparent via-transparent
+    bg-gradient-to-b to-transparent dark:to-black/20;
+}
+
 .ze-discover-fc {
   @apply w-full mx-auto max-w-screen-xl text-center flex
-      py-16 px-8 xl:(rounded my-10) text-white items-center
+      py-16 px-8 xl:(rounded) text-white items-center
         justify-center min-h-100 sm:(px-16 min-h-110);
 
   @media (min-width: 1300px) {
@@ -283,7 +282,7 @@
   }
 
   > div {
-    @apply max-w-125 sm:max-w-150;
+    @apply max-w-125 sm:max-w-135;
 
     > * {
       @apply mx-auto;

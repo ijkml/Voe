@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import LoadingSvg from '@icons/loading.svg?component';
-import whyVoe from '@/i18n/copy/whyVoe';
+import features from '@data/features';
 
 const isSearching = ref(false);
 function searchAction() {
@@ -96,21 +96,27 @@ const maxDate = creatInputDate(today);
 
     <div class="ze-why-us ze-sec-alt">
       <section class="ze-section" aria-labelledby="why-voe-h">
-        <h2 id="why-voe-h" class="font-serif">Why Fly With Us?</h2>
+        <h2 id="why-voe-h" class="font-serif" v-text="$t('features.heading')" />
 
         <div>
           <section
-            v-for="y in whyVoe"
-            :key="y.title"
+            v-for="feat in features"
+            :key="feat.id"
             class="why-reasons"
-            :aria-label="y.title"
+            :aria-labelledby="`${feat.id}-head--3`"
           >
             <div class="img">
-              <img v-lazy-pix="y.image" :alt="y.alt" />
+              <img
+                v-lazy-pix="feat.image"
+                :alt="$t(`features.${feat.id}.alt`)"
+              />
             </div>
             <div class="text">
-              <h3 v-text="y.title" />
-              <p v-text="y.text" />
+              <h3
+                :id="`${feat.id}-head--3`"
+                v-text="$t(`features.${feat.id}.title`)"
+              />
+              <p v-text="$t(`features.${feat.id}.text`)" />
             </div>
           </section>
         </div>
@@ -119,30 +125,33 @@ const maxDate = creatInputDate(today);
 
     <section class="ze-services" aria-labelledby="ze-services">
       <div class="nailed-down">
-        <h2 id="ze-services" class="font-serif">
-          Services that go far <i>beyond the&nbsp;ordinary</i>
-        </h2>
-        <p>
-          We offer exceptional services and amenities to make your travel
-          experience comfortable and convenient.
-        </p>
+        <h2
+          id="ze-services"
+          class="font-serif"
+          v-text="$t('services.heading')"
+        />
+        <p v-text="$t('services.sub')" />
       </div>
       <ServiceSection class="slider-cont" />
     </section>
 
-    <section v-lazy-pix:bg class="ze-discover-fc" aria-labelledby="discover-fc">
-      <div>
-        <h2 id="discover-fc" class="font-serif">
-          Discover the Ultimate Travel Experience with First&nbsp;Class
-        </h2>
-        <p>
-          Experience luxury and comfort with our first class services, including
-          exclusive lounges, premium dining, and personalized assistance.
-          Elevate your journey with us.
-        </p>
-        <VButton>Experience First Class</VButton>
-      </div>
-    </section>
+    <div class="dfc-wrap">
+      <section
+        v-lazy-pix:bg
+        class="ze-discover-fc"
+        aria-labelledby="discover-fc"
+      >
+        <div>
+          <h2
+            id="discover-fc"
+            class="font-serif"
+            v-text="$t('first-class.title')"
+          />
+          <p v-text="$t('first-class.text')" />
+          <VButton>{{ $t('first-class.button') }}</VButton>
+        </div>
+      </section>
+    </div>
 
     <div class="ze-sec-alt">
       <section class="ze-section ze-blog" aria-labelledby="from-blog">

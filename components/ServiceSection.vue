@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Swiper as SwiperInstance, SwiperOptions } from 'swiper/types';
-import services from '@/i18n/copy/services';
+import services from '@data/services';
 
 const options: SwiperOptions = {
   slidesPerView: 'auto',
@@ -69,7 +69,7 @@ function slide(dir: 'next' | 'prev') {
 <template>
   <section>
     <Swiper v-bind="options" @swiper="getSwiper" @progress="updateProgress">
-      <SwiperSlide v-for="serv in services" :key="serv.title" class="w-auto">
+      <SwiperSlide v-for="serv in services" :key="serv.id" class="w-auto">
         <ServiceCard v-bind="serv" />
       </SwiperSlide>
     </Swiper>
