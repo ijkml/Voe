@@ -1,25 +1,3 @@
-:deep(.ze-hero) {
-  @apply w-full text-white flex items-center justify-center;
-
-  $overlay: hsla(0, 100%, 50%, 0.1);
-
-  min-height: 400px;
-  height: 99vh;
-  max-height: 900px;
-
-  background: linear-gradient(to bottom right, $overlay, $overlay),
-    $brand-pri var(--bg-url) center / cover no-repeat;
-
-  padding: ($nav-height * 1.5) 0;
-
-  @apply lg:(bg-fixed) 2xl:(bg-local);
-
-  #screamer {
-    @apply font-semibold transition mb-20 p-5 text-center
-      text-2.5rem sm:(text-2.8rem) md:(text-3.1rem);
-  }
-}
-
 .ze-form {
   @apply md:(flex items-center gap-5);
 
