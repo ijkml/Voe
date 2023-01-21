@@ -19,7 +19,7 @@ function trans(part: string) {
 <template>
   <div class="slide-container">
     <NuxtLink :to="localizeUrl(link)" class="services-card">
-      <div v-lazy-pix:bg class="card-img" />
+      <div class="card-img" />
       <div class="text">
         <h3 v-text="trans('title')" />
         <p v-text="trans('text')" />
@@ -31,9 +31,9 @@ function trans(part: string) {
 <style scoped lang="scss">
 $leading: 1.5em;
 
-.img-y {
-  --card-image: v-bind('imageUrl');
-}
+// .img-y {
+//   --card-image: v-bind('imageUrl');
+// }
 
 .slide-container {
   @apply py-2 px-1 sm:px-2;
@@ -54,6 +54,8 @@ $leading: 1.5em;
   &::after {
     @apply content-[''] absolute inset-0 w-full h-inherit
         transition-all duration-350 rounded-inherit;
+
+    --card-image: v-bind('imageUrl');
 
     background: var(--card-image) center center / cover no-repeat;
   }
