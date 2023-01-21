@@ -1,24 +1,11 @@
 <script setup lang="ts">
-import { Navigation } from 'swiper';
+import type { Swiper as SwiperInstance, SwiperOptions } from 'swiper/types';
 import services from '@/i18n/copy/services';
 
-const progress = ref('0%');
-const progressBarWidth = refThrottled(progress, 250);
-
-function updateProgress(_: any, prog: number) {
-  const pcent = prog * 100;
-  progress.value = `${pcent <= 1 ? 1 : pcent}%`;
-}
-
-const options = {
+const options: SwiperOptions = {
   slidesPerView: 'auto',
   spaceBetween: 19.2,
-  modules: [Navigation],
-  navigation: {
-    nextEl: '.splide__arrow--next',
-    prevEl: '.splide__arrow--prev',
-    disabledClass: 'disabled',
-  },
+  // rewind: true,
   breakpoints: {
     600: {
       spaceBetween: 24,
@@ -39,20 +26,58 @@ const arrows = [
     class: 'splide__arrow--next',
     dir: 'next',
   },
-];
+] as const;
+
+const zSwiper = ref<SwiperInstance | null>(null);
+
+function getSwiper(instance: SwiperInstance) {
+  zSwiper.value = instance || null;
+}
+
+const progress = ref('0%');
+const progressBarWidth = refThrottled(progress, 150);
+
+const disabled = reactive({
+  next: true,
+  prev: false,
+});
+
+function updateArrows(swiper: SwiperInstance) {
+  disabled.prev = swiper.isBeginning;
+  disabled.next = swiper.isEnd;
+}
+
+function updateProgress(swiper: SwiperInstance, prog: number) {
+  const pcent = prog * 100;
+  progress.value = `${pcent <= 1 ? 1 : pcent}%`;
+  updateArrows(swiper);
+}
+
+function slide(dir: 'next' | 'prev') {
+  if (!zSwiper.value) {
+    return;
+  }
+
+  if (dir === 'next') {
+    zSwiper.value.slideNext();
+  } else {
+    zSwiper.value.slidePrev();
+  }
+}
 </script>
 
 <template>
-  <Swiper v-bind="options" @progress="updateProgress">
-    <SwiperSlide v-for="serv in services" :key="serv.title" class="w-auto">
-      <ServiceCard v-bind="serv" />
-    </SwiperSlide>
+  <section>
+    <Swiper v-bind="options" @swiper="getSwiper" @progress="updateProgress">
+      <SwiperSlide v-for="serv in services" :key="serv.title" class="w-auto">
+        <ServiceCard v-bind="serv" />
+      </SwiperSlide>
+    </Swiper>
 
     <div class="splide__arrows">
       <div class="slider-progress">
         <div class="slider-progress-bar" />
       </div>
-
       <div class="slider-arrows">
         <button
           v-for="arr in arrows"
@@ -60,16 +85,16 @@ const arrows = [
           :aria-label="arr.label"
           class="splide__arrow"
           :class="[arr.class]"
+          :disabled="disabled[arr.dir]"
+          @click="slide(arr.dir)"
         >
-          <!-- :disabled="arr.dir === 'prev' ? isFront : isEnd"
-          @click="swipe(arr.dir)" -->
           <svg viewBox="0 0 32 32">
             <path :d="arr.path" />
           </svg>
         </button>
       </div>
     </div>
-  </Swiper>
+  </section>
 </template>
 
 <style scoped lang="scss">
