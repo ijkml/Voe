@@ -1,17 +1,44 @@
 <script setup lang="ts">
-import type { NuxtLinkProps } from '#app';
+import type { RouteLocationRaw } from 'vue-router';
 import { NuxtLink } from '#components';
 
-interface ButtonProps extends NuxtLinkProps {
+interface ButtonProps {
+  // custom
   variant?: 'primary' | 'secondary';
   small?: boolean;
   type?: 'button' | 'submit' | 'reset';
+  // link
+  to?: string | RouteLocationRaw;
+  href?: string | RouteLocationRaw;
+  external?: boolean;
+  // nuxt-link
+  target?: '_blank' | '_parent' | '_self' | '_top' | (string & {}) | null;
+  replace?: boolean;
+  rel?: string | null;
+  noRel?: boolean;
+  prefetch?: boolean;
+  noPrefetch?: boolean;
+  activeClass?: string;
+  exactActiveClass?: string;
+  ariaCurrentValue?: string;
 }
 
 const props = withDefaults(defineProps<ButtonProps>(), {
   small: false,
   variant: 'primary',
   type: 'button',
+  to: undefined,
+  href: undefined,
+  external: undefined,
+  target: undefined,
+  replace: undefined,
+  rel: undefined,
+  noRel: undefined,
+  prefetch: true,
+  noPrefetch: undefined,
+  activeClass: undefined,
+  exactActiveClass: undefined,
+  ariaCurrentValue: undefined,
 });
 
 const emit = defineEmits<{
@@ -33,7 +60,9 @@ const btnStyles = computed(() => {
   return `voe-btn-${variant.value} ${small.value ? 'voe-btn-sm' : ''}`.trim();
 });
 
-const linkProps = isLink.value ? { to, href, external } : undefined;
+const linkProps = computed(() => {
+  return reactive({ to, href, external, ...otherProps });
+});
 </script>
 
 <script lang="ts">
@@ -43,25 +72,36 @@ export default {
 </script>
 
 <template>
-  <component
-    :is="isLink ? NuxtLink : 'button'"
-    :type="!isLink && type"
+  <NuxtLink
+    v-if="isLink"
     class="voe-btn"
     :class="[btnStyles]"
-    v-bind="{ ...otherProps, ...linkProps }"
+    v-bind.attr="$attrs"
+    v-bind="linkProps"
+    @click="bubble($event)"
+  >
+    <slot />
+  </NuxtLink>
+
+  <button
+    v-else
+    class="voe-btn"
+    :class="[btnStyles]"
+    :type="type"
     v-bind.attr="$attrs"
     @click="bubble($event)"
   >
     <slot />
-  </component>
+  </button>
 </template>
 
 <style scoped lang="scss">
 .voe-btn {
-  @apply border-none text-base inline-block font-medium z-0 truncate
+  @apply border-none text-base inline-flex font-medium z-0 truncate
     relative transition duration-300 rounded-md max-w-full bg-none
       overflow-hidden text-center outline-none focus:outline-none
-        bg-[var(--bg-def)] color-[var(--txt-color)] select-none;
+        bg-[var(--bg-def)] color-[var(--txt-color)] select-none
+          items-center;
 
   &::after {
     @apply content-[''] absolute top-0 left-0 z--1 h-full w-full

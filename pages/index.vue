@@ -148,7 +148,11 @@ const maxDate = creatInputDate(today);
             v-text="$t('first-class.title')"
           />
           <p v-text="$t('first-class.text')" />
-          <VButton>{{ $t('first-class.button') }}</VButton>
+          <div class="space-x-5">
+            <VButton :to="localizeUrl('/first-class')">
+              {{ $t('first-class.button') }}
+            </VButton>
+          </div>
         </div>
       </section>
     </div>
@@ -194,7 +198,6 @@ const maxDate = creatInputDate(today);
               :class="{ loading: isSearching }"
               tabindex="0"
               type="submit"
-              required
             >
               <span>Sign Up</span>
               <LoadingSvg class="icon" />
