@@ -31,10 +31,6 @@ function trans(part: string) {
 <style scoped lang="scss">
 $leading: 1.5em;
 
-// .img-y {
-//   --card-image: v-bind('imageUrl');
-// }
-
 .slide-container {
   @apply py-2 px-1 sm:px-2;
 }
@@ -44,8 +40,8 @@ $leading: 1.5em;
     0 1px 5px 0 rgba(0, 0, 0, 0.12);
 
   @apply w-85vw max-w-75 bg-zinc-1 dark:bg-zinc-8 h-85 relative
-      rounded-xl transition duration-350 overflow-hidden flex flex-col
-        focus:outline-none cursor-pointer dark:(ring-(1 zinc-5/20));
+    rounded-xl transition duration-350 overflow-hidden flex flex-col
+      focus:outline-none cursor-pointer dark:(ring-(1 zinc-5/20));
 }
 
 .card-img {
@@ -53,11 +49,9 @@ $leading: 1.5em;
 
   &::after {
     @apply content-[''] absolute inset-0 w-full h-inherit
-        transition-all duration-350 rounded-inherit;
+      transition-all duration-350 rounded-inherit;
 
-    --card-image: v-bind('imageUrl');
-
-    background: var(--card-image) center center / cover no-repeat;
+    background: v-bind('imageUrl') center center / cover no-repeat;
   }
 }
 

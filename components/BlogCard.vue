@@ -13,7 +13,7 @@ const imageUrl = `url(${image.value})`;
 </script>
 
 <template>
-  <NuxtLink v-lazy-pix:bg :to="localizeUrl(link)" class="blog-card">
+  <NuxtLink :to="localizeUrl(link)" class="blog-card">
     <div>
       <h3 v-text="title" />
       <div class="dated" v-text="date" />
@@ -29,15 +29,13 @@ $line-ht: 1.3rem;
 $elem-ht: ($line-ht * $line-no) + $pad-top;
 $overlay: hsla(263, 60%, 20%, 0.088);
 
-.img-y {
-  --card-image: v-bind('imageUrl');
-}
-
 .blog-card {
   @apply flex justify-center overflow-hidden rounded-xl items-end
     transition-all duration-400 min-h-80 ease-in-out text-light-1
       relative focus:outline-none bg-brand-pri-dark max-w-90 mx-auto
         md:(max-w-100) ring-(1 zinc-5/25);
+
+  --card-image: v-bind('imageUrl');
 
   &::after {
     @apply w-full h-full top-0 left-0 absolute z-0 transition-inherit

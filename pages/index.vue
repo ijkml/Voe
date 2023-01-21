@@ -74,12 +74,7 @@ const maxDate = creatInputDate(today);
     <section class="ze-section ze-stats-info" aria-labelledby="find-covid-info">
       <div>
         <div class="covid-info">
-          <div
-            v-lazy-pix:bg="'y'"
-            class="img"
-            role="img"
-            title="A woman wearing a mask"
-          />
+          <div class="img" role="img" title="A woman wearing a mask" />
           <div class="text">
             <div>
               <h2 id="find-covid-info" v-text="$t('safety.text')" />
@@ -107,7 +102,8 @@ const maxDate = creatInputDate(today);
           >
             <div class="img">
               <img
-                v-lazy-pix="feat.image"
+                :src="feat.image"
+                loading="lazy"
                 :alt="$t(`features.${feat.id}.alt`)"
               />
             </div>
@@ -136,11 +132,7 @@ const maxDate = creatInputDate(today);
     </section>
 
     <div class="dfc-wrap">
-      <section
-        v-lazy-pix:bg
-        class="ze-discover-fc"
-        aria-labelledby="discover-fc"
-      >
+      <section class="ze-discover-fc" aria-labelledby="discover-fc">
         <div>
           <h2
             id="discover-fc"

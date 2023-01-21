@@ -87,15 +87,11 @@
     border-(1 zinc-5/25) dark:(bg-dark-6 border-zinc-5/20);
 
   .img {
-    --img: url('');
+    --img: url('/img/img-01.webp');
 
     @apply w-full min-h-230px rounded-t-inherit;
 
     background: $brand-pri-dark var(--img) center 20% / cover no-repeat;
-
-    &.y {
-      --img: url('/img/img-01.webp');
-    }
   }
 
   .text {
@@ -269,17 +265,13 @@
     @apply rounded-xl;
   }
 
-  --cta-img: url('');
+  --cta-img: url('@img/first-class.webp');
 
   background:
     // radial gradient `at` safari iOS ??
     radial-gradient(ellipse at top, hsla(327, 72%, 20%, 0.95), transparent),
     radial-gradient(ellipse at bottom, hsla(263, 60%, 20%, 0.95), transparent),
     #12020df3 var(--cta-img) bottom center / cover no-repeat;
-
-  &.img-y {
-    --cta-img: url('@img/first-class.webp');
-  }
 
   > div {
     @apply max-w-125 sm:max-w-135;
