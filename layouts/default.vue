@@ -42,7 +42,7 @@ useHead({
   <div class="app-layout--default" data-scroll>
     <TheHeader :blend="blendHeader" />
     <main>
-      <slot :key="route.path" />
+      <slot />
     </main>
     <TheFooter />
     <TheSidenav />
