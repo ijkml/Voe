@@ -70,12 +70,12 @@ p {
   font-size: 0.95rem;
   transition: all 350ms cubic-bezier(0.4, 0, 0.2, 1);
   line-height: $leading;
+  min-height: $leading * 3;
 
   @media (hover: hover) and (min-width: 768px) {
     @apply line-clamp-3;
 
     line-height: $leading;
-    min-height: $leading * 3;
     max-height: $leading * 3;
   }
 }
