@@ -2,12 +2,21 @@
 const props = defineProps<{
   date: string;
   image: string;
-  text: string;
-  title: string;
+  id: number | string;
   link: string;
 }>();
 
-const { date, image, link, text, title } = toRefs(props);
+const { locale } = useI18n();
+
+const { date, image, link, id } = toRefs(props);
+
+function getDate() {
+  return new Intl.DateTimeFormat(locale.value, {
+    month: 'long',
+    year: 'numeric',
+    day: 'numeric',
+  }).format(new Date(date.value));
+}
 
 const imageUrl = `url(${image.value})`;
 </script>
@@ -15,9 +24,9 @@ const imageUrl = `url(${image.value})`;
 <template>
   <NuxtLink :to="localizeUrl(link)" class="blog-card">
     <div>
-      <h3 v-text="title" />
-      <div class="dated" v-text="date" />
-      <p class="peekaboo" v-text="text" />
+      <h3 v-text="$t(`blog.posts.${id}.title`)" />
+      <div class="dated" v-text="getDate()" />
+      <p class="peekaboo" v-text="$t(`blog.posts.${id}.text`)" />
     </div>
   </NuxtLink>
 </template>

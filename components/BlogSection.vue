@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import blog from '@/i18n/copy/blog';
+import blog from '@data/blog';
 </script>
 
 <template>
   <div class="top-cont">
-    <BlogCard v-for="bl in blog" :key="bl.title" v-bind="bl" />
+    <BlogCard v-for="bl in blog" :key="bl.id" v-bind="bl" />
   </div>
 </template>
 
