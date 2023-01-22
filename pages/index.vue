@@ -129,7 +129,7 @@ const maxDate = creatInputDate(today);
         />
         <p v-text="$t('services.sub')" />
       </div>
-      <ServiceSection class="slider-cont" />
+      <LazyServiceSection class="slider-cont" />
     </section>
 
     <div class="dfc-wrap">
@@ -154,7 +154,7 @@ const maxDate = creatInputDate(today);
       <section class="ze-section ze-blog" aria-labelledby="from-blog">
         <h2 id="from-blog" class="font-serif" v-text="$t('blog.heading')" />
         <p v-text="$t('blog.text')" />
-        <BlogSection />
+        <LazyBlogSection />
       </section>
     </div>
 

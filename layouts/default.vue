@@ -45,8 +45,8 @@ useHead({
       <slot />
     </main>
     <TheFooter />
-    <TheSidenav />
-    <BlurryOverlay />
+    <LazyTheSidenav />
+    <LazyBlurryOverlay />
   </div>
 </template>
 
