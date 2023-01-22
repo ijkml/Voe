@@ -23,9 +23,9 @@ const headerLinks: HeaderLinks = [
 <template>
   <nav class="main-nav">
     <template v-for="hl in headerLinks" :key="hl.text">
-      <HeaderMenu v-if="hl.menu" v-bind="hl.menu">
+      <LazyHeaderMenu v-if="hl.menu" v-bind="hl.menu">
         {{ transMenu(hl.title) }}
-      </HeaderMenu>
+      </LazyHeaderMenu>
       <NuxtLink
         v-else
         :to="localizeUrl(hl.to)"
