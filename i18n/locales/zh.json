@@ -183,5 +183,29 @@
       "placeholder": "输入你的邮箱地址"
     },
     "subscribe": "签到"
+  },
+  "footer": {
+    "tagline": "安心飞行",
+    "paragraph": "在 Voe 机场体验便捷和舒适 - 您进入畅快无忧旅行世界的入口。",
+    "links": {
+      "about": {
+        "heading": "关于我们",
+        "admin": "管理层",
+        "partner": "我们的合作伙伴",
+        "tos": "服务条款",
+        "cookie": "Cookies & Privacy",
+        "career": "Voe职业生涯"
+      },
+      "service": {
+        "heading": "客户服务",
+        "contact": "联系我们",
+        "special": "特殊需求",
+        "faq": "常见问题",
+        "lost": "寻物与寻人"
+      },
+      "connect": {
+        "heading": "私たちとつながる"
+      }
+    }
   }
 }

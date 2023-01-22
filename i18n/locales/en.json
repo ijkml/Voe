@@ -34,7 +34,7 @@
         "long": "Long-term parking",
         "long-text": "Affordable parking options for your extended travel plans",
         "rate": "Parking rates",
-        "rate-text": "Check the rates and plan your parking budge",
+        "rate-text": "Check the rates and plan your parking budget",
         "rent": "Car Rental",
         "rent-text": "View the available rental options and select the best one for you"
       }
@@ -183,5 +183,28 @@
       "placeholder": "Enter your email address"
     },
     "subscribe": "Sign Up"
+  },
+  "footer": {
+    "tagline": "Fly with peace of mind",
+    "paragraph": "Experience convenience and comfort at Voe airport - your gateway to the world of seamless and enjoyable travel.",
+    "links": {
+      "about": {
+        "heading": "About Us",
+        "admin": "Administration",
+        "partner": "Our Partners",
+        "tos": "Terms of Service",
+        "career": "Careers at Voe"
+      },
+      "service": {
+        "heading": "Customer Service",
+        "contact": "Contact us",
+        "special": "Special needs",
+        "faq": "FAQs",
+        "lost": "Lost and found"
+      },
+      "connect": {
+        "heading": "Connect with us"
+      }
+    }
   }
 }

@@ -183,5 +183,28 @@
       "placeholder": "Entrez votre adresse email"
     },
     "subscribe": "S'inscrire"
+  },
+  "footer": {
+    "tagline": "Volez en toute sérénité",
+    "paragraph": "Expérimentez la commodité et le confort à l'aéroport de Voe - votre porte d'entrée vers le monde des voyages sans stress et agréables.",
+    "links": {
+      "about": {
+        "heading": "Notre entreprise",
+        "admin": "Administration",
+        "partner": "Nos partenaires",
+        "tos": "Conditions d'utilisation",
+        "career": "Carrières chez Voe"
+      },
+      "service": {
+        "heading": "Service client",
+        "contact": "Contactez-nous",
+        "special": "Besoins spécifiques",
+        "faq": "FAQ",
+        "lost": "Objets perdus"
+      },
+      "connect": {
+        "heading": "Réseau avec nous"
+      }
+    }
   }
 }

@@ -183,5 +183,28 @@
       "placeholder": "メールアドレスを入力"
     },
     "subscribe": "登録する"
+  },
+  "footer": {
+    "tagline": "安心して飛びましょう",
+    "paragraph": "Voe空港での便利さと快適さを体験してください - あなたの世界への無駄のない楽しい旅行への突き当りです。",
+    "links": {
+      "about": {
+        "heading": "私たちについて",
+        "admin": "管理",
+        "partner": "我们的合作伙伴",
+        "tos": "服务条款",
+        "career": "在Voe的职业生涯"
+      },
+      "service": {
+        "heading": "カスタマーサービス",
+        "contact": "联系我们",
+        "special": "特殊需求",
+        "faq": "常见问题",
+        "lost": "寻物与寻人"
+      },
+      "connect": {
+        "heading": "私たちとつながりましょう"
+      }
+    }
   }
 }

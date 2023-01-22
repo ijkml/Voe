@@ -1,46 +1,5 @@
 <script setup lang="ts">
-const ijkml = 'https://ijkml.bio.link';
-
-interface LinkInterface {
-  title: string;
-  links: {
-    text: string;
-    link: string;
-    external?: boolean;
-  }[];
-}
-
-const links: LinkInterface[] = [
-  {
-    title: 'Connect with us',
-    links: [
-      { text: 'Twitter', link: ijkml, external: true },
-      { text: 'Facebook', link: ijkml, external: true },
-      { text: 'Instagram', link: ijkml, external: true },
-      { text: 'LinkedIn', link: ijkml, external: true },
-      { text: 'WhatsApp', link: ijkml, external: true },
-    ],
-  },
-  {
-    title: 'About Us',
-    links: [
-      { text: 'Administration', link: '/admin' },
-      { text: 'Our History', link: '/history' },
-      { text: 'Terms of Service', link: '/tos' },
-      { text: 'Cookies & Privacy', link: '/cookies' },
-      { text: 'Careers at Voe', link: '/careers' },
-    ],
-  },
-  {
-    title: 'Customer Service',
-    links: [
-      { text: 'Contact Us', link: '/contact' },
-      { text: 'Special needs', link: '/special-needs' },
-      { text: 'FAQs', link: '/faqs' },
-      { text: 'Lost and found', link: '/lnf' },
-    ],
-  },
-];
+import links from '@data/footer';
 </script>
 
 <template>
@@ -48,18 +7,18 @@ const links: LinkInterface[] = [
     <div>
       <div class="g-left">
         <TheLogo title="Voe logo" class="the-logo" />
-        <p>Fly with peace of mind</p>
+        <p v-text="$t('footer.tagline')" />
 
-        <p class="tagline">
-          We think that most C2B web-based applications use far too much Python,
-          and not enough OWL.
-        </p>
+        <p class="tagline" v-text="$t('footer.paragraph')" />
       </div>
 
       <div class="g-right">
         <div class="top">
           <div v-for="cat in links" :key="cat.title" class="link-list">
-            <div class="heading">{{ cat.title }}</div>
+            <div
+              class="heading"
+              v-text="$t(`footer.links.${cat.title}.heading`)"
+            />
             <div>
               <NuxtLink
                 v-for="lnk of cat.links"
@@ -69,7 +28,12 @@ const links: LinkInterface[] = [
                 :external="lnk.external"
                 :target="lnk.external ? '_blank' : undefined"
               >
-                <div>{{ lnk.text }}</div>
+                <template v-if="cat.translate">
+                  <div v-text="$t(`footer.links.${cat.title}.${lnk.text}`)" />
+                </template>
+                <template v-else>
+                  <div v-text="lnk.text" />
+                </template>
               </NuxtLink>
             </div>
           </div>

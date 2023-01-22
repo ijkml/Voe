@@ -183,5 +183,28 @@
       "placeholder": "Ingresa tu dirección de correo electrónico"
     },
     "subscribe": "Regístrate"
+  },
+  "footer": {
+    "tagline": "Vuela con tranquilidad",
+    "paragraph": "Experimente la comodidad y comodidad en el aeropuerto de Voe, su puerta de entrada al mundo de los viajes sin problemas y agradables.",
+    "links": {
+      "about": {
+        "heading": "Sobre nosotros",
+        "admin": "Administración",
+        "partner": "Nuestros socios",
+        "tos": "Términos de servicio",
+        "career": "Carreras en Voe"
+      },
+      "service": {
+        "heading": "Servicio al cliente",
+        "contact": "Contáctanos",
+        "special": "Necesidades especiales",
+        "faq": "Preguntas frecuentes",
+        "lost": "Objetos perdidos"
+      },
+      "connect": {
+        "heading": "Conectarse con nosotros"
+      }
+    }
   }
 }
