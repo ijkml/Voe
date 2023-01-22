@@ -9,8 +9,6 @@ interface NavLink {
   drop: MenuItem[];
 }
 
-type NavLinks = NavLink[];
-
 const asideNav = ref<null | HTMLElement>(null);
 
 const [visible, close] = [navIsOpen, closeSideNav];
@@ -21,7 +19,7 @@ onClickOutside(asideNav, () => {
 
 const { about, flight, park, tour } = menuData;
 
-const navLinks = [about, flight, park, tour].map(({ id, items }): NavLink => {
+const navLinks = [flight, park, tour, about].map(({ id, items }): NavLink => {
   return { id, drop: items };
 });
 
