@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import { menuData } from '@data/header';
-import type { MenuItem } from '@/types/header';
-
 const props = withDefaults(defineProps<Props>(), {
   blend: false,
 });
@@ -30,23 +27,6 @@ watchThrottled(
   },
   { throttle: 150 }
 );
-
-type HeaderLinks = (
-  | { text: string; to: string; menu?: false }
-  | { title: string; menu: { id: string; items: MenuItem[] } }
-)[];
-
-const { t } = useI18n();
-
-const transMenu = (id: string) => t(`header.${id}.text`);
-
-const headerLinks: HeaderLinks = [
-  { text: 'home', to: '/' },
-  { title: 'tour', menu: menuData.tour },
-  { title: 'flight', menu: menuData.flight },
-  { title: 'park', menu: menuData.park },
-  { title: 'about', menu: menuData.about },
-];
 </script>
 
 <template>
@@ -56,23 +36,7 @@ const headerLinks: HeaderLinks = [
         <TheLogo class="the-logo" />
       </NuxtLink>
 
-      <nav class="main-nav">
-        <template v-for="hl in headerLinks" :key="hl.text">
-          <HeaderMenu v-if="hl.menu" v-bind="hl.menu">
-            {{ transMenu(hl.title) }}
-          </HeaderMenu>
-          <NuxtLink
-            v-else
-            :to="localizeUrl(hl.to)"
-            tabindex="0"
-            exact-active-class="active"
-            class="header-link"
-            :title="$t(`header.${hl.text}`)"
-          >
-            {{ $t(`header.${hl.text}`) }}
-          </NuxtLink>
-        </template>
-      </nav>
+      <LazyTheHeaderNav />
 
       <div class="actions">
         <LanguageMenu tabindex="0" />
@@ -137,35 +101,6 @@ header {
   }
 }
 
-.main-nav {
-  --at-apply: hidden;
-}
-
-.header-link,
-:deep(.header-link) {
-  --at-apply: inline-flex bg-black font-medium px-3 py-1.5
-    rounded-md bg-opacity-0 select-none;
-
-  &:focus,
-  &:focus-visible {
-    --at-apply: outline-none;
-  }
-
-  &:hover,
-  &:focus-visible {
-    --at-apply: bg-opacity-20;
-  }
-
-  &.active {
-    --at-apply: bg-opacity-20;
-
-    &:hover,
-    &:focus-visible {
-      --at-apply: bg-opacity-45;
-    }
-  }
-}
-
 .actions {
   --at-apply: flex gap-1.6 sm:gap-3 items-center;
 }
@@ -198,13 +133,17 @@ header {
   --at-apply: hidden sm:inline-flex;
 }
 
+.main-nav {
+  @apply hidden;
+}
+
 @media (min-width: 1000px) {
   .sidenav-button {
-    // display: none;
+    display: none;
   }
 
   .main-nav {
-    --at-apply: flex items-center gap-2;
-  }
+  @apply flex items-center gap-2;
+}
 }
 </style>
