@@ -16,10 +16,11 @@ function searchAction() {
 
 const today = new Date();
 const staleDate = new Date();
-staleDate.setDate(today.getDate() - 30);
+staleDate.setDate(today.getDate() - 31);
+today.setDate(today.getDate() + 7);
 
 function creatInputDate(date: Date) {
-  return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+  return date.toISOString().slice(0, 10);
 }
 
 const minDate = creatInputDate(staleDate);
