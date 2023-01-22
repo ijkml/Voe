@@ -75,6 +75,7 @@ p {
     @apply line-clamp-3;
 
     line-height: $leading;
+    min-height: $leading * 3;
     max-height: $leading * 3;
   }
 }
