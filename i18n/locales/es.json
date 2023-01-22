@@ -140,5 +140,48 @@
     "title": "Descubre la experiencia de viaje última con primera clase",
     "text": "Experimenta lujo y comodidad con nuestros servicios de primera clase, incluyendo salones exclusivos, cena premium y asistencia personalizada. Eleva tu viaje con nosotros.",
     "button": "Experimenta primera clase"
+  },
+  "blog": {
+    "heading": "Viaja alrededor del mundo con nosotros",
+    "text": "Descubre consejos de viaje, las últimas noticias e inspiración para tu próxima aventura en nuestro blog.",
+    "posts": {
+      "1": {
+        "title": "5 consejos para viajar sin estrés en Voe",
+        "text": "¿Siente que se abruma al pensar en hacer la maleta, navegar por aeropuertos desconocidos y lidiar con los retrasos de vuelo? Te tenemos cubierto con estos 5 sencillos consejos para viajar sin estrés en Voe. Desde lo esencial para hacer la maleta hasta cómo prepararse para los retrasos de vuelo, estos consejos te ayudarán a mantener la calma y a enfocarte en tu viaje."
+      },
+      "2": {
+        "title": "Explorando los aeropuertos más hermosos del mundo",
+        "text": "¿Listo para impresionarse con algunos de los aeropuertos más impresionantes del mundo? Desde diseños futuristas hasta impresionantes paisajes naturales, estos aeropuertos son destinos en sí mismos. Prepárate para ser inspirado por nuestros elegidos para los aeropuertos más hermosos del mundo, incluyendo Voe!"
+      },
+      "3": {
+        "title": "Los mejores lugares para comer en el aeropuerto de Voe",
+        "text": "En cuanto a comer en el aeropuerto de Voe, las opciones pueden ser abrumadoras. ¿Cómo elegir entre cadenas de comida rápida y restaurantes elegantes? No te preocupes, ya hemos hecho el trabajo por ti y hemos compilado una lista de los mejores lugares para comer en el aeropuerto de Voe. Desde bocados rápidos hasta comidas sentadas, estas opciones tienen todo cubierto."
+      },
+      "4": {
+        "title": "Nuevo vuelo directo a París disponible desde Voe",
+        "text": "¡Bonjour! Estamos emocionados de anunciar que ahora ofrecemos un vuelo directo a la ciudad del amor desde Voe. Ya seas un viajero experimentado o estés planeando tu primer viaje al extranjero, este nuevo vuelo lo hace más fácil que nunca para visitar la impresionante ciudad de París. No esperes, reserva tu viaje hoy y experimenta la romantica y la cultura de Paris por ti mismo."
+      },
+      "5": {
+        "title": "Voe Airport presenta planes de ampliación importantes",
+        "text": "Estamos emocionados de anunciar que estamos emprendiendo un proyecto importante de ampliación en el aeropuerto Voe para servir mejor a las necesidades de nuestros pasajeros. Desde nuevos edificios terminales hasta opciones de estacionamiento adicionales, estas mejoras harán su experiencia de viaje más conveniente y agradable. Manténgase atento a las actualizaciones mientras trabajamos para llevar a cabo estas mejoras."
+      },
+      "6": {
+        "title": "Voe Airport obtiene la calificación de seguridad máxima",
+        "text": "La seguridad es nuestra principal prioridad en el aeropuerto Voe y nos enorgullece anunciar que hemos obtenido una calificación de seguridad máxima de expertos en la industria. Desde programas de capacitación rigurosos para nuestro personal hasta sistemas de seguridad de vanguardia, nos comprometemos a proporcionar un ambiente seguro y seguro para nuestros pasajeros. Estamos encantados de haber recibido esta reconocimiento y seguiremos trabajando duro para mantener los más altos estándares de seguridad."
+      }
+    }
+  },
+  "mail": {
+    "heading": "Únete a nuestra lista de correo",
+    "text": "Regístrate en nuestra lista de correo para estar al día con las noticias de vuelos, promociones, ofertas exclusivas.",
+    "name": {
+      "label": "Tu nombre",
+      "placeholder": "Ingresa tu nombre o apodo"
+    },
+    "email": {
+      "label": "Tu correo electrónico",
+      "placeholder": "Ingresa tu dirección de correo electrónico"
+    },
+    "subscribe": "Regístrate"
   }
 }

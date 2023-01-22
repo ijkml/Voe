@@ -140,5 +140,48 @@
     "title": "Découvrez l'expérience de voyage ultime en première classe",
     "text": "Vivez le luxe et le confort avec nos services de première classe, notamment des salons exclusifs, des repas de qualité supérieure et une assistance personnalisée. Faites de votre voyage un moment inoubliable avec nous.",
     "button": "Vivez la première classe"
+  },
+  "blog": {
+    "heading": "Voyagez autour du monde avec nous",
+    "text": "Découvrez des conseils de voyage, les dernières nouvelles et de l'inspiration pour votre prochaine aventure sur notre blog.",
+    "posts": {
+      "1": {
+        "title": "5 conseils pour voyager en toute sérénité à Voe",
+        "text": "Vous vous sentez dépassé par la perspective de faire vos bagages, de vous déplacer dans des aéroports inconnus et de faire face à des retards de vol? Nous avons ce qu'il vous faut avec ces 5 conseils simples pour voyager en toute sérénité à Voe. De l'essentiel pour les bagages à la préparation aux retards de vol, ces conseils vous aideront à rester calme et concentré sur votre voyage."
+      },
+      "2": {
+        "title": "Explorer les aéroports les plus beaux du monde",
+        "text": "Prêt à être époustouflé par certains des aéroports les plus époustouflants du monde? Des designs futuristes aux paysages naturels époustouflants, ces aéroports sont des destinations en eux-mêmes. Préparez-vous à être inspiré par nos meilleurs choix pour les aéroports les plus beaux du monde, y compris Voe!"
+      },
+      "3": {
+        "title": "Les meilleurs endroits pour manger à l'aéroport Voe",
+        "text": "En ce qui concerne la nourriture à l'aéroport Voe, les options peuvent être déroutantes. Des chaînes de restauration rapide aux restaurants haut de gamme, comment choisir? Ne vous inquiétez pas, nous avons fait le travail pour vous et avons compilé une liste des meilleurs endroits pour manger à l'aéroport Voe. Des bouchées rapides aux repas assis, ces options vous couvrent."
+      },
+      "4": {
+        "title": "Nouveau vol direct pour Paris maintenant disponible à Voe",
+        "text": "Bonjour! Nous sommes heureux d'annoncer qu'il est maintenant possible de prendre un vol direct pour la ville de l'amour depuis Voe. Que vous soyez un voyageur expérimenté ou que vous planifiez votre premier voyage à l'étranger, ce nouveau vol rend plus facile que jamais de visiter la magnifique ville de Paris. N'attendez pas, réservez votre voyage dès maintenant et découvrez la romance et la culture de Paris par vous-même."
+      },
+      "5": {
+        "title": "Voe Airport dévoile ses projets d'expansion majeurs",
+        "text": "Nous sommes heureux de vous annoncer que nous entamons un projet d'expansion majeur à l'aéroport Voe pour mieux répondre aux besoins de nos passagers. Des nouveaux bâtiments de terminaux à des options de stationnement supplémentaires, ces améliorations rendront votre expérience de voyage plus pratique et agréable. Restez à l'affût pour des mises à jour alors que nous travaillons à réaliser ces améliorations."
+      },
+      "6": {
+        "title": "L'aéroport Voe obtient la meilleure note de sécurité",
+        "text": "La sécurité est notre priorité absolue à l'aéroport Voe et nous sommes fiers d'annoncer que nous avons obtenu la meilleure note de sécurité des experts de l'industrie. Des programmes de formation rigoureux pour notre personnel aux systèmes de sécurité de pointe, nous sommes engagés à offrir un environnement sûr et sécurisé pour nos passagers. Nous sommes ravis d'avoir reçu cette reconnaissance et nous continuerons à travailler dur pour maintenir les normes de sécurité les plus élevées."
+      }
+    }
+  },
+  "mail": {
+    "heading": "Rejoignez notre liste de diffusion",
+    "text": "Inscrivez-vous à notre liste de diffusion pour être informé des nouvelles de vols, des promotions, des offres spéciales et des offres exclusives.",
+    "name": {
+      "label": "Votre nom",
+      "placeholder": "Entrez votre prénom ou surnom"
+    },
+    "email": {
+      "label": "Votre email",
+      "placeholder": "Entrez votre adresse email"
+    },
+    "subscribe": "S'inscrire"
   }
 }

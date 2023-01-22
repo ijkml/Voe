@@ -151,38 +151,32 @@ const maxDate = creatInputDate(today);
 
     <div class="ze-sec-alt">
       <section class="ze-section ze-blog" aria-labelledby="from-blog">
-        <h2 id="from-blog" class="font-serif">Around the World with&nbsp;Us</h2>
-        <p>
-          Discover travel tips, the latest news, and inspiration for your next
-          adventure on our blog.
-        </p>
+        <h2 id="from-blog" class="font-serif" v-text="$t('blog.heading')" />
+        <p v-text="$t('blog.text')" />
         <BlogSection />
       </section>
     </div>
 
     <section class="ze-newsletter">
       <div>
-        <h2 class="font-serif">Join Our Mailing List</h2>
-        <p>
-          Sign up for our mailing list to stay up to date on flight news,
-          promotions, deals and exclusive offers.
-        </p>
+        <h2 class="font-serif" v-text="$t('mail.heading')" />
+        <p v-text="$t('mail.text')" />
 
         <div class="form-cont">
           <form class="ze-form" @submit.prevent="searchAction">
             <div class="info-input-cont">
               <VInput
                 class="info-input"
-                label="First Name"
+                :label="$t('mail.name.label')"
                 required
-                placeholder="Enter your first name"
+                :placeholder="$t('mail.name.placeholder')"
               />
               <VInput
                 class="info-input"
                 type="email"
-                label="Your Email"
+                :label="$t('mail.email.label')"
                 required
-                placeholder="Enter your email address"
+                :placeholder="$t('mail.email.placeholder')"
               />
             </div>
             <VButton
@@ -191,7 +185,7 @@ const maxDate = creatInputDate(today);
               tabindex="0"
               type="submit"
             >
-              <span>Sign Up</span>
+              <span v-text="$t('mail.subscribe')" />
               <LoadingSvg class="icon" />
             </VButton>
           </form>
