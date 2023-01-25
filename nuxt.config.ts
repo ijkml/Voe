@@ -29,6 +29,7 @@ export default defineNuxtConfig({
   experimental: {
     reactivityTransform: false,
     inlineSSRStyles: false,
+    componentIslands: true,
   },
   css: ['@unocss/reset/tailwind.css', '@/assets/styles/root.scss'],
   colorMode: {
