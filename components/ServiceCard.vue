@@ -3,11 +3,12 @@ const props = defineProps<{
   id: string | number;
   image: string;
   link: string;
+  class?: string;
 }>();
 
 const { t } = useI18n();
 
-const { image, link, id } = toRefs(props);
+const { image, link, id, class: className } = toRefs(props);
 
 const imageUrl = `url(${image.value})`;
 
@@ -17,7 +18,7 @@ function trans(part: string) {
 </script>
 
 <template>
-  <div class="slide-container">
+  <div :class="className">
     <NuxtLink :to="localizeUrl(link)" class="services-card">
       <div class="card-img" />
       <div class="text">
@@ -101,5 +102,9 @@ p {
       }
     }
   }
+}
+
+.sr-only :is(.card-img, .text, .services-card) {
+  @apply sr-only;
 }
 </style>

@@ -195,6 +195,7 @@
   .slider-cont {
     margin-left: var(--nd-space);
     width: calc(100% - var(--nd-space));
+    overflow: hidden;
   }
 
   @media (min-width: 768px) {

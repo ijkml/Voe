@@ -17,7 +17,7 @@ const arrows = [
   {
     label: 'Previous slide',
     path: 'M10 16L20 6l1.4 1.4l-8.6 8.6l8.6 8.6L20 26z',
-    class: ' splide__arrow--prev',
+    class: 'splide__arrow--prev',
     dir: 'prev',
   },
   {
@@ -68,11 +68,27 @@ function slide(dir: 'next' | 'prev') {
 
 <template>
   <section>
-    <Swiper v-bind="options" @swiper="getSwiper" @progress="updateProgress">
-      <SwiperSlide v-for="serv in services" :key="serv.id" class="w-auto">
-        <ServiceCard v-bind="serv" />
-      </SwiperSlide>
-    </Swiper>
+    <ClientOnly>
+      <Swiper
+        v-bind="options"
+        aria-hidden="true"
+        @swiper="getSwiper"
+        @progress="updateProgress"
+      >
+        <SwiperSlide v-for="serv in services" :key="serv.id" class="w-auto">
+          <ServiceCard class="slide-container" v-bind="serv" />
+        </SwiperSlide>
+      </Swiper>
+    </ClientOnly>
+
+    <div class="sr-only">
+      <ServiceCard
+        v-for="serv in services"
+        :key="serv.id"
+        class="sr-only"
+        v-bind="serv"
+      />
+    </div>
 
     <div class="splide__arrows">
       <div class="slider-progress">
