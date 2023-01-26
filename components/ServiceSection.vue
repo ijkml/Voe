@@ -68,7 +68,7 @@ function slide(dir: 'next' | 'prev') {
 
 <template>
   <section>
-    <ClientOnly>
+    <LazyClientOnly>
       <Swiper
         v-bind="options"
         aria-hidden="true"
@@ -100,7 +100,7 @@ function slide(dir: 'next' | 'prev') {
           </button>
         </div>
       </div>
-    </ClientOnly>
+    </LazyClientOnly>
 
     <div class="sr-only">
       <ServiceCard
