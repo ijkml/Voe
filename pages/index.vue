@@ -25,6 +25,13 @@ function creatInputDate(date: Date) {
 
 const minDate = creatInputDate(staleDate);
 const maxDate = creatInputDate(today);
+
+const { t } = useI18n();
+
+useSeoMeta({
+  title: 'Home',
+  description: t('footer.paragraph'),
+});
 </script>
 
 <template>

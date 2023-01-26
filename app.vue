@@ -9,6 +9,16 @@ const { finalizePendingLocaleChange } = useI18n();
 const onBeforeEnter = async () => {
   await finalizePendingLocaleChange();
 };
+
+useSeoMeta({
+  ogImage: 'https://voey.netlify.app/img/og-image.png',
+  ogUrl: 'https://voey.netlify.app',
+  ogSiteName: 'Voe',
+  ogType: 'website',
+  ogLocale: 'en_US',
+  ogLocaleAlternate: ['es_ES', 'fr_FR', 'ja_JP', 'zh_CN'],
+  twitterSite: '@ijk_ml',
+});
 </script>
 
 <template>

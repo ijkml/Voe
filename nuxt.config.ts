@@ -14,6 +14,7 @@ export default defineNuxtConfig({
   },
   modules: [
     '@vueuse/nuxt',
+    'nuxt-unhead',
     '@unocss/nuxt',
     '@nuxtjs/color-mode',
     '@nuxtjs/critters',
@@ -21,6 +22,9 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     'nuxt-swiper',
   ],
+  unhead: {
+    ogTitleTemplate: '%s · Voe | Fly Better',
+  },
   alias: {
     '@img': fileURLToPath(new URL('./assets/images', import.meta.url)),
     '@icons': fileURLToPath(new URL('./assets/icons', import.meta.url)),
@@ -29,7 +33,6 @@ export default defineNuxtConfig({
   experimental: {
     reactivityTransform: false,
     inlineSSRStyles: false,
-    componentIslands: true,
   },
   css: ['@unocss/reset/tailwind.css', '@/assets/styles/root.scss'],
   colorMode: {
