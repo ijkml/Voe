@@ -79,6 +79,27 @@ function slide(dir: 'next' | 'prev') {
           <ServiceCard class="slide-container" v-bind="serv" />
         </SwiperSlide>
       </Swiper>
+
+      <div class="splide__arrows">
+        <div class="slider-progress">
+          <div class="slider-progress-bar" />
+        </div>
+        <div class="slider-arrows">
+          <button
+            v-for="arr in arrows"
+            :key="arr.label"
+            :aria-label="arr.label"
+            class="splide__arrow"
+            :class="[arr.class]"
+            :disabled="disabled[arr.dir]"
+            @click="slide(arr.dir)"
+          >
+            <svg viewBox="0 0 32 32">
+              <path :d="arr.path" />
+            </svg>
+          </button>
+        </div>
+      </div>
     </ClientOnly>
 
     <div class="sr-only">
@@ -88,27 +109,6 @@ function slide(dir: 'next' | 'prev') {
         class="sr-only"
         v-bind="serv"
       />
-    </div>
-
-    <div class="splide__arrows">
-      <div class="slider-progress">
-        <div class="slider-progress-bar" />
-      </div>
-      <div class="slider-arrows">
-        <button
-          v-for="arr in arrows"
-          :key="arr.label"
-          :aria-label="arr.label"
-          class="splide__arrow"
-          :class="[arr.class]"
-          :disabled="disabled[arr.dir]"
-          @click="slide(arr.dir)"
-        >
-          <svg viewBox="0 0 32 32">
-            <path :d="arr.path" />
-          </svg>
-        </button>
-      </div>
     </div>
   </section>
 </template>
