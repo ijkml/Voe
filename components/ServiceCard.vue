@@ -103,8 +103,4 @@ p {
     }
   }
 }
-
-.sr-only :is(.card-img, .text, .services-card) {
-  @apply sr-only;
-}
 </style>

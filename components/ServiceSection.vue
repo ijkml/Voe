@@ -69,12 +69,7 @@ function slide(dir: 'next' | 'prev') {
 <template>
   <section>
     <LazyClientOnly>
-      <Swiper
-        v-bind="options"
-        aria-hidden="true"
-        @swiper="getSwiper"
-        @progress="updateProgress"
-      >
+      <Swiper v-bind="options" @swiper="getSwiper" @progress="updateProgress">
         <SwiperSlide v-for="serv in services" :key="serv.id" class="w-auto">
           <ServiceCard class="slide-container" v-bind="serv" />
         </SwiperSlide>
@@ -100,16 +95,13 @@ function slide(dir: 'next' | 'prev') {
           </button>
         </div>
       </div>
-    </LazyClientOnly>
 
-    <div class="sr-only">
-      <ServiceCard
-        v-for="serv in services"
-        :key="serv.id"
-        class="sr-only"
-        v-bind="serv"
-      />
-    </div>
+      <template #fallback>
+        <div class="sr-only">
+          <ServiceCard v-for="serv in services" :key="serv.id" v-bind="serv" />
+        </div>
+      </template>
+    </LazyClientOnly>
   </section>
 </template>
 
