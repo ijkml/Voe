@@ -22,9 +22,7 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     'nuxt-swiper',
   ],
-  unhead: {
-    ogTitleTemplate: '%s · Voe | Fly Better',
-  },
+  unhead: {},
   alias: {
     '@img': fileURLToPath(new URL('./assets/images', import.meta.url)),
     '@icons': fileURLToPath(new URL('./assets/icons', import.meta.url)),

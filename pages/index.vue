@@ -29,7 +29,7 @@ const maxDate = creatInputDate(today);
 const { t } = useI18n();
 
 useSeoMeta({
-  title: 'Home',
+  // title: 'Voe',
   description: t('footer.paragraph'),
 });
 </script>

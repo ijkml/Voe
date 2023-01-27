@@ -1,7 +1,10 @@
 <script setup lang="ts">
+import type { LocaleCode } from '@/types';
+import { ogLocales } from '#imports';
+
 useHead({
   titleTemplate: (titleChunk) => {
-    return titleChunk ? `${titleChunk} | Voe` : 'Voe | Fly Better';
+    return titleChunk ? `${titleChunk} | Voe` : 'Voe · Fly Better';
   },
 });
 
@@ -10,13 +13,26 @@ const onBeforeEnter = async () => {
   await finalizePendingLocaleChange();
 };
 
+const { locale } = useI18n();
+
+// remove the current locale from the `ogLocales` obj,
+// `Object.values` convert to [...], filter out `undefined`
+const ogLocaleAlternate = Object.values({
+  ...ogLocales,
+  [locale.value]: undefined,
+}).filter((l) => !!l);
+
+const ogUrl = 'https://voey.netlify.app';
+const ogLocale = ogLocales[locale.value as LocaleCode] || ogLocales.en;
+const ogImage = `${ogUrl}/img/og-${locale.value}.png`;
+
 useSeoMeta({
-  ogImage: 'https://voey.netlify.app/img/og-image.png',
-  ogUrl: 'https://voey.netlify.app',
+  ogUrl,
+  ogImage,
+  ogLocale,
+  ogLocaleAlternate,
   ogSiteName: 'Voe',
   ogType: 'website',
-  ogLocale: 'en_US',
-  ogLocaleAlternate: ['es_ES', 'fr_FR', 'ja_JP', 'zh_CN'],
   twitterSite: '@ijk_ml',
 });
 </script>

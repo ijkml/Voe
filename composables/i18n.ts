@@ -15,4 +15,12 @@ const localizeUrl = (route: RouteLocationRaw, locale?: string | undefined) =>
 const localeHome = availableLocales.map((l) => `/${l}`);
 localeHome.push('/');
 
-export { removeLocaleCode, localizeUrl, localeHome };
+const ogLocales: Record<LocaleCode, `${LocaleCode}_${string}`> = {
+  en: 'en_US',
+  fr: 'fr_FR',
+  es: 'es_ES',
+  ja: 'ja_JP',
+  zh: 'zh_CN',
+};
+
+export { removeLocaleCode, localizeUrl, localeHome, ogLocales };
