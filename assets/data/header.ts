@@ -105,7 +105,7 @@ const menuData = {
       {
         name: 'about',
         description: 'about-text',
-        link: '/about-us',
+        link: '/about',
         icon: about,
       },
       {

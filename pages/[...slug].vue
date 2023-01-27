@@ -30,7 +30,12 @@ function generateMessage(): string {
             <p v-text="generateMessage()" />
           </Transition>
         </ClientOnly>
-        <button class="bttn" @click="router.back">Go Back</button>
+        <div class="buttons">
+          <NuxtLink class="bttn" :to="localizeUrl('/about')">
+            About Voe
+          </NuxtLink>
+          <button class="bttn" @click="router.back">Go Back</button>
+        </div>
       </div>
     </div>
 
@@ -83,7 +88,7 @@ p {
 
 .bttn {
   @apply px-4 py-1.2 rounded inline-block bg-brand-pri text-white
-    cursor-pointer transition;
+    cursor-pointer transition mx-auto;
 
   &:focus-visible,
   &:hover {
@@ -93,5 +98,9 @@ p {
   &::disabled {
     @apply bg-zinc-6 opacity-50 cursor-default;
   }
+}
+
+.buttons {
+  @apply inline-flex flex-wrap gap-4;
 }
 </style>
