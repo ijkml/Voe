@@ -24,7 +24,7 @@ const locales = new Intl.ListFormat('en', {
           rel="noopener noreferrer"
           >Voe Airport landing page design</a
         >. The website supports a dark mode, and is
-        <small>machine-</small>translated to 4 other languages ({{ locales }}).
+        <small>machine-</small>translated to 4 languages ({{ locales }}).
       </p>
       <p>
         It is open-source on <a href="https://github.com/ijkml/Voe">GitHub</a>.

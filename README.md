@@ -1,38 +1,36 @@
-<h2 align="center">
-Voe
-</h2><br>
+<h1 align="center">Voe</h1>
 
-<pre align="center">
-🧪 Work in Progress
-</pre>
+<p align="center">
+  Voe is a responsive demo of
+  <a href="http://twitter.com/Prospiroo">Egbo Prosper</a>&#39;s
+  <a href="https://www.behance.net/gallery/156009795/Voe-_-Landing-page-UI-design">Voe Airport landing page design</a>. <br />
+  The website supports a dark mode, and is machine-translated to 4
+  languages (en, es, fr, ja, and zh).
+</p>
 
+<br />
+<p align="center">
+  <a href="https://voey.netlify.app/">Live Demo</a>
+</p>
+<br />
 
-## Features
+<h2 align="center">Made with</h2>
 
-- [💚 Nuxt 3](https://v3.nuxtjs.org) - SSR, ESR, File-based routing, components auto importing, modules, etc.
+<p align="center">
+  <a href="https://vuejs.org/">Vue</a>
+  &nbsp;&nbsp; | &nbsp;&nbsp;
+  <a href="https://nuxt.com/">Nuxt</a>
+  &nbsp;&nbsp; | &nbsp;&nbsp;
+  <a href="https://vitejs.dev/">Vite</a>
+  &nbsp;&nbsp; | &nbsp;&nbsp;
+  <a href="https://github.com/unocss/unocss/">UnoCSS</a>
+  &nbsp;&nbsp; | &nbsp;&nbsp;
+  <a href="https://headlessui.com/">Headless UI</a>
+</p>
 
-- ⚡️ Vite - Instant HMR
+<br />
 
-- 🎨 [UnoCSS](https://github.com/antfu/unocss) - The instant on-demand atomic CSS engine.
-
-- 😃 Icons from any icon sets in Pure CSS, powered by [UnoCSS](https://github.com/antfu/unocss)
-
-- 🔥 The `<script setup>` syntax
-
-- 📑 [Layout system](./layouts)
-
-- 📥 APIs auto importing - for Composition API, VueUse and custom composables.
-
-- 🏎 Zero-config cloud functions and deploy
-
-- 🦾 TypeScript, of course
-
-<br>
-
-## Built with...
-
-### Plugins & Modules
-
-- [VueUse](https://github.com/vueuse/vueuse) - collection of useful composition APIs.
-- [ColorMode](https://github.com/nuxt-community/color-mode-module) - dark and Light mode with auto detection made easy with Nuxt.
-- [UnoCSS](https://github.com/antfu/unocss) - the instant on-demand atomic CSS engine.
+<p align="center">
+Made with 💚 and Vue,<br />
+<a href="http://twitter.com/ijk_ml/">ML</a>
+</p>
