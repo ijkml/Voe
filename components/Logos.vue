@@ -9,17 +9,17 @@ import LogoVite from '@img/logos/LogoVite.svg?component';
 const logos = [
   {
     title: 'Vue',
-    link: '',
+    link: 'https://vuejs.org/',
     icon: LogoVue,
   },
   {
     title: 'Nuxt',
-    link: '',
+    link: 'https://nuxt.com/',
     icon: LogoNuxt,
   },
   {
     title: 'Vite',
-    link: '',
+    link: 'https://vitejs.dev/',
     icon: LogoVite,
   },
   // {
@@ -29,12 +29,12 @@ const logos = [
   // },
   {
     title: 'UnoCSS',
-    link: '',
+    link: 'https://github.com/unocss/unocss/',
     icon: LogoUno,
   },
   {
     title: 'Headless UI',
-    link: '',
+    link: 'https://headlessui.com/',
     icon: LogoHeadless,
   },
 ];
@@ -45,6 +45,7 @@ const logos = [
     <a
       v-for="l in logos"
       :key="l.title"
+      :href="l.link"
       class="logo"
       target="_blank"
       :title="l.title"

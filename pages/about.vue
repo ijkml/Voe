@@ -26,9 +26,12 @@ const locales = new Intl.ListFormat('en', {
         >. The website supports a dark mode, and is
         <small>machine-</small>translated to 4 other languages ({{ locales }}).
       </p>
+      <p>
+        It is open-source on <a href="https://github.com/ijkml/Voe">GitHub</a>.
+      </p>
       <Logos class="logos" />
       <p>
-        with 💚 and Vue, <br />
+        with 💚 and Vue,<br />
         <a href="http://twitter.com/ijk_ml">ML</a>
       </p>
     </section>
@@ -48,8 +51,12 @@ h1 {
   @apply text-center text-2xl font-medium mb-4;
 }
 
+p {
+  @apply mb-3;
+}
+
 .logos {
-  @apply my-8;
+  @apply m-(t-5 b-8);
 }
 
 a {
